@@ -1,0 +1,102 @@
+title: Recipe
+
+columns:
+  - width: 1/2
+    sections:
+      images:
+        type: files
+        headline: Fotos
+        layout: cards
+        template: image
+        info: "{{ file.dimensions }}"
+        image:
+          ratio: 5/4
+          cover: true
+        min: 1
+        size: small
+      fields:
+        fields:
+          ingredients:
+            type: structure
+            label: Zutaten
+            empty: Leer – füge die erste Zutat hinzu!
+            sortable: true
+            required: true
+            columns:
+              name:
+                width: 4/6
+              amount:
+                width: 1/6
+                align: right
+              unit:
+                width: 2/6
+            fields:
+              name:
+                type: text
+                width: 2/3
+              amount:
+                type: number
+                label: Menge
+                width: 1/3
+              unit_on:
+                type: toggle
+                label: Einheit angeben
+                width: 1/3
+                text:
+                  - nein
+                  - ja
+              unit:
+                type: text
+                default: "x"
+                label: Einheit
+                placeholder: '"Teelöffel"'
+                width: 2/3
+                when:
+                  unit_on: true
+          description:
+            type: structure
+            label: Zubereitung
+            sortable: true
+            required: true
+            fields:
+              text:
+                label: Zubereitungsschritt
+  - width: 1/2
+    fields:
+      category:
+        type: select
+        label: Kategorie
+        required: true
+        options:
+          quicky: Quickies
+          sweet: Süßes
+          main_dish: Hauptgerichte
+          salad_soup: Salate & Suppen
+        default: main_dish
+        width: 1/3
+      info:
+        label: Info
+        type: text
+        icon: user
+        width: 2/3
+        placeholder: '"Von Jane Doe"'
+      faqs:
+        type: structure
+        label: Fragen & Antworten
+        empty: Füge hier Fragen & Antworten hinzu!
+        sortable: true
+        fields:
+          question:
+            type: textarea
+            label: Frage
+          answer:
+            type: textarea
+            label: Antwort
+      tips:
+        type: structure
+        label: Tipps & Tricks
+        empty: Füge hier Tipps & Tricks hinzu!
+        sortable: true
+        fields:
+          textarea:
+            label: Tipp
