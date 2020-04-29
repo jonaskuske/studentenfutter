@@ -1,7 +1,4 @@
-title: Default Page
+title: Default
 preset: page
 fields:
-  text:
-    label: Text
-    type: textarea
-    size: huge
+  editor: true

@@ -5,20 +5,13 @@ columns:
   - width: 2/3
     sections:
       recipes:
-        type: pages
-        template: recipe
-        headline: Rezepte
-        parent: kirby.page("home")
-        size: tiny
-        info: "{{ page.info }}"
-        layout: cards
-        empty: Noch keine Rezepte
-        image:
-          cover: true
-          ratio: 5/4
+        extends: sections/recipes
 
   - width: 1/3
     sections:
       pages:
+        type: pages
         headline: Seiten
         status: all
+        create:
+          - default

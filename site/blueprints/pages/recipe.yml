@@ -61,6 +61,7 @@ columns:
             fields:
               text:
                 label: Zubereitungsschritt
+
   - width: 1/2
     fields:
       category:

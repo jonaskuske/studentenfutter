@@ -1,0 +1,32 @@
+Title: About
+
+----
+
+Editor:
+
+[
+    {
+        "attrs": [],
+        "content": "Eine ganz normale Seite basierend auf dem <code>default</code> Template.",
+        "id": "_2t5kdnws2",
+        "type": "blockquote"
+    },
+    {
+        "attrs": [],
+        "content": "",
+        "id": "_gd3oqhin1",
+        "type": "hr"
+    },
+    {
+        "attrs": [],
+        "content": "Herzlich willkommen.",
+        "id": "_zzjcxh8ba",
+        "type": "h2"
+    },
+    {
+        "attrs": [],
+        "content": "Ich bin die <strong>About</strong> Seite.",
+        "id": "_0dgmdafa0",
+        "type": "paragraph"
+    }
+]

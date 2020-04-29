@@ -1,0 +1,11 @@
+type: pages
+headline: Rezepte
+template: recipe
+parent: kirby.page("home")
+size: tiny
+info: "{{ page.info }}"
+layout: cards
+empty: Noch keine Rezepte
+image:
+  cover: true
+  ratio: 5/4
