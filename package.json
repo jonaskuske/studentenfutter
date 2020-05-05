@@ -4,8 +4,8 @@
   "description": "Kirby is a file-based CMS. Easy to setup. Easy to use. Flexible as hell.",
   "main": "index.js",
   "scripts": {
-    "start": "postcss assets/css/tailwind.css -o assets/css/index.min.css -w",
-    "build": "cross-env NODE_ENV=production postcss assets/css/tailwind.css -o assets/css/index.min.css"
+    "start": "tailwind build tailwind.css -o assets/css/tailwind.min.css",
+    "build": "cross-env NODE_ENV=production tailwind build tailwind.css -o assets/css/tailwind.min.css"
   },
   "repository": {
     "type": "git",
@@ -18,12 +18,8 @@
   },
   "homepage": "https://github.com/jonaskuske/studentenfutter#readme",
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.2",
-    "autoprefixer": "^9.7.6",
     "cross-env": "^7.0.2",
-    "cssnano": "^4.1.10",
-    "postcss-cli": "^7.1.0",
-    "postcss-import": "^12.0.1",
-    "tailwindcss": "^1.2.0"
-  }
+    "tailwindcss": "^1.4.2"
+  },
+  "dependencies": {}
 }

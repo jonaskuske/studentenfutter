@@ -1,8 +1,22 @@
 <?= snippet('header') ?>
 
-<h1><?= $site->title() ?></h1>
+<?= snippet('menu') ?>
 
 <?php $recipes = $page->children()->listed(); ?>
+
+<h2>Suche</h2>
+
+<h2>Favoriten</h2>
+
+<h2>Salate & Suppen</h2>
+
+<h2>Hauptgerichte</h2>
+
+<h2>Süßes</h2>
+
+<h2>Quickies</h2>
+
+
 
 <main>
   <?php if ($recipes->isEmpty()) : ?>

@@ -1,6 +1,4 @@
-<?php
-/* Header snippet: includes assets, meta tags etc. */
-?>
+<?php /* Header snippet: includes assets, meta tags etc. */ ?>
 
 <!doctype html>
 <html lang="de">
@@ -16,7 +14,7 @@
     <title><?= $page->title() ?> | <?= $site->title() ?></title>
   <?php endif ?>
 
-  <?= css(['assets/css/index.min.css', '@auto']) ?>
+  <?= css(['assets/css/tailwind.min.css', '@auto']) ?>
 
 </head>
 
