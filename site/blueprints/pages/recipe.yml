@@ -8,11 +8,10 @@ columns:
         headline: Fotos
         layout: cards
         template: image
-        info: "{{ file.dimensions }}"
+        info: '{{ file.dimensions }}'
         image:
           ratio: 5/4
           cover: true
-        min: 1
         size: small
       fields:
         fields:
@@ -32,7 +31,10 @@ columns:
                 width: 2/6
             fields:
               name:
-                type: text
+                type: textarea
+                buttons:
+                  - italic
+                  - bold
                 width: 2/3
               amount:
                 type: number
@@ -47,7 +49,7 @@ columns:
                   - ja
               unit:
                 type: text
-                default: "x"
+                default: 'x'
                 label: Einheit
                 placeholder: '"Teelöffel"'
                 width: 2/3

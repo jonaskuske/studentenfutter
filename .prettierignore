@@ -1,0 +1,4 @@
+*.min.*
+content/
+kirby/
+media/
