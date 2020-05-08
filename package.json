@@ -20,7 +20,6 @@
   "devDependencies": {
     "@prettier/plugin-php": "^0.14.0",
     "cross-env": "^7.0.2",
-    "postcss-selector-parser": "^6.0.2",
     "prettier": "^2.0.5",
     "tailwindcss": "^1.4.5",
     "tailwindcss-pseudo-elements": "^1.1.2"

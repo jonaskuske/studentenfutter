@@ -52,11 +52,6 @@ module.exports = {
   },
   variants: {
     backgroundColor: ['before'],
-    opacity: ['responsive', 'hover', 'focus', 'group-valid'],
   },
-  plugins: [
-    require('tailwindcss-pseudo-elements'),
-    require('./tailwindcss-highlight'),
-    require('./tailwindcss-valid'),
-  ],
+  plugins: [require('tailwindcss-pseudo-elements'), require('./tailwindcss-highlight')],
 }
