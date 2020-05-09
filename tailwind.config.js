@@ -68,12 +68,7 @@ module.exports = {
     },
   },
   variants: {
-    backgroundColor: ['before'],
     margin: ['first', 'responsive'],
   },
-  plugins: [
-    require('tailwindcss-aspect-ratio'),
-    require('tailwindcss-pseudo-elements'),
-    require('./tailwindcss-highlight'),
-  ],
+  plugins: [require('tailwindcss-aspect-ratio'), require('./tailwindcss-highlight')],
 }
