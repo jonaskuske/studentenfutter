@@ -19,7 +19,7 @@
     </label>
   </form>
 
-  <div class="mb-6 text-rose"><?= snippet('divider') ?></div>
+  <hr class="w-20 m-auto mb-6 border-t-0 border-b-4 border-dotted text-rose">
 
   <section class="px-5">
     <?php foreach ($category_options as $category => $category_name) : ?>

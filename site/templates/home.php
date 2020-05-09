@@ -30,8 +30,6 @@
     <?php endif ?>
   </section>
 
-  <div class="mb-12 text-blue"><?= snippet('divider') ?></div>
-
   <?php foreach ($category_options as $category => $category_name) : ?>
     <section class="mb-12">
       <div class="mb-6">
