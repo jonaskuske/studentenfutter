@@ -1,0 +1,8 @@
+{
+  "name": "studentenfutter",
+  "short_name": "studentenfutter",
+  "theme_color": "#F28B85",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
