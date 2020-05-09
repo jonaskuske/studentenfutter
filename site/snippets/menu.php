@@ -47,7 +47,9 @@
             <?php endif ?>
           </li>
 
-          <li class="text-xs leading-tight text-right"><a href="#">Rechtliches</a></li>
+          <li class="text-xs leading-tight text-right">
+            <a href="<?= url('/legal') ?>">Rechtliches</a>
+          </li>
         </ul>
       </nav>
     </div>

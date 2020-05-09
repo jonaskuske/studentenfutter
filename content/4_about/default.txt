@@ -2,31 +2,83 @@ Title: About
 
 ----
 
+Show-title: false
+
+----
+
 Editor:
 
 [
     {
         "attrs": [],
-        "content": "Eine ganz normale Seite basierend auf dem <code>default</code> Template.",
-        "id": "_2t5kdnws2",
-        "type": "blockquote"
-    },
-    {
-        "attrs": [],
-        "content": "",
-        "id": "_gd3oqhin1",
-        "type": "hr"
-    },
-    {
-        "attrs": [],
-        "content": "Herzlich willkommen.",
-        "id": "_zzjcxh8ba",
+        "content": "Wer? Warum?<br>Was?",
+        "id": "_mtftc3f5u",
         "type": "h2"
     },
     {
         "attrs": [],
-        "content": "Ich bin die <strong>About</strong> Seite.",
-        "id": "_0dgmdafa0",
+        "content": "studentenfutter ist ein multimediales Kochbuch-Projekt. Es besteht aus einem klasischen Kochbuch sowie einer Begleit-App. Die Rezepte im Kochbuch und in dieser App kommen alle von Studierenden aus verschiedenen Studieng\u00e4ngen und verschiedenen St\u00e4dten Deutschlands. Ich habe diese Rezepte im Rahmen meiner Bachelorarbeit \u00fcber mehrere Monate gesammelt und in einem Kochbuch zusammengefasst.",
+        "id": "_alY34PiCU",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "Fragen, Lob, Kritik? Schreibt mir gerne an <a href=\"mailto:mail@riekehelmers.com\">mail@riekehelmers.com</a>.",
+        "id": "_fzzknuBYA",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "Viel Spa\u00df beim Entdecken und Nachkochen!<br>Rieke",
+        "id": "_a2zBji8vk",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "",
+        "id": "_z27o1n1yf",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "Wo kommen die<br>Rezepte her?",
+        "id": "_2ga27u073",
+        "type": "h2"
+    },
+    {
+        "attrs": [],
+        "content": "Insgesamt befinden sich in dieser App 26 Rezepte von Studierenden aus verschiedenen Ecken Deutschlands. Da ist es nat\u00fcrlich nicht nur interessant zu sehen, wo die Studierenden herkommen, sondern auch was sie studieren.<br>Um die Studieng\u00e4nge und Anzahl eingereichter Rezepte zu sehen, die zu den Orten geh\u00f6ren, einfach auf einen Ort klicken.",
+        "id": "_lm8cga7bt",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "",
+        "id": "_3zonw83q7",
+        "type": "paragraph"
+    },
+    {
+        "attrs": {
+            "guid": "/pages/about/files/map-germany.svg",
+            "id": "about/map-germany.svg",
+            "ratio": 0.8014354066985646,
+            "caption": "",
+            "css": ""
+        },
+        "content": "",
+        "id": "_kd1k0znv3",
+        "type": "image"
+    },
+    {
+        "attrs": [],
+        "content": "",
+        "id": "_ec12k0ru2",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "",
+        "id": "_ts0s6zmzn",
         "type": "paragraph"
     }
 ]

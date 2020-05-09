@@ -1,0 +1,48 @@
+Title: Rechtliches
+
+----
+
+Show-title: true
+
+----
+
+Editor:
+
+[
+    {
+        "attrs": [],
+        "content": "Impressum",
+        "id": "_uikitod7g",
+        "type": "h2"
+    },
+    {
+        "attrs": [],
+        "content": "God help us, we're in the hands of engineers. They're using our own satellites against us. And the clock is ticking. What do they got in there? King Kong? God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs.",
+        "id": "_jsgrtYQOD",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "You really think you can fly that thing? Jaguar shark! So tell me - does it really exist? Hey, take a look at the earthlings. Goodbye! God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs. Do you have any idea how long it takes those cups to decompose.",
+        "id": "_IDVTyKVU0",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don\u2019t eat the tourists. God help us, we're in the hands of engineers. This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore!",
+        "id": "_BeReCNDdM",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "Datenschutz",
+        "id": "_2zhvkl769",
+        "type": "h2"
+    },
+    {
+        "attrs": [],
+        "content": "They're using our own satellites against us. And the clock is ticking. Just my luck, no ice. Jaguar shark! So tell me - does it really exist? This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. Life finds a way. You know what? It is beets. I've crashed into a beet truck.",
+        "id": "_ne4ejesca",
+        "type": "paragraph"
+    }
+]

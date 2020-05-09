@@ -25,7 +25,7 @@
     <?php endif ?>
   </div>
 
-  <h1 class="px-5 mb-6 text-xl italic font-bold">
+  <h1 class="px-5 mb-6 text-xl italic font-bold leading-wide">
     <span class="highlight highlight-yellow"><?= $page->title() ?></span>
   </h1>
 
