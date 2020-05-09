@@ -5,10 +5,25 @@
 
 <main class="pt-6">
 
-  <a href="<?= $return_to ?>" class="flex items-center px-5 mb-6">
-    <span class="mr-2 text-blue"><?= svg('/assets/icons/arrow_back.svg') ?></span>
-    Zurück
-  </a>
+  <div class="flex items-center pl-5 pr-2 mb-6">
+    <a href="<?= $return_to ?>" class="flex items-center">
+      <span class="mr-2 text-blue"><?= svg('/assets/icons/arrow_back.svg') ?></span>
+      Zurück
+    </a>
+    <?php if ($user = $kirby->user()) : ?>
+      <?php $is_favorite = $user->favorites()->toPages()->has($page); ?>
+
+      <form action="<?= $page->url() ?>" method="POST" class="ml-auto">
+        <input hidden type="text" value="<?= esc(get('return_to')) ?>" name="return_to" id="return_to">
+        <input hidden type="checkbox" name="favorite" id="favorite" value="true" <?= e(!$is_favorite, 'checked') ?>>
+        <button type="submit" class="p-3">
+          <span class="text-rose">
+            <?= svg('/assets/icons/heart_' . ($is_favorite ? 'filled' : 'empty') . '.svg') ?>
+          </span>
+        </button>
+      </form>
+    <?php endif ?>
+  </div>
 
   <h1 class="px-5 mb-6 text-xl italic font-bold">
     <span class="highlight highlight-yellow"><?= $page->title() ?></span>

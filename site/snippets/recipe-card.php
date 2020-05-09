@@ -19,7 +19,7 @@ if (isset($recipe)) {
       <div class="absolute w-full h-full bg-center bg-no-repeat bg-striped -z-1"></div>
     <?php endif; ?>
 
-    <div class="flex items-center w-full h-12 pl-3 pr-1 <?= e($image, 'bg-white') ?>">
+    <div class="flex items-center w-full h-12 px-3 <?= e($image, 'bg-white') ?>">
       <?php if ($image) : ?>
         <a class="italic font-bold stretched-link" href="<?= $url ?>">
           <?= $title ?>
@@ -28,17 +28,6 @@ if (isset($recipe)) {
         <a class="absolute left-0 w-full italic font-bold text-center transform -translate-y-1/2 stretched-link top-1/2" href="<?= $url ?>">
           <?= $title ?>
         </a>
-      <?php endif; ?>
-
-      <?php if ($recipe) : ?>
-        <button @click="isFavorite = !isFavorite" class="z-10 p-3 ml-auto">
-          <span x-show="!isFavorite" class="text-rose">
-            <?= svg('/assets/icons/heart_empty.svg') ?>
-          </span>
-          <span x-show="isFavorite" class="text-rose">
-            <?= svg('/assets/icons/heart_filled.svg') ?>
-          </span>
-        </button>
       <?php endif; ?>
     </div>
   </div>
