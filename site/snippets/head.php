@@ -18,10 +18,11 @@
   <link rel="manifest" href="<?= asset('assets/site.webmanifest')->url() ?>" />
   <meta name="theme-color" content="#F28B85" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <?= js(
     ['https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js', '@auto'],
-    ['defer' => true]
+    ['defer' => true],
   ) ?>
 
   <script>
