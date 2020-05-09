@@ -3,7 +3,7 @@
 ?>
 
 <!doctype html>
-<html lang="de" class="font-sans antialiased leading-normal scroll-smooth scroll-pt-20">
+<html lang="de" class="h-full font-sans antialiased leading-normal scroll-smooth scroll-pt-20">
 
 <head>
   <meta charset="utf-8">
@@ -38,4 +38,4 @@
 
 </head>
 
-<body class="font-sans">
+<body class="flex flex-col min-h-full font-sans">

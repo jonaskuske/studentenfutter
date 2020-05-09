@@ -1,0 +1,3 @@
+Title: Registrierung
+----
+Info: Um einen Account zu erstellen, gib bitte deinen Namen und deine Mail-Adresse an, vergib ein Passwort und klicke auf “Registrieren”. Anschließend erhältst du eine Bestätigung per Mail

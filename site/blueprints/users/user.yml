@@ -1,0 +1,7 @@
+title: User
+description: Kein Zugriff auf das Panel, aber kann die App nutzen.
+permissions:
+  access:
+    panel: false
+fields:
+  favorites: sections/favorites

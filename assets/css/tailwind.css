@@ -28,7 +28,27 @@ input[type='search']::-webkit-search-results-decoration {
 
 .list-dot::before {
   content: '';
-  @apply flex-shrink-0 inline-block w-1 h-1 mt-2 mr-6 rounded-full bg-blue;
+  @apply flex-shrink-0;
+  @apply inline-block;
+  @apply w-1;
+  @apply h-1;
+  @apply mt-2;
+  @apply mr-6;
+  @apply rounded-full;
+  @apply bg-blue;
+}
+
+.button {
+  min-width: 180px;
+  @apply px-5;
+  @apply py-2;
+  @apply italic;
+  @apply font-bold;
+  @apply text-center;
+  @apply bg-white;
+  @apply border-2;
+  @apply rounded-lg;
+  @apply shadow-sm;
 }
 
 @tailwind utilities;
@@ -39,6 +59,14 @@ input[type='search']::-webkit-search-results-decoration {
 
 .scroll-pt-20 {
   scroll-padding-top: 5rem;
+}
+
+.bg-angled-yellow {
+  background-image: linear-gradient(-38deg, theme('colors.yellow') 35%, transparent 35%);
+}
+
+.bg-angled-rose {
+  background-image: linear-gradient(-38deg, theme('colors.rose') 35%, transparent 35%);
 }
 
 .bg-striped {
@@ -53,5 +81,8 @@ input[type='search']::-webkit-search-results-decoration {
 
 .stretched-link::after {
   content: '';
-  @apply absolute inset-0 bg-transparent pointer-events-auto;
+  @apply absolute;
+  @apply inset-0;
+  @apply bg-transparent;
+  @apply pointer-events-auto;
 }

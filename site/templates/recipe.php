@@ -19,7 +19,7 @@
     <ul class="flex mb-10 overflow-auto scrolling-touch">
       <?php foreach ($page->images() as $image) : ?>
         <li class="flex-shrink-0 py-2 pr-5 <?= e($gallery, 'w-56 first:ml-5', 'w-full pl-5') ?>">
-          <picture class="relative block overflow-hidden shadow rounded-large <?= e($gallery, 'aspect-ratio-tall', 'aspect-ratio-wide') ?>">
+          <picture class="relative block overflow-hidden shadow rounded-card <?= e($gallery, 'aspect-ratio-tall', 'aspect-ratio-wide') ?>">
             <img class="absolute object-cover w-full h-full" src="<?= $image->thumb(['width' => 900])->url() ?>">
           </picture>
         </li>
@@ -110,7 +110,7 @@
     <?php endif ?>
 
     <footer class="fixed bottom-0 left-0 w-full px-5 mb-4">
-      <div class="flex justify-between px-8 py-2 bg-white shadow rounded-large">
+      <div class="flex justify-between px-8 py-2 bg-white shadow rounded-card">
         <a href="#ingredients" class="text-rose">
           <?= svg('/assets/icons/ingredients.svg') ?>
         </a>

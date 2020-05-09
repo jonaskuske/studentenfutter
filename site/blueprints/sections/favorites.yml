@@ -1,0 +1,6 @@
+type: pages
+label: Favoriten
+empty: Noch keine Favoriten hinzugefügt.
+layout: cards
+size: small
+query: site.find('recipes')

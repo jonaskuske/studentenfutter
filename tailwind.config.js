@@ -3,12 +3,16 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 /** @typedef { import('tailwindcss/defaultConfig') } TailwindConfig */
 /** @type { TailwindConfig & { theme: { extend: TailwindConfig['theme'] } } } */
 module.exports = {
-  purge: ['**/*.html', '**/*.php'],
+  purge: ['**/*.html', '**/*.php', '**/*.svg'],
   theme: {
     extend: {
-      boxShadow: { default: '0px 2px 10px rgba(117, 117, 117, 0.12)' },
+      boxShadow: {
+        default: '0px 2px 10px rgba(117, 117, 117, 0.12)',
+        sm: '0px 2px 10px rgba(117, 117, 117, 0.12);',
+      },
       inset: { '1/2': '50%' },
       maxHeight: { '0': 0, '300': '300px' },
+      maxWidth: { form: '271px' },
       transitionDuration: { 0: '0ms' },
       zIndex: { '-1': '-1' },
     },
@@ -22,7 +26,8 @@ module.exports = {
     borderRadius: {
       none: '0',
       default: '4px',
-      large: '20px',
+      lg: '15px',
+      card: '20px',
       full: '9999px',
     },
     colors: {

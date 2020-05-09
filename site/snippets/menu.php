@@ -1,5 +1,5 @@
 <div class="pt-20">
-  <div x-data="{ open: false }" class="fixed top-0 left-0 z-10 w-full p-5 bg-white shadow rounded-b-large">
+  <div x-data="{ open: false }" class="fixed top-0 left-0 z-20 w-full p-5 bg-white shadow rounded-b-card">
     <header class="flex items-center justify-between">
       <button class="w-6 outline-none leading-zero focus:outline-none" @click="open = !open">
         <svg x-show="!open" width="25" height="19" viewBox="0 0 25 19" class="stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,6 +34,19 @@
               </a>
             </li>
           <?php endforeach ?>
+
+          <li class="mb-5 italic font-bold leading-relaxed text-md">
+            <?php if ($kirby->user()) : ?>
+              <a href="<?= $site->find('profile')->url() ?>" class="highlight highlight-rose highlight-sm">
+                <?= $site->find('profile')->title()->html() ?>
+              </a>
+            <?php else : ?>
+              <a href="<?= url('login') ?>" class="highlight highlight-rose highlight-sm">
+                Einloggen/Registrieren
+              </a>
+            <?php endif ?>
+          </li>
+
           <li class="text-xs leading-tight text-right"><a href="#">Rechtliches</a></li>
         </ul>
       </nav>

@@ -59,7 +59,7 @@ columns:
             label: Info
             type: textarea
             icon: user
-            placeholder: '"Von Paula Platzhalterin"'
+            placeholder: '"Von Paulina Platzhalter"'
             buttons:
               - italic
               - bold

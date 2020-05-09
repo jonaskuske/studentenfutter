@@ -1,4 +1,7 @@
 <?php
+
+use Kirby\Cms\Url;
+
 if (isset($recipe)) {
   $image = $image ?? $recipe->image();
   $title = $title ?? $recipe->title()->html();
@@ -8,8 +11,8 @@ if (isset($recipe)) {
   $image = isset($image) ? $image : null;
 } ?>
 
-<div class="relative shadow rounded-large aspect-ratio-card" x-data="{ isFavorite: false }">
-  <div class="absolute flex items-end w-full h-full overflow-hidden rounded-large">
+<div class="relative shadow rounded-card aspect-ratio-card" x-data="{ isFavorite: false }">
+  <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">
     <?php if ($image) : ?>
       <img src="<?= $image->thumb(['width' => 400])->url() ?>" class="absolute object-cover w-full h-full -z-1" style="border-bottom-right-radius: 25px; border-bottom-left-radius: 25px">
     <?php else : ?>

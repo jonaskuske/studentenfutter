@@ -1,0 +1,4 @@
+title: Admin
+description: Administrator mit Vollzugriff.
+fields:
+  favorites: sections/favorites

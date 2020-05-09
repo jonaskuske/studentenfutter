@@ -2,9 +2,9 @@
 <?= snippet('menu') ?>
 
 <main class="pt-6">
-  <h2 class="mb-4 text-xl italic font-bold text-center">
+  <h1 class="mb-4 text-xl italic font-bold text-center">
     <span class="highlight highlight-yellow"><?= $page->title()->html() ?></span>
-  </h2>
+  </h1>
 
   <form action="" class="mb-6 text-center text-blue">
     <label>Filter:

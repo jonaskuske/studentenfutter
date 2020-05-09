@@ -1,32 +1,38 @@
 <?= snippet('head') ?>
 <?= snippet('menu') ?>
 
-<?php $favorites = pages([]);
-/* TODO */
-?>
-
 <main class="pt-6">
   <section class="mx-5 mb-6">
     <?= snippet('search-form') ?>
   </section>
 
   <section class="mb-12">
-    <div class="mb-6"><?= snippet('headings/favorites') ?></div>
+    <div class="mb-6"><?= snippet('headings/favorites', ['tag' => 'h2']) ?></div>
 
-    <div class="flex px-5 py-2 space-x-5 overflow-auto">
-      <?php if ($favorites->isEmpty()): ?>
-        <p class="m-auto">Noch keine Favoriten vorhanden.</p>
-      <?php else: ?>
-        <?php foreach ($favorites as $recipe): ?>
-          <?= snippet('recipe-card', ['recipe' => $recipe]) ?>
-        <?php endforeach; ?>
+    <?php if ($user = $kirby->user()) : ?>
+      <?php if ($user->favorites()->toPages()->isEmpty()) : ?>
+        <p class="px-5 text-center">Hallo, <?= esc($user->name()) ?>!<br>
+          Du hast noch keine Favoriten gespeichert.</p>
+      <?php else : ?>
+        <ul class="flex overflow-auto scrolling-touch">
+          <?php foreach ($user->favorites()->toPages() as $recipe) : ?>
+            <li class="flex-shrink-0 w-56 py-2 pr-5 first:ml-5">
+              <?= snippet('recipe-card', ['recipe' => $recipe]) ?>
+            </li>
+          <?php endforeach; ?>
+        </ul>
       <?php endif; ?>
-    </div>
+    <?php else : ?>
+      <p class="px-5 text-center">
+        <a href="<?= url('/login') ?>" class="underline text-blue">Anmelden</a>,
+        um eigene Favoriten zu speichern.
+      </p>
+    <?php endif ?>
   </section>
 
   <div class="mb-12 text-blue"><?= snippet('divider') ?></div>
 
-  <?php foreach ($category_options as $category => $category_name): ?>
+  <?php foreach ($category_options as $category => $category_name) : ?>
     <section class="mb-12">
       <div class="mb-6">
         <?= snippet(['headings/' . $category, 'headings/default'], ['text' => $category_name]) ?>
@@ -34,17 +40,17 @@
 
       <?php $category_recipes = $recipes->filterBy('category', $category); ?>
 
-      <?php if ($category_recipes->isEmpty()): ?>
+      <?php if ($category_recipes->isEmpty()) : ?>
         <p class="px-5 text-center">Keine Rezepte vorhanden.</p>
-      <?php else: ?>
+      <?php else : ?>
         <ul class="flex overflow-auto scrolling-touch">
-          <?php foreach ($category_recipes->limit(3) as $recipe): ?>
+          <?php foreach ($category_recipes->limit(3) as $recipe) : ?>
             <li class="flex-shrink-0 w-56 py-2 pr-5 first:ml-5">
               <?= snippet('recipe-card', ['recipe' => $recipe]) ?>
             </li>
           <?php endforeach; ?>
 
-          <?php if ($category_recipes->count() > 3): ?>
+          <?php if ($category_recipes->count() > 3) : ?>
             <li class="flex-shrink-0 w-56 py-2 pr-5">
               <?= snippet('recipe-card', [
                 'title' => 'Mehr...',
