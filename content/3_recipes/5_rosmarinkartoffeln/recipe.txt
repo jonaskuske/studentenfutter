@@ -1,0 +1,72 @@
+Title: Rosmarinkartoffeln mit Salat und Quark
+
+----
+
+Ingredients:
+
+- 
+  textarea: Kartoffeln
+- 
+  textarea: 2 Tomaten
+- 
+  textarea: 1 Gurke
+- 
+  textarea: 1 Paprika
+- 
+  textarea: 100-150g Feldsalat
+- 
+  textarea: (Natur-)Quark
+- 
+  textarea: verschiedene TK-Kräuter
+- 
+  textarea: pflanzliches Öl
+- 
+  textarea: Balsamico
+- 
+  textarea: Rosmarin
+- 
+  textarea: 'Salz & Pfeffer'
+
+----
+
+Preparation:
+
+- 
+  textarea: 'Den Backofen bei Ober- und Unterhitze auf 220 Grad vorheizen'
+- 
+  textarea: >
+    Die Kartoffeln gut abwaschen, säubern
+    und achteln, anschließend zusammen mit
+    ausreichend Öl, Salz und Rosmarin in
+    eine Schüssel geben und gut vermengen
+- 
+  textarea: |
+    Die Kartoffelspalten auf einem mit Backpapier ausgelegten Blech verteilen und auf mittlerer Schiene in den vorgeheizten Backofen geben.
+    *– Je nach Menge beträgt die Back-Dauer 30-35 Minuten*
+- 
+  textarea: 'Den Quark zusammen mit den verschiedenen TK-Kräutern in eine Schüssel geben und mit Salz & Pfeffer abschmecken'
+- 
+  textarea: >
+    Tomaten, Salat, Gurke und Paprika
+    waschen, klein schneiden und zusammen in
+    eine weitere Schüssel geben
+- 
+  textarea: 'Dressing aus Öl, Balsamico, Kräutern, sowie Salz & Pfeffer zusammenstellen'
+- 
+  textarea: Alles zusammen servieren
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept & Fotos von Denise, Bauingenieursstudentin aus Cottbus. Sie hat sich das Rezept von ihren Eltern abgeschaut, weil es gesund, lecker und einfach zu machen ist.
+
+----
+
+Faqs: 
+
+----
+
+Tips: 

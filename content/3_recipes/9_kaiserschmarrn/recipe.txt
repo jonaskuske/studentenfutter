@@ -1,0 +1,83 @@
+Title: Kaiserschmarrn
+
+----
+
+Ingredients:
+
+- 
+  textarea: 150ml Mehl
+- 
+  textarea: 150ml Wasser
+- 
+  textarea: 1/2 TL Salz
+- 
+  textarea: 3 Eier
+- 
+  textarea: '1 EL Rosinen *– im Original vorher in Rum eingelegt*'
+- 
+  textarea: 1 EL Vanillezucker
+- 
+  textarea: Puderzucker und Apfelmus zum Garnieren
+- 
+  textarea: Öl zum Anbraten
+
+----
+
+Preparation:
+
+- 
+  textarea: |
+    Das Öl in einer Pfanne bei hoher Hitze erwärmen
+    *– Die Pfanne sollte einen passenden Deckel haben*
+- 
+  textarea: >
+    Mehl und Wasser gut verrühren, sodass
+    eine Sahne-ähnliche Konsistenz entsteht
+    und Salz dazu geben
+- 
+  textarea: 'Alle Eier auf einmal dazutun und nur ganz leicht unterrühren *– man sollte die Schlieren noch sehen können*'
+- 
+  textarea: >
+    Die Masse in die Pfanne gießen, den
+    Deckel drauf und den Herd auf mittlere
+    Hitze runterdrehen
+- 
+  textarea: 'Wenden, wenn die Unterseite goldbraun ist und der Teig blasen wirft *– im Ganzen oder vorher vierteln*'
+- 
+  textarea: >
+    Die Rosinen und den Vanillezucker auf
+    den Teig tun und die Pfanne wieder
+    abdecken
+- 
+  textarea: >
+    Wenn die andere Seite auch fertig
+    aussieht, mit 2 Pfannenwendern quer
+    zerteilen, Pfanne drehen und dann Alles
+    in kleine Stücke teilen
+- 
+  textarea: >
+    Mit Puderzucker bestreuen und mit
+    Apfelmus zügig servieren
+
+----
+
+Category: sweet
+
+----
+
+Info: Rezept & Foto von Hilde
+
+----
+
+Faqs:
+
+- 
+  question: Woher hast du das Rezept?
+  answer: >
+    "Von der Berghütte in den Stubaier
+    Alpen, auf der ich nach dem Abi
+    gearbeitet habe."
+
+----
+
+Tips: 

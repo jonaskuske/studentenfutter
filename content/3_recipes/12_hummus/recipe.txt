@@ -1,0 +1,57 @@
+Title: Hummus
+
+----
+
+Ingredients:
+
+- 
+  textarea: 1 Dose Kichererbsen
+- 
+  textarea: 2 TL Sesampaste
+- 
+  textarea: 2 TL Kreuzkümmel
+- 
+  textarea: 1/2 TL Currypulver
+- 
+  textarea: 1/2 Zitrone
+- 
+  textarea: 1 Knoblauchzehe
+- 
+  textarea: 1 TL scharfes Paprikapulver
+- 
+  textarea: 2 EL Öl
+- 
+  textarea: 'Salz & Pfeffer'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Die Kichererbsen abgießen und dabei
+    einen Teil des Kichererbsen-Wassers
+    auffangen
+- 
+  textarea: >
+    Alle Zutaten mit dem Wasser in ein
+    Gefäß tun und gut pürieren bis eine
+    cremige Masse entsteht
+- 
+  textarea: 'Mit Salz & Pfeffer abschmecken'
+
+----
+
+Category: quicky
+
+----
+
+Info: Rezept von der Linden-WG aus Konstanz
+
+----
+
+Faqs: 
+
+----
+
+Tips: 

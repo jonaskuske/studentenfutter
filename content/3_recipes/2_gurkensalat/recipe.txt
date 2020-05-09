@@ -1,0 +1,71 @@
+Title: Gurkensalat
+
+----
+
+Ingredients:
+
+- 
+  textarea: 1 Gurke
+- 
+  textarea: 1 kleine Zwiebel
+- 
+  textarea: 2 TL Zucker
+- 
+  textarea: 1,5 EL Apfelessig
+- 
+  textarea: 3 EL Olivenöl
+- 
+  textarea: 'Salz & Pfeffer'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Die Gurke mit einem Messer oder einer
+    Reibe in dünne Scheiben schneiden und
+    die Zwiebel klein würfeln
+- 
+  textarea: >
+    Beides zusammen in eine Schüssel geben
+    und gut vermengen
+- 
+  textarea: >
+    Anschließend das Ölivenöl, den
+    Apfelessig und den Zucker dazu geben und
+    alles gut verrühren
+- 
+  textarea: 'Mit Salz & Pfeffer würzen'
+- 
+  textarea: >
+    Den Salat für ca. 10 Minuten ziehen
+    lassen
+- 
+  textarea: >
+    Am Ende noch einmal probieren und
+    gegebenenfalls abschmecken
+
+----
+
+Category: salad_soup
+
+----
+
+Info: Rezept & Fotos von Rieke
+
+----
+
+Faqs:
+
+- 
+  question: Woher hast du das Rezept?
+  answer: >
+    "Ich habe meinem Vater oft dabei
+    zugeschaut, wie er den Salat gemacht hat
+    und, nachdem ich von zuhause ausgezogen
+    bin, selbst rumprobiert.“
+
+----
+
+Tips: 

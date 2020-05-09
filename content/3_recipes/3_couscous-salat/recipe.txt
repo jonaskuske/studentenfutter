@@ -1,0 +1,74 @@
+Title: Couscous-Salat der Götter
+
+----
+
+Ingredients:
+
+- 
+  textarea: Couscous
+- 
+  textarea: 'Brühe *– am besten Rinderbrühe, es geht aber auch jede andere Brühe*'
+- 
+  textarea: 1 Zwiebel
+- 
+  textarea: 'Salz & Pfeffer'
+- 
+  textarea: '*Mögliche Zutaten zur Couscous-Basis: Mais, halbierte schwarze Oliven, 1/2 Dose Thunfisch, gewürfelte Gurke, gewürfelte Tomate, gewürfelter Tofu, angebratene Speckwürfel, Kichererbsen, Prinzessinenbohnen*'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Eine große Schale nehmen und ca. ein
+    Fünftel der Schale mit Couscous füllen
+- 
+  textarea: >
+    Die doppelte Couscous-Menge an Wasser
+    zum Kochen bringen
+- 
+  textarea: 'Während das Wasser kocht: Die Brühe unter den noch trockenen Couscous mischen'
+- 
+  textarea: >
+    Die Zwiebel in möglichst kleine Würfel
+    schneiden
+- 
+  textarea: >
+    Wenn das Wasser kocht, auf den Couscous
+    gießen und immer wieder umrühren
+- 
+  textarea: >
+    Gewünschte Zutaten unter den Couscous
+    rühren
+- 
+  textarea: Die Zwiebelwürfel dazu geben
+- 
+  textarea: 'Mit Salz & Pfeffer und nach Geschmack mit weiteren Gewürzen abschmecken'
+
+----
+
+Category: salad_soup
+
+----
+
+Info: Rezept von Rid aus Bremen.
+
+----
+
+Faqs: 
+
+----
+
+Tips:
+
+- 
+  textarea: >
+    Für den extra Kick kann 1 EL Balsamico
+    und 1/2 TL Zucker zum Couscous
+    hinzugefügt werden.
+- 
+  textarea: >
+    Naturjoghurt oder Knoblauchsoße passen
+    sehr gut dazu. Aber bitte nicht beides
+    gleichzeitig.

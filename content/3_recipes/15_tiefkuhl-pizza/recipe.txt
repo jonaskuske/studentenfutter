@@ -1,0 +1,36 @@
+Title: Tiefkühl-Pizza
+
+----
+
+Ingredients:
+
+- 
+  textarea: '1 Tiefkühl-Pizza *– Niklas empfiehlt Dr. Oetker oder Aleco, aber nicht Wagner*'
+
+----
+
+Preparation:
+
+- 
+  textarea: Den Ofen auf 180 Grad vorheizen
+- 
+  textarea: >
+    Die Pizza in den Ofen tun und so lange
+    backen, bis es gut aussieht und der
+    Käse flüssig wird
+
+----
+
+Category: quicky
+
+----
+
+Info: Rezept von Niklas. Er hat das Rezept von der Rückseite der Pizza-Verpackung.
+
+----
+
+Faqs: 
+
+----
+
+Tips: 

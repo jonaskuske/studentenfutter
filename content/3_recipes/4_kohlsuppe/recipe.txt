@@ -1,0 +1,71 @@
+Title: Kohlsuppe
+
+----
+
+Ingredients:
+
+- 
+  textarea: 1 Zwiebel
+- 
+  textarea: 2 Paprika
+- 
+  textarea: 3 Möhren
+- 
+  textarea: 'Weiß- oder Spitzkohl *– Menge je nach Geschmack wählen*'
+- 
+  textarea: Weißwein zum Ablöschen
+- 
+  textarea: 1-2 EL Gemüsebrühe
+- 
+  textarea: Ingwer
+- 
+  textarea: 'Muskat & Paprika-Gewürz'
+- 
+  textarea: 'Salz & Pfeffer'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Zwiebeln, Paprika, Möhren, Kohl und ein
+    bisschen Ingwer klein schneiden und für
+    ca. 15 Minuten in viel Öl anbraten
+- 
+  textarea: Mit Weißwein ablöschen
+- 
+  textarea: >
+    Anschließend Wasser aufschütten, bis
+    das Gemüse bedeckt ist und die
+    Gemüsebrühe hinzugeben
+- 
+  textarea: 30 Minuten köcheln lassen
+- 
+  textarea: >
+    Gut würzen, vor allem mit einem
+    Spritzer Zitronensaft, Muskat und
+    Paprikapulver
+
+----
+
+Category: salad_soup
+
+----
+
+Info: Rezept von Linda
+
+----
+
+Faqs: 
+
+----
+
+Tips:
+
+- 
+  textarea: 'Lindas Empfehlung: Das Paprika-Gewürz „Yedi Türlü“ – zu finden im arabischen oder türkischen Supermarkt.'
+- 
+  textarea: >
+    Die Suppe schmeckt besonders gut, wenn
+    sie eine Nacht lang zieht.
