@@ -1,4 +1,4 @@
-<?= snippet('header') ?>
+<?= snippet('head') ?>
 <?= snippet('menu') ?>
 
 <h1><?= $page->title() ?></h1>

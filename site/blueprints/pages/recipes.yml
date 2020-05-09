@@ -1,0 +1,6 @@
+title: Alle Rezepte
+icon: 🍽
+preset: page
+
+sections:
+  extends: sections/recipes

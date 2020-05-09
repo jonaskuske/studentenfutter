@@ -1,90 +1,126 @@
-<?= snippet('header') ?>
+<?= snippet('head') ?>
 <?= snippet('menu') ?>
 
-<h1 class="italic font-bold text-md">
-  <span class="highlight highlight-blue highlight-sm"><?= $page->title() ?></span>
-</h1>
-<br>
+<?php $return_to = get('return_to') ?? $site->find('recipes')->url(); ?>
 
-<h2 class="font-bold">Kategorie</h2>
-<p>
-  <?= $page->blueprint()->field('category')['options'][$page->category()->value()] ?>
-</p>
+<main class="pt-6">
 
-<br>
-<br>
+  <a href="<?= $return_to ?>" class="flex items-center px-5 mb-6">
+    <span class="mr-2 text-blue"><?= svg('/assets/icons/arrow_back.svg') ?></span>
+    Zurück
+  </a>
 
-<?php foreach ($page->images() as $image) : ?>
-  <?= $image ?>
-<?php endforeach ?>
+  <h1 class="px-5 mb-6 text-xl italic font-bold">
+    <span class="highlight highlight-yellow"><?= $page->title() ?></span>
+  </h1>
 
-<br>
-<br>
+  <?php if ($page->hasImages()) : ?>
+    <?php $gallery = $page->image()->hasNext() ?>
+    <ul class="flex mb-10 overflow-auto scrolling-touch">
+      <?php foreach ($page->images() as $image) : ?>
+        <li class="flex-shrink-0 py-2 pr-5 <?= e($gallery, 'w-56 first:ml-5', 'w-full pl-5') ?>">
+          <picture class="relative block overflow-hidden shadow rounded-large <?= e($gallery, 'aspect-ratio-tall', 'aspect-ratio-wide') ?>">
+            <img class="absolute object-cover w-full h-full" src="<?= $image->thumb(['width' => 900])->url() ?>">
+          </picture>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
 
-<h2 class="font-bold">Zubereitung</h2>
-<?php foreach ($page->description()->toStructure() as $step) : ?>
-  <p><?= $step->text() ?></p>
-<?php endforeach ?>
+  <div class="px-5">
+    <h2 class="flex items-center mb-4 text-lg italic leading-loose" id="ingredients">
+      <span class="mr-2 transform translate-y-1 text-rose">
+        <?= svg('/assets/icons/ingredients.svg') ?>
+      </span>
+      <span class="highlight highlight-rose">Zutaten</span>
+    </h2>
 
-<br>
-<br>
+    <ul class="mb-10">
+      <?php foreach ($page->ingredients()->toStructure() as $ingredient) : ?>
+        <li class="flex mb-4 list-dot">
+          <p><?= $ingredient->textarea()->kt()->inline() ?></p>
+        </li>
+      <?php endforeach ?>
+    </ul>
 
-<table>
-  <caption class="font-bold text-left">Zutaten</caption>
-  <thead>
-    <tr class="border-b">
-      <th class="pr-4 font-normal text-right">Menge</th>
-      <th class="font-normal text-left">Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($page->ingredients()->toStructure() as $ingredient) : ?>
-      <tr>
-        <td class="pr-4 text-right"><?= $ingredient->amount() . $ingredient->unit() ?></td>
-        <td class="text-left"><?= $ingredient->name()->kt() ?></td>
-      </tr>
-    <?php endforeach ?>
-  </tbody>
-</table>
+    <h2 class="flex items-center mb-4 text-lg italic leading-loose" id="preparation">
+      <span class="mr-2 transform translate-y-1 text-yellow">
+        <?= svg('/assets/icons/preparation.svg') ?>
+      </span>
+      <span class="highlight highlight-yellow">Zubereitung</span>
+    </h2>
 
-<br>
-<br>
+    <ul class="mb-10">
+      <?php foreach ($page->preparation()->toStructure() as $step) : ?>
+        <li class="flex mb-4 list-dot">
+          <p><?= $step->textarea()->kt()->inline() ?></p>
+        </li>
+      <?php endforeach ?>
+    </ul>
 
-<h2 class="font-bold">Info</h2>
-<?= $page->info() ?>
+    <?php
+    $info = $page->info();
+    $tips = $page->tips()->toStructure();
+    $faqs = $page->faqs()->toStructure();
+    $hasInfoSection = $info || !$tips->isEmpty() || !$faqs->isEmpty();
+    ?>
 
-<br>
-<br>
+    <?php if ($hasInfoSection) : ?>
+      <h2 class="flex items-center mb-4 text-lg italic leading-loose" id="info">
+        <span class="mr-2 transform translate-y-1 text-blue">
+          <?= svg('/assets/icons/info.svg') ?>
+        </span>
+        <span class="highlight highlight-blue">Infos, Tipps & Tricks</span>
+      </h2>
 
-<h2 class="font-bold">Fragen und Antworten</h2>
-<?php if (!($faqs = $page->faqs()->toStructure())->isEmpty()) : ?>
-  <ul>
-    <?php foreach ($faqs as $faq) : ?>
-      <li>
-        <p><?= $faq->question()->kt() ?></p>
-        <p><?= $faq->answer()->kt() ?></p>
-      </li>
-    <?php endforeach ?>
-  </ul>
-<?php else : ?>
-  <p>Keine Fragen und Antworten</p>
-<?php endif ?>
+      <div class="mb-20">
+        <?php if ($info) : ?>
+          <p class="mb-4 italic"><?= $info->kt()->inline() ?></p>
+        <?php endif; ?>
 
-<br>
-<br>
+        <?php if (!$tips->isEmpty()) : ?>
+          <ul>
+            <?php foreach ($tips as $tip) : ?>
+              <li class="mb-4 italic">
+                <?= $tip->textarea()->kt()->inline() ?>
+              </li>
+            <?php endforeach ?>
+          </ul>
+        <?php endif; ?>
 
-<h2 class="font-bold">Tipps</h2>
-<?php if (!($tips = $page->tips()->toStructure())->isEmpty()) : ?>
-  <ul>
-    <?php foreach ($tips as $tip) : ?>
-      <li>
-        <p><?= $tip->textarea()->kt() ?></p>
-      </li>
-    <?php endforeach ?>
-  </ul>
-<?php else : ?>
-  <p>Keine Tipps</p>
-<?php endif ?>
+        <?php if (!$faqs->isEmpty()) : ?>
+          <dl>
+            <?php foreach ($faqs as $faq) : ?>
+              <dt class="flex mb-1 italic">
+                <span class="mr-1 transform translate-y-px text-rose">
+                  <?= svg('/assets/icons/question.svg') ?>
+                </span>
+                <p><?= $faq->question()->kt()->inline() ?></p>
+              </dt>
+              <dd class="flex mb-4 italic">
+                <span class="mr-1 transform translate-y-px text-yellow">
+                  <?= svg('/assets/icons/answer.svg') ?>
+                </span>
+                <p><?= $faq->answer()->kt()->inline() ?></p>
+              </dd>
+            <?php endforeach; ?>
+          </dl>
+        <?php endif; ?>
+      </div>
+    <?php endif ?>
 
-<br>
-<br>
+    <footer class="fixed bottom-0 left-0 w-full px-5 mb-4">
+      <div class="flex justify-between px-8 py-2 bg-white shadow rounded-large">
+        <a href="#ingredients" class="text-rose">
+          <?= svg('/assets/icons/ingredients.svg') ?>
+        </a>
+        <a href="#preparation" class="text-yellow">
+          <?= svg('/assets/icons/preparation.svg') ?>
+        </a>
+        <a href="#info" class="text-blue">
+          <?= svg('/assets/icons/info.svg') ?>
+        </a>
+      </div>
+    </footer>
+  </div>
+</main>

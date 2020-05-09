@@ -7,13 +7,23 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: { default: '0px 2px 10px rgba(117, 117, 117, 0.12)' },
+      inset: { '1/2': '50%' },
       maxHeight: { '0': 0, '300': '300px' },
+      transitionDuration: { 0: '0ms' },
       zIndex: { '-1': '-1' },
+    },
+    aspectRatio: {
+      none: 0,
+      square: 1 / 1,
+      card: 334 / 202,
+      tall: 221 / 396,
+      wide: 335 / 250,
     },
     borderRadius: {
       none: '0',
       default: '4px',
       large: '20px',
+      full: '9999px',
     },
     colors: {
       rose: '#F28B85',
@@ -21,6 +31,7 @@ module.exports = {
       blue: '#4F96D6',
       black: '#000000',
       white: '#FFFFFF',
+      transparent: 'transparent',
     },
     fontFamily: {
       sans: ['Chivo', ...defaultTheme.fontFamily.sans],
@@ -45,13 +56,19 @@ module.exports = {
       snug: '1.0625rem', // 17px
       normal: '1.1875rem', // 19px
       relaxed: '1.3125rem', // 21px
-      loose: '1.9375rem', // 31px
+      loose: '1.8125rem', // 29px
+      wide: '1.9375rem', // 31px
       none: 1,
       zero: 0,
     },
   },
   variants: {
     backgroundColor: ['before'],
+    margin: ['first', 'responsive'],
   },
-  plugins: [require('tailwindcss-pseudo-elements'), require('./tailwindcss-highlight')],
+  plugins: [
+    require('tailwindcss-aspect-ratio'),
+    require('tailwindcss-pseudo-elements'),
+    require('./tailwindcss-highlight'),
+  ],
 }

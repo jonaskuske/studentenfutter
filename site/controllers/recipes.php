@@ -4,7 +4,7 @@ return function ($site) {
     $category = get('category');
 
     $recipes = $site
-        ->find('home')
+        ->find('recipes')
         ->children()
         ->listed();
 
@@ -18,8 +18,8 @@ return function ($site) {
     }
 
     return [
-        'category' => $category,
         'recipes' => $recipes,
+        'selected_category' => $category,
         'category_options' => $category_options,
     ];
 };

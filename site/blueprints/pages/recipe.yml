@@ -2,7 +2,46 @@ title: Recipe
 
 columns:
   - width: 1/2
+    fields:
+      ingredients:
+        type: structure
+        label: Zutaten
+        empty: Leer – füge die erste Zutat hinzu!
+        sortable: true
+        required: true
+        fields:
+          textarea:
+            label: Name
+            buttons:
+              - italic
+              - bold
+      preparation:
+        type: structure
+        label: Zubereitung
+        sortable: true
+        required: true
+        fields:
+          textarea:
+            label: Zubereitungsschritt
+            buttons:
+              - italic
+              - bold
+
+  - width: 1/2
     sections:
+      category:
+        type: fields
+        fields:
+          category:
+            type: select
+            label: Kategorie
+            required: true
+            options:
+              salad_soup: Salate & Suppen
+              main_dish: Hauptgerichte
+              sweet: Süßes
+              quicky: Quickies
+            default: main_dish
       images:
         type: files
         headline: Fotos
@@ -13,93 +52,40 @@ columns:
           ratio: 5/4
           cover: true
         size: small
-      fields:
+      info:
+        type: fields
         fields:
-          ingredients:
+          info:
+            label: Info
+            type: textarea
+            icon: user
+            placeholder: '"Von Paula Platzhalterin"'
+            buttons:
+              - italic
+              - bold
+          faqs:
             type: structure
-            label: Zutaten
-            empty: Leer – füge die erste Zutat hinzu!
+            label: Fragen & Antworten
+            empty: Füge hier Fragen & Antworten hinzu!
             sortable: true
-            required: true
-            columns:
-              name:
-                width: 4/6
-              amount:
-                width: 1/6
-                align: right
-              unit:
-                width: 2/6
             fields:
-              name:
+              question:
                 type: textarea
+                label: Frage
                 buttons:
                   - italic
                   - bold
-                width: 2/3
-              amount:
-                type: number
-                label: Menge
-                width: 1/3
-              unit_on:
-                type: toggle
-                label: Einheit angeben
-                width: 1/3
-                text:
-                  - nein
-                  - ja
-              unit:
-                type: text
-                default: 'x'
-                label: Einheit
-                placeholder: '"Teelöffel"'
-                width: 2/3
-                when:
-                  unit_on: true
-          description:
+              answer:
+                type: textarea
+                label: Antwort
+                buttons:
+                  - italic
+                  - bold
+          tips:
             type: structure
-            label: Zubereitung
+            label: Tipps & Tricks
+            empty: Füge hier Tipps & Tricks hinzu!
             sortable: true
-            required: true
             fields:
-              text:
-                label: Zubereitungsschritt
-
-  - width: 1/2
-    fields:
-      category:
-        type: select
-        label: Kategorie
-        required: true
-        options:
-          quicky: Quickies
-          sweet: Süßes
-          main_dish: Hauptgerichte
-          salad_soup: Salate & Suppen
-        default: main_dish
-        width: 1/3
-      info:
-        label: Info
-        type: text
-        icon: user
-        width: 2/3
-        placeholder: '"Von Jane Doe"'
-      faqs:
-        type: structure
-        label: Fragen & Antworten
-        empty: Füge hier Fragen & Antworten hinzu!
-        sortable: true
-        fields:
-          question:
-            type: textarea
-            label: Frage
-          answer:
-            type: textarea
-            label: Antwort
-      tips:
-        type: structure
-        label: Tipps & Tricks
-        empty: Füge hier Tipps & Tricks hinzu!
-        sortable: true
-        fields:
-          textarea:
-            label: Tipp
+              textarea:
+                label: Tipp

@@ -1,6 +1,3 @@
 title: Home
 icon: 🏠
 preset: page
-
-sections:
-  extends: sections/recipes

@@ -1,9 +1,9 @@
 type: pages
 headline: Rezepte
 template: recipe
-parent: kirby.page("home")
-size: tiny
-info: "{{ page.info }}"
+parent: kirby.page("recipes")
+size: small
+info: '#{{ page.num() }} {{ page.info.short(21) }}'
 layout: cards
 empty: Noch keine Rezepte
 image:

@@ -21,13 +21,17 @@
     "@prettier/plugin-php": "^0.14.0",
     "cross-env": "^7.0.2",
     "prettier": "^2.0.5",
-    "tailwindcss": "^1.4.5",
+    "tailwindcss": "^1.4.6",
+    "tailwindcss-aspect-ratio": "^3.0.0",
     "tailwindcss-pseudo-elements": "^1.1.2"
   },
   "dependencies": {},
   "prettier": {
     "semi": false,
     "singleQuote": true,
-    "printWidth": 100
+    "trailingComma": "all",
+    "printWidth": 100,
+    "tabWidth": 2,
+    "phpVersion": "7.4"
   }
 }

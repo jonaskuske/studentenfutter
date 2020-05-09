@@ -4,7 +4,7 @@ return function ($site) {
     $query = get('q');
 
     $results = $site
-        ->find('home')
+        ->find('recipes')
         ->children()
         ->listed()
         ->search($query, 'title');

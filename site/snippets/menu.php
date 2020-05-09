@@ -13,9 +13,10 @@
         </svg>
       </button>
 
-      <h1 class="text-xl italic font-bold leading-loose lowercase">
+      <?php $tag = $page->isHomePage() ? 'h1' : 'p'; ?>
+      <<?= $tag ?> class="text-xl italic font-bold lowercase leading-wide">
         <span class="highlight highlight-rose highlight-lg"><?= $site->title() ?></span>
-      </h1>
+      </<?= $tag ?>>
 
       <a href="<?= $site->find('search')->url() ?>" class="w-6 leading-zero focus:outline-none">
         <svg width="24" height="24" viewBox="0 0 24 24" class="fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -23,26 +24,19 @@
         </svg>
       </a>
     </header>
-
-    <nav :class="open ? 'max-h-300' : 'max-h-0'" class="overflow-hidden transition-all duration-500 ease-in-out">
-      <ul class="mt-12 ml-5">
-        <li class="mb-5 italic font-bold leading-relaxed text-md">
-          <a href="<?= $site->homePage()->url() ?>" class="highlight highlight-rose highlight-sm">Home</a>
-        </li>
-        <li class="mb-5 italic font-bold leading-relaxed text-md">
-          <a href="#" class="highlight highlight-rose highlight-sm">Favoriten</a>
-        </li>
-        <li class="mb-5 italic font-bold leading-relaxed text-md">
-          <a href="<?= $site->find('recipes')->url() ?>" class="highlight highlight-rose highlight-sm">Alle Rezepte</a>
-        </li>
-        <li class="mb-5 italic font-bold leading-relaxed text-md">
-          <a href="#" class="highlight highlight-rose highlight-sm">About</a>
-        </li>
-        <li class="mb-3 italic font-bold leading-relaxed text-md">
-          <a href="#" class="highlight highlight-rose highlight-sm">Profil</a>
-        </li>
-        <li class="text-xs leading-tight text-right"><a href="#">Rechtliches</a></li>
-      </ul>
-    </nav>
+    <div class="transition-all" :class="{ 'invisible delay-500': !open }">
+      <nav :class="open ? 'max-h-300' : 'max-h-0'" class="overflow-hidden transition-all duration-500 ease-in-out">
+        <ul class="mt-12 ml-5">
+          <?php foreach ($pages->listed() as $entry) : ?>
+            <li class="mb-5 italic font-bold leading-relaxed text-md">
+              <a href="<?= $entry->url() ?>" class="highlight highlight-rose highlight-sm">
+                <?= $entry->title()->html() ?>
+              </a>
+            </li>
+          <?php endforeach ?>
+          <li class="text-xs leading-tight text-right"><a href="#">Rechtliches</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </div>
