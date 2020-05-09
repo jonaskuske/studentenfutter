@@ -1,0 +1,12 @@
+title: Signup
+icon: 📋
+fields:
+  info:
+    type: textarea
+    label: Hinweis
+    width: 2/3
+    size: medium
+    buttons:
+      - bold
+      - italic
+    help: Diese Nachricht erscheint auf der Registrierungs-Seite.

@@ -1,6 +1,6 @@
 title: Default
 preset: page
-icon: 📃
+icon: 📕
 fields:
   show_title:
     type: toggle

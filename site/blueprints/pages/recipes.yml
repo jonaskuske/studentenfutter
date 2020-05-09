@@ -1,6 +1,20 @@
 title: Alle Rezepte
 icon: 🍽
-preset: page
 
-sections:
-  extends: sections/recipes
+columns:
+  - width: 2/3
+    sections:
+      published:
+        extends: sections/recipes
+        status: published
+        limit: 8
+
+  - width: 1/3
+    sections:
+      drafts:
+        extends: sections/recipes
+        status: draft
+        headline: Entwürfe
+        layout: list
+        width: 1/3
+        limit: 12

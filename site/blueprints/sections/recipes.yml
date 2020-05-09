@@ -5,7 +5,7 @@ parent: kirby.page("recipes")
 size: small
 info: '<b>{{ page.num() }}.</b> {{ page.info.short(24) }}'
 layout: cards
-empty: Noch keine Rezepte
+empty: Noch keine Rezepte.
 image:
   cover: true
   ratio: 5/4

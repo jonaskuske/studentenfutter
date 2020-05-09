@@ -6,6 +6,8 @@ columns:
     sections:
       recipes:
         extends: sections/recipes
+        status: published
+        headline: Veröffentlichte Rezepte
 
   - width: 1/3
     sections:
@@ -15,3 +17,8 @@ columns:
         status: all
         create:
           - default
+        templates:
+          - default
+          - recipes
+          - login
+          - signup

@@ -13,8 +13,8 @@ columns:
           textarea:
             label: Name
             buttons:
-              - italic
               - bold
+              - italic
       preparation:
         type: structure
         label: Zubereitung
@@ -24,8 +24,8 @@ columns:
           textarea:
             label: Zubereitungsschritt
             buttons:
-              - italic
               - bold
+              - italic
 
   - width: 1/2
     sections:
@@ -61,8 +61,8 @@ columns:
             icon: user
             placeholder: '"Von Paulina Platzhalter"'
             buttons:
-              - italic
               - bold
+              - italic
           faqs:
             type: structure
             label: Fragen & Antworten
@@ -73,14 +73,14 @@ columns:
                 type: textarea
                 label: Frage
                 buttons:
-                  - italic
                   - bold
+                  - italic
               answer:
                 type: textarea
                 label: Antwort
                 buttons:
-                  - italic
                   - bold
+                  - italic
           tips:
             type: structure
             label: Tipps & Tricks
