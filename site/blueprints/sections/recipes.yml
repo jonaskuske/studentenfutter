@@ -3,7 +3,7 @@ headline: Rezepte
 template: recipe
 parent: kirby.page("recipes")
 size: small
-info: '#{{ page.num() }} {{ page.info.short(21) }}'
+info: '<b>{{ page.num() }}.</b> {{ page.info.short(24) }}'
 layout: cards
 empty: Noch keine Rezepte
 image:
