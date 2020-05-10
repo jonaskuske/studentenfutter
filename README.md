@@ -1,7 +1,14 @@
+<h1 align="center">studentenfutter</h1>
+<p align="center"><b>🥗 Web app for student cookbook "studentenfutter"</b></p>
+
+<br>
 <br>
 
-# studentenfutter
+<p align="center">
+  <img width="650" src="showcase.png">
+</p>
 
+<br>
 <br>
 
 ## Instructions
