@@ -15,7 +15,9 @@
 
       <?php $tag = $page->isHomePage() ? 'h1' : 'p'; ?>
       <<?= $tag ?> class="text-xl italic font-bold lowercase leading-wide">
-        <span class="highlight highlight-rose highlight-lg"><?= $site->title() ?></span>
+        <a href="<?= $site->homePage()->url() ?>" class="highlight highlight-rose highlight-lg">
+          <?= $site->title() ?>
+        </a>
       </<?= $tag ?>>
 
       <a href="<?= $site->find('search')->url() ?>" class="w-6 leading-zero focus:outline-none">
