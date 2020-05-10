@@ -25,8 +25,8 @@ if (isset($recipe)) {
           <?= $title ?>
         </a>
       <?php else : ?>
-        <a class="absolute left-0 w-full italic font-bold text-center transform -translate-y-1/2 stretched-link top-1/2" href="<?= $url ?>">
-          <?= $title ?>
+        <a class="absolute inset-0 flex italic font-bold text-center stretched-link" href="<?= $url ?>">
+          <span class="m-auto"><?= $title ?></span>
         </a>
       <?php endif; ?>
     </div>
