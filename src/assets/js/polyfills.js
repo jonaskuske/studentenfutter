@@ -11,20 +11,8 @@
     })
   }
 
-  // until https://github.com/alpinejs/alpine/issues/468 is fixed
-  if (/Trident\//.test(navigator.userAgent)) {
-    delete HTMLElement.prototype.contains
-
-    Node.prototype.contains = function contains(node) {
-      if (!(0 in arguments)) throw new TypeError('1 argument is required')
-
-      do {
-        if (this === node) return true
-      } while ((node = node && node.parentNode))
-
-      return false
-    }
-  }
+  // until https://github.com/alpinejs/alpine/pull/469 is merged
+  SVGElement.prototype.contains = SVGElement.prototype.contains || HTMLElement.prototype.contains
 
   function insertScript(src, onload) {
     var script = doc.createElement('script')
