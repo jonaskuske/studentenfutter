@@ -8,6 +8,7 @@ columns:
         extends: sections/recipes
         status: published
         headline: Veröffentlichte Rezepte
+        limit: 9
 
   - width: 1/3
     sections:
