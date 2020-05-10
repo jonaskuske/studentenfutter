@@ -1,7 +1,7 @@
 {
   "name": "studentenfutter",
   "version": "1.0.0",
-  "description": "Kirby is a file-based CMS. Easy to setup. Easy to use. Flexible as hell.",
+  "description": "🥗 Web app for student cookbook \"studentenfutter\"",
   "main": "index.js",
   "scripts": {
     "start": "run-p serve css:watch",

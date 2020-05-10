@@ -10,16 +10,25 @@
     <div class="mb-6"><?= snippet('headings/favorites', ['tag' => 'h2']) ?></div>
 
     <?php if ($user = $kirby->user()) : ?>
-      <?php if ($user->favorites()->toPages()->isEmpty()) : ?>
+      <?php if (($favorites = $user->favorites()->toPages())->isEmpty()) : ?>
         <p class="px-5 text-center">Hallo, <?= esc($user->name()) ?>!<br>
           Du hast noch keine Favoriten gespeichert.</p>
       <?php else : ?>
         <ul class="flex overflow-auto scrolling-touch">
-          <?php foreach ($user->favorites()->toPages() as $recipe) : ?>
+          <?php foreach ($favorites->limit(3) as $recipe) : ?>
             <li class="flex-shrink-0 w-56 py-2 pr-5 first:ml-5">
               <?= snippet('recipe-card', ['recipe' => $recipe]) ?>
             </li>
           <?php endforeach; ?>
+
+          <?php if ($favorites->count() > 3) : ?>
+            <li class="flex-shrink-0 w-56 py-2 pr-5">
+              <?= snippet('recipe-card', [
+                'title' => 'Mehr...',
+                'url' => $site->find('favorites')->url(),
+              ]) ?>
+            </li>
+          <?php endif; ?>
         </ul>
       <?php endif; ?>
     <?php else : ?>
