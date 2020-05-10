@@ -2,7 +2,7 @@
   "name": "studentenfutter",
   "short_name": "studentenfutter",
   "theme_color": "#F28B85",
-  "background_color": "#ffffff",
+  "background_color": "#F28B85",
   "display": "standalone",
   "start_url": "/"
 }

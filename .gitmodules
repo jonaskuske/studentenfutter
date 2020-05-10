@@ -1,6 +1,6 @@
 [submodule "kirby"]
-	path = kirby
+	path = src/kirby
 	url = https://github.com/getkirby/kirby.git
 [submodule "site/plugins/editor"]
-	path = site/plugins/editor
+	path = src/site/plugins/editor
 	url = https://github.com/getkirby/editor.git

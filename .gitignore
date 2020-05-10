@@ -7,8 +7,8 @@ Icon
 # Temporary files
 # ---------------
 
-/media/*
-!/media/index.html
+/src/media/*
+!/src/media/index.html
 
 # Lock files
 # ---------------
@@ -21,24 +21,24 @@ Icon
 # Cache Files
 # ---------------
 
-/site/cache/*
-!/site/cache/index.html
+/src/site/cache/*
+!/src/site/cache/index.html
 
 # Accounts
 # ---------------
 
-/site/accounts/*
-!/site/accounts/index.html
+/src/site/accounts/*
+!/src/site/accounts/index.html
 
 # Sessions
 # ---------------
 
-/site/sessions/*
-!/site/sessions/index.html
+/src/site/sessions/*
+!/src/site/sessions/index.html
 
 # License
 # ---------------
-/site/config/.license
+/src/site/config/.license
 
 .DS_Store
 Thumbs.db
