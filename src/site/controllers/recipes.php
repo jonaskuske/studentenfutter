@@ -13,13 +13,16 @@ return function ($site) {
         ->blueprint()
         ->field('category')['options'];
 
+    $category_options = array_merge(['' => 'Alle Rezepte'], $category_options);
+
     if (!array_key_exists($category, $category_options)) {
-        $category = null;
+        $category = '';
     }
 
     return [
         'recipes' => $recipes,
-        'selected_category' => $category,
         'category_options' => $category_options,
+        'selected_category' => $category,
+        'selected_category_name' => $category_options[$category],
     ];
 };

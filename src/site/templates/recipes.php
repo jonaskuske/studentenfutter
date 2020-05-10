@@ -1,4 +1,4 @@
-<?= snippet('head') ?>
+<?= snippet('head', ['page_title' => $selected_category_name]) ?>
 
 <body>
   <?= snippet('menu') ?>
@@ -11,7 +11,6 @@
     <form action="" class="mb-6 text-center text-blue">
       <label>Filter:
         <select name="category" id="category" onchange="this.form.submit()">
-          <option value="">Alle Rezepte</option>
           <?php foreach ($category_options as $category => $category_name) : ?>
             <option value="<?= $category ?>" <?= e($category === $selected_category, 'selected') ?>>
               <?= $category_name ?>

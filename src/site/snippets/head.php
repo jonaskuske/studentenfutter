@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <title>
-    <?= e($page->isHomePage(), $site->title(), "{$page->title()} | {$site->title()}") ?>
+    <?php $page_title = isset($page_title) ? $page_title : $page->title(); ?>
+    <?= e($page->isHomePage(), $site->title(), "{$page_title} | {$site->title()}") ?>
   </title>
 
   <?= css([
