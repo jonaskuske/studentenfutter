@@ -36,8 +36,8 @@
       <ul class="flex mb-10 overflow-auto scrolling-touch">
         <?php foreach ($page->images() as $image) : ?>
           <li class="flex-shrink-0 py-2 pr-5 <?= e($gallery, 'w-56 first:ml-5', 'w-full pl-5') ?>">
-            <picture class="<?= e($gallery, 'aspect-ratio-tall', 'aspect-ratio-wide') ?> relative block overflow-hidden shadow rounded-card">
-              <img src="<?= $image->thumb(['width' => 900])->url() ?>" class="absolute object-cover w-full h-full">
+            <picture class="<?= e($gallery, 'aspect-ratio-tall', 'aspect-ratio-wide') ?> relative block overflow-hidden shadow rounded-card" x-data="{ loaded: false }">
+              <img src="<?= $image->thumb(['width' => 900])->url() ?>" class="absolute object-cover w-full h-full transition-opacity duration-500 ease-in opacity-0" :class="{ 'opacity-100': loaded }" @load="loaded = true">
             </picture>
           </li>
         <?php endforeach; ?>
