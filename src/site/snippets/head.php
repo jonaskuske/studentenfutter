@@ -20,27 +20,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-  <?= js(
-    ['https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js', '@auto'],
-    ['defer' => true],
-  ) ?>
+  <?= js('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js', [
+    'type' => 'module',
+  ]) ?>
 
-  <script>
-    (function loadPolyfills(doc, cdn, smoothscroll) {
-      if (!('scrollBehavior' in doc.documentElement.style)) {
-        insertScript(cdn + smoothscroll + '-polyfill/dist/' + smoothscroll + '.min.js')
-        insertScript(cdn + smoothscroll + '-anchor-polyfill')
-      }
+  <?= js('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js', [
+    'nomodule' => true,
+    'defer' => true,
+  ]) ?>
 
-      function insertScript(src, onload) {
-        return doc.head.appendChild(Object.assign(doc.createElement('script'), {
-          src,
-          onload
-        }))
-      }
-    })(document, '//unpkg.com/', 'smoothscroll')
-  </script>
+  <?= js(['assets/js/polyfills.js', '@auto'], ['defer' => true]) ?>
 
 </head>
-
-<body class="flex flex-col min-h-full font-sans">

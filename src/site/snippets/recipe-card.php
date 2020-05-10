@@ -14,9 +14,9 @@ if (isset($recipe)) {
 <div class="relative shadow rounded-card aspect-ratio-card" x-data="{ isFavorite: false }">
   <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">
     <?php if ($image) : ?>
-      <img src="<?= $image->thumb(['width' => 400])->url() ?>" class="absolute object-cover w-full h-full -z-1" style="border-bottom-right-radius: 25px; border-bottom-left-radius: 25px">
+      <img src="<?= $image->thumb(['width' => 400])->url() ?>" class="absolute top-0 object-cover w-full h-full -z-1" style="border-bottom-right-radius: 25px; border-bottom-left-radius: 25px">
     <?php else : ?>
-      <div class="absolute w-full h-full bg-center bg-no-repeat bg-striped -z-1"></div>
+      <div class="absolute top-0 w-full h-full bg-center bg-no-repeat bg-striped -z-1"></div>
     <?php endif; ?>
 
     <div class="flex items-center w-full h-12 px-3 <?= e($image, 'bg-white') ?>">
@@ -26,7 +26,7 @@ if (isset($recipe)) {
         </a>
       <?php else : ?>
         <a class="absolute inset-0 flex italic font-bold text-center stretched-link" href="<?= $url ?>">
-          <span class="m-auto"><?= $title ?></span>
+          <span class="self-center m-auto"><?= $title ?></span>
         </a>
       <?php endif; ?>
     </div>

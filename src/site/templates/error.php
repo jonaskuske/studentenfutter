@@ -1,15 +1,18 @@
 <?= snippet('head') ?>
-<?= snippet('menu') ?>
 
-<main class="flex flex-col flex-grow px-5 py-6">
-  <h1 class="text-xl italic font-bold text-center leading-wide">
-    <span class="highlight highlight-yellow"><?= $page->title()->html() ?></span>
-  </h1>
+<body class="h-full">
+  <?= snippet('menu') ?>
 
-  <div class="m-auto">
-    <p class="mb-6 font-bold text-center">Da ist etwas schiefgelaufen. Stimmt die Adresse?</p>
-    <p class="text-center">
-      <a href="<?= $site->homePage()->url() ?>" class="button border-rose">Zurück zur Startseite</a>
-    </p>
-  </div>
-</main>
+  <main class="flex flex-col flex-grow px-5 py-6">
+    <h1 class="text-xl italic font-bold text-center leading-wide">
+      <span class="highlight highlight-yellow"><?= $page->title()->html() ?></span>
+    </h1>
+
+    <div class="m-auto">
+      <p class="mb-6 font-bold text-center">Da ist etwas schiefgelaufen. Stimmt die Adresse?</p>
+      <p class="text-center">
+        <a href="<?= $site->homePage()->url() ?>" class="button border-rose">Zurück zur Startseite</a>
+      </p>
+    </div>
+  </main>
+</body>

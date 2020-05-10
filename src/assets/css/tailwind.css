@@ -6,6 +6,13 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+body {
+  @apply flex;
+  @apply flex-col;
+  @apply min-h-full;
+  @apply font-sans;
+}
+
 /* clears the 'X' from Internet Explorer and WebKit */
 input[type='search']::-ms-clear {
   display: none;
