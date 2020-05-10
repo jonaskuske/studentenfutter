@@ -35,9 +35,9 @@
           <?php if ($category_recipes->isEmpty()) : ?>
             <p class="mb-6 text-center">Keine Rezepte in der Kategorie <?= $category_name ?>.</p>
           <?php else : ?>
-            <ul class="flex flex-col items-center mb-6 space-y-8">
+            <ul class="flex flex-col items-center">
               <?php foreach ($category_recipes as $recipe) : ?>
-                <li class="w-full">
+                <li class="w-full mb-8">
                   <?= snippet('recipe-card', ['recipe' => $recipe]) ?>
                 </li>
               <?php endforeach; ?>

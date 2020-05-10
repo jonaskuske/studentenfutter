@@ -17,9 +17,9 @@
         <?php if ($results->isEmpty()) : ?>
           <p class="text-center">Keine Ergebnisse.</p>
         <?php else : ?>
-          <ul class="flex flex-col items-center space-y-8">
+          <ul class="flex flex-col items-center">
             <?php foreach ($results as $result) : ?>
-              <li class="w-full">
+              <li class="w-full mb-8">
                 <?= snippet('recipe-card', ['recipe' => $result]) ?>
               </li>
             <?php endforeach; ?>
