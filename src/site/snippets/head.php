@@ -9,7 +9,11 @@
     <?= e($page->isHomePage(), $site->title(), "{$page->title()} | {$site->title()}") ?>
   </title>
 
-  <?= css(['assets/css/fonts.css', 'assets/css/tailwind.min.css', '@auto']) ?>
+  <?= css([
+    'assets/css/fonts.css',
+    r($kirby->option('production'), 'assets/css/tailwind.min.css', 'assets/css/tailwind.dev.css'),
+    '@auto',
+  ]) ?>
 
   <link rel="manifest" href="<?= asset('assets/site.webmanifest')->url() ?>" />
   <meta name="theme-color" content="#F28B85" />

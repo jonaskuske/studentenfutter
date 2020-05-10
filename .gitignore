@@ -121,3 +121,4 @@ typings/
 .next
 
 tailwind.min.css
+tailwind.dev.css

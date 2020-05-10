@@ -7,7 +7,7 @@
     "start": "run-p serve css:watch",
     "build": "npm run css:build",
     "serve": "php -S localhost:8080 -t src src/kirby/router.php",
-    "css:watch": "postcss src/assets/css/tailwind.css -o src/assets/css/tailwind.min.css -w",
+    "css:watch": "postcss src/assets/css/tailwind.css -o src/assets/css/tailwind.dev.css -w",
     "css:build": "cross-env NODE_ENV=production postcss src/assets/css/tailwind.css -o src/assets/css/tailwind.min.css"
   },
   "repository": {
