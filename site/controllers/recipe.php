@@ -7,10 +7,12 @@ return function ($kirby, $page) {
         $favorites = $user->favorites()->toPages();
 
         if (get('favorite') === 'true') {
-          $user->update(['favorites' => $favorites->add($page)]);
+          $favorites->add($page);
         } else {
-          $user->update(['favorites' => $favorites->remove($page)]);
+          $favorites->remove($page);
         }
+
+        $user->update(['favorites' => $favorites->toArray()]);
       } catch (Exception $e) {
         /* Silence is golden. */
       }
