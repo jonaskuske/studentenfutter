@@ -13,6 +13,7 @@ module.exports = {
       inset: { '1/2': '50%' },
       maxHeight: { '0': 0, '300': '300px' },
       maxWidth: { form: '271px' },
+      spacing: { '1.5': '0.357rem' },
       transitionDuration: { 0: '0ms' },
       zIndex: { '-1': '-1' },
     },

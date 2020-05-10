@@ -98,8 +98,11 @@
           <?php if (!$tips->isEmpty()) : ?>
             <ul>
               <?php foreach ($tips as $tip) : ?>
-                <li class="mb-4 italic">
-                  <?= $tip->textarea()->kt()->inline() ?>
+                <li class="flex mb-4">
+                  <span class="mr-1.5 transform translate-y-px text-blue">
+                    <?= svg('/assets/icons/tip.svg') ?>
+                  </span>
+                  <p><?= $tip->textarea()->kt()->inline() ?></p>
                 </li>
               <?php endforeach; ?>
             </ul>
@@ -108,14 +111,14 @@
           <?php if (!$faqs->isEmpty()) : ?>
             <dl>
               <?php foreach ($faqs as $faq) : ?>
-                <dt class="flex mb-1 italic">
-                  <span class="mr-1 transform translate-y-px text-rose">
+                <dt class="flex mb-1">
+                  <span class="mr-1.5 transform translate-y-px text-rose">
                     <?= svg('/assets/icons/question.svg') ?>
                   </span>
                   <p><?= $faq->question()->kt()->inline() ?></p>
                 </dt>
-                <dd class="flex mb-4 italic">
-                  <span class="mr-1 transform translate-y-px text-yellow">
+                <dd class="flex mb-4">
+                  <span class="mr-1.5 transform translate-y-px text-yellow">
                     <?= svg('/assets/icons/answer.svg') ?>
                   </span>
                   <p><?= $faq->answer()->kt()->inline() ?></p>
