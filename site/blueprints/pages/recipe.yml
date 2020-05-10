@@ -89,3 +89,5 @@ columns:
             fields:
               textarea:
                 label: Tipp
+          tags:
+            help: Relevante Stichworte, um die Suchergebnisse zu verbessern.
