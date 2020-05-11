@@ -13,6 +13,10 @@ body {
   @apply font-sans;
 }
 
+[x-cloak] {
+  display: none;
+}
+
 /* clears the 'X' from Internet Explorer and WebKit */
 input[type='search']::-ms-clear {
   display: none;

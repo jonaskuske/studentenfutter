@@ -7,7 +7,7 @@
           <line x1="1.5" y1="1.5" x2="23.5" y2="1.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           <line x1="1.5" y1="17.5" x2="23.5" y2="17.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        <svg x-show="open" width="21" height="21" viewBox="0 0 21 21" class="stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg x-cloak x-show="open" width="21" height="21" viewBox="0 0 21 21" class="stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="2.66116" y1="18.7175" x2="18.2175" y2="3.16116" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           <line x1="2.12132" y1="3" x2="17.6777" y2="18.5563" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
@@ -27,7 +27,7 @@
       </a>
     </header>
     <div class="transition-all" :class="{ 'invisible delay-500': !open }">
-      <nav :class="open ? 'max-h-300' : 'max-h-0'" class="overflow-hidden transition-all duration-500 ease-in-out">
+      <nav x-cloak :class="open ? 'max-h-300' : 'max-h-0'" class="overflow-hidden transition-all duration-500 ease-in-out">
         <ul class="mt-12 ml-5">
           <?php foreach ($pages->listed() as $entry) : ?>
             <li class="mb-5 italic font-bold leading-relaxed text-md">
