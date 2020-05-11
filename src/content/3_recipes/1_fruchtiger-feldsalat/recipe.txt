@@ -1,56 +1,38 @@
 Title: Fruchtiger Feldsalat
 
-----
+$
 
 Ingredients:
+• textarea: 150g Feldsalat oder Rucola
+• textarea: 2 Tomaten
+• textarea: 1 Dose Pfirsiche
+• textarea: Eine Handvoll Pinienkerne
+• textarea: Ein Schuss Balsamico
+• textarea: 'Salz & Pfeffer'
 
-- 
-  textarea: 150g Feldsalat oder Rucola
-- 
-  textarea: 2 Tomaten
-- 
-  textarea: 1 Dose Pfirsiche
-- 
-  textarea: Eine Handvoll Pinienkerne
-- 
-  textarea: Ein Schuss Balsamico
-- 
-  textarea: 'Salz & Pfeffer'
 
-----
+$
 
 Preparation:
+• textarea: > Den Salat und die Tomaten waschen und in Stücke schneiden
+• textarea: 'Die Pfirsiche abtropfen lassen, das Abtropfwasser auffangen und die Pfirsiche ebenfalls klein schneiden'
+• textarea: > Die Pinienkerne kurz in einer Pfanne anrösten
+• textarea: 'Aus dem Saft der Pfirsiche, etwas Balsamico und Salz & Pfeffer ein Dressing mischen'
+• textarea: > Den Salat, die Tomaten, Pfirsiche und Pinienkerne vermengen und das Dressing dazu geben
 
-- 
-  textarea: >
-    Den Salat und die Tomaten waschen und in
-    Stücke schneiden
-- 
-  textarea: 'Die Pfirsiche abtropfen lassen, das Abtropfwasser auffangen und die **Pfirsiche** ebenfalls klein schneiden'
-- 
-  textarea: >
-    Die Pinienkerne kurz in einer Pfanne
-    anrösten
-- 
-  textarea: 'Aus dem Saft der Pfirsiche, etwas Balsamico und Salz & Pfeffer ein Dressing mischen'
-- 
-  textarea: >
-    Den Salat, die Tomaten, Pfirsiche und
-    Pinienkerne vermengen und das Dressing
-    dazu geben
 
-----
+$
 
 Category: salad_soup
 
-----
+$
 
 Info: Rezept von Annika
 
-----
+$
 
-Faqs: 
+Faqs:
 
-----
+$
 
-Tips: 
+Tips:
