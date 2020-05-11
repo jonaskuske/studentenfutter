@@ -31,6 +31,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
+  <?= js(['assets/js/polyfills.js', '@auto'], ['defer' => true]) ?>
+
   <?= js('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js', [
     'type' => 'module',
   ]) ?>
@@ -39,7 +41,5 @@
     'nomodule' => true,
     'defer' => true,
   ]) ?>
-
-  <?= js(['assets/js/polyfills.js', '@auto'], ['defer' => true]) ?>
 
 </head>

@@ -11,10 +11,18 @@ if (isset($recipe)) {
   $image = isset($image) ? $image : null;
 } ?>
 
-<div class="relative shadow rounded-card aspect-ratio-card" x-data="{ isFavorite: false }">
-  <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card" x-data="{ loaded: false }">
+<div class="relative shadow rounded-card aspect-ratio-card">
+  <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">
     <?php if ($image) : ?>
-      <img src="<?= $image->thumb(['width' => 400])->url() ?>" class="absolute top-0 object-cover w-full h-full transition-opacity duration-300 ease-in opacity-0 -z-1" :class="{ 'opacity-100': loaded }" style="border-bottom-right-radius: 25px; border-bottom-left-radius: 25px" @load="loaded = true">
+      <img
+        src="<?= $image->thumb(['width' => 400])->url() ?>"
+        x-data="{ loaded: false }"
+        x-init="loaded = !!($el.complete && $el.naturalWidth && $el.naturalHeight)"
+        class="absolute top-0 object-cover w-full h-full transition-opacity ease-in -z-1"
+        :class="loaded ? 'duration-500' : 'opacity-0'"
+        @load="loaded = true"
+        style="border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;"
+      >
     <?php else : ?>
       <div class="absolute top-0 w-full h-full bg-center bg-no-repeat bg-striped -z-1"></div>
     <?php endif; ?>
