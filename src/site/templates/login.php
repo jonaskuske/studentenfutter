@@ -5,11 +5,11 @@
 
   <main class="flex-grow px-5 pt-6">
     <div class="pt-4 bg-white shadow rounded-card">
-      <h1 class="mb-6 text-xl italic font-bold text-center leading-wide">
+      <h1 class="mb-6 text-xl italic font-bold text-center leading-wide md:mb-10">
         <span class="highlight highlight-yellow"><?= $page->title()->html() ?></span>
       </h1>
 
-      <p class="w-full mx-auto mb-8 text-xs leading-tight max-w-form">
+      <p class="w-full mx-auto mb-8 text-xs leading-tight max-w-form md:text-base md:leading-normal md:max-w-md md:mb-16">
         <?= $page->info()->html() ?>
       </p>
 

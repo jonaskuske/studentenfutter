@@ -11,7 +11,7 @@ if (isset($recipe)) {
   $image = isset($image) ? $image : null;
 } ?>
 
-<div class="relative shadow rounded-card aspect-ratio-card">
+<div class="relative z-0 shadow rounded-card aspect-ratio-card">
   <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">
     <?php if ($image) : ?>
       <img

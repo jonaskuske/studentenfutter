@@ -13,6 +13,10 @@ body {
   @apply font-sans;
 }
 
+main {
+  @apply container;
+}
+
 [x-cloak] {
   display: none;
 }
@@ -96,4 +100,38 @@ input[type='search']::-webkit-search-results-decoration {
   @apply inset-0;
   @apply bg-transparent;
   @apply pointer-events-auto;
+}
+
+.has-scrollbar [class*='scrollbar-'] {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.has-scrollbar [class*='scrollbar-']::-webkit-scrollbar {
+  background: transparent;
+  width: 5px;
+  height: 5px;
+}
+.has-scrollbar [class*='scrollbar-']::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+}
+
+.has-scrollbar .scrollbar-lightgray::-webkit-scrollbar-thumb,
+.has-scrollbar .hover\:scrollbar-lightgray:hover::-webkit-scrollbar-thumb {
+  @apply bg-lightgray;
+}
+
+.has-scrollbar .scrollbar-transparent::-webkit-scrollbar-thumb,
+.has-scrollbar .hover\:scrollbar-transparent:hover::-webkit-scrollbar-thumb {
+  @apply bg-transparent;
+}
+
+.has-scrollbar .scrollbar-lightgray,
+.has-scrollbar .hover\:scrollbar-lightgray:hover {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.lightgray') transparent;
+}
+
+.has-scrollbar .scrollbar-transparent,
+.has-scrollbar .hover\:scrollbar-transparent:hover {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }

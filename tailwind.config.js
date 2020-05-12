@@ -1,7 +1,11 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const tailwindPlugins = require('./tailwindcss-plugins')
 
-/** @typedef { import('tailwindcss/defaultConfig') } TailwindConfig */
-/** @type { TailwindConfig & { theme: { extend: TailwindConfig['theme'] } } } */
+/** @typedef { typeof import('tailwindcss/defaultConfig') } DefaultConfig */
+/** @typedef { typeof import('tailwindcss/defaultTheme') } DefaultTheme */
+/** @typedef { Partial<DefaultConfig & { theme: { extend: DefaultTheme } }> } TailwindConfig */
+
+/** @type { TailwindConfig } */
 module.exports = {
   purge: ['**/*.html', '**/*.php', '**/*.svg'],
   theme: {
@@ -35,8 +39,9 @@ module.exports = {
       rose: '#F28B85',
       yellow: '#EBF47A',
       blue: '#4F96D6',
-      black: '#000000',
       white: '#FFFFFF',
+      lightgray: '#E0E0E0',
+      black: '#000000',
       transparent: 'transparent',
     },
     fontFamily: {
@@ -71,5 +76,13 @@ module.exports = {
   variants: {
     margin: ['first', 'responsive'],
   },
-  plugins: [require('tailwindcss-aspect-ratio'), require('./tailwindcss-highlight')],
+  corePlugins: {
+    container: false,
+  },
+  plugins: [
+    require('tailwindcss-aspect-ratio'),
+    tailwindPlugins.container,
+    tailwindPlugins.highlight,
+    tailwindPlugins.borderCircles,
+  ],
 }

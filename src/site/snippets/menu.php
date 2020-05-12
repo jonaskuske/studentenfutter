@@ -1,6 +1,9 @@
+<!-- has to run sync but requires <body>, so we run it here -->
+<?= js('assets/js/scrollbar.js') ?>
+
 <div class="pt-20">
   <div x-data="{ open: false }" class="fixed top-0 left-0 z-20 w-full p-5 bg-white shadow rounded-b-card">
-    <header class="flex items-center justify-between">
+    <header class="container flex items-center justify-between">
       <button class="w-6 outline-none leading-zero focus:outline-none" @click="open = !open">
         <svg x-show="!open" width="25" height="19" viewBox="0 0 25 19" class="stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="1.5" y1="9.5" x2="23.5" y2="9.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
@@ -26,7 +29,7 @@
         </svg>
       </a>
     </header>
-    <div class="transition-all" :class="{ 'invisible delay-500': !open }">
+    <div class="container transition-all" :class="{ 'invisible delay-500': !open }">
       <nav x-cloak :class="open ? 'max-h-300' : 'max-h-0'" class="overflow-hidden transition-all duration-500 ease-in-out">
         <ul class="mt-12 ml-5">
           <?php foreach ($pages->listed() as $entry) : ?>

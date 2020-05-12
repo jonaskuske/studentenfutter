@@ -23,13 +23,7 @@
           Tippe bei einem Rezept auf das Herz, um es zu deinen Favoriten hinzuzufügen.
         </p>
       <?php else : ?>
-        <ul class="flex flex-col items-center">
-          <?php foreach ($favorites as $recipe) : ?>
-            <li class="w-full mb-8">
-              <?= snippet('recipe-card', ['recipe' => $recipe]) ?>
-            </li>
-          <?php endforeach; ?>
-        </ul>
+        <?= snippet('recipe-list', ['recipes' => $favorites]) ?>
       <?php endif; ?>
     </section>
   </main>

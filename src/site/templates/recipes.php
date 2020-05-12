@@ -20,7 +20,7 @@
       </label>
     </form>
 
-    <hr class="w-20 m-auto mb-6 border-t-0 border-b-4 border-dotted text-rose">
+    <hr class="w-20 m-auto mb-6 border-t-8 border-dotted border-circles-rose text-rose">
 
     <section class="px-5">
       <?php foreach ($category_options as $category => $category_name) : ?>
@@ -34,13 +34,7 @@
           <?php if ($category_recipes->isEmpty()) : ?>
             <p class="mb-6 text-center">Keine Rezepte in der Kategorie <?= $category_name ?>.</p>
           <?php else : ?>
-            <ul class="flex flex-col items-center">
-              <?php foreach ($category_recipes as $recipe) : ?>
-                <li class="w-full mb-8">
-                  <?= snippet('recipe-card', ['recipe' => $recipe]) ?>
-                </li>
-              <?php endforeach; ?>
-            </ul>
+            <?= snippet('recipe-list', ['recipes' => $category_recipes]) ?>
           <?php endif; ?>
         <?php endif; ?>
       <?php endforeach; ?>

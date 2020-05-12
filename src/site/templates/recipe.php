@@ -137,7 +137,7 @@
       <?php endif; ?>
 
       <footer class="fixed bottom-0 left-0 w-full px-5 mb-4">
-        <div class="flex justify-between px-8 py-2 bg-white shadow rounded-card">
+        <div class="container flex justify-between px-8 py-2 bg-white shadow rounded-card md:justify-around">
           <a href="#ingredients" class="text-rose">
             <?= svg('/assets/icons/ingredients.svg') ?>
           </a>
