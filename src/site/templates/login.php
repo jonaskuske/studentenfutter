@@ -17,13 +17,13 @@
       <form method="post" action="<?= $page->url() ?>" class="flex flex-col items-center text-rose">
         <input type="text" name="return_to" id="return_to" value="<?= get('return_to') ?>" hidden>
 
-        <div class="flex items-center w-full mx-auto mb-8 border-b-2 border-dotted max-w-form border-rose">
+        <div class="flex items-center w-full mx-auto mb-8 border-dotted border-b-6 border-circles-rose max-w-form border-rose">
           <span class="w-8 transform -translate-y-1">
             <?= svg('/assets/icons/input_email.svg') ?>
           </span>
           <input value="<?= esc(get('email')) ?>" class="mb-1 placeholder-rose" type="email" id="email" name="email" placeholder="Mail-Adresse">
         </div>
-        <div class="flex items-center w-full mx-auto mb-12 border-b-2 border-dotted max-w-form border-rose">
+        <div class="flex items-center w-full mx-auto mb-12 border-dotted border-b-6 border-circles-rose max-w-form border-rose">
           <span class="w-8 ">
             <?= svg('/assets/icons/input_password.svg') ?>
           </span>

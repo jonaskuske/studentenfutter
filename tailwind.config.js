@@ -10,6 +10,7 @@ module.exports = {
   purge: ['**/*.html', '**/*.php', '**/*.svg'],
   theme: {
     extend: {
+      borderWidth: { 6: '6px' },
       boxShadow: {
         default: '0px 2px 10px rgba(117, 117, 117, 0.12)',
         sm: '0px 2px 10px rgba(117, 117, 117, 0.12);',

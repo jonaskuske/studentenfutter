@@ -20,7 +20,7 @@
       </label>
     </form>
 
-    <hr class="w-20 m-auto mb-6 border-t-8 border-dotted border-circles-rose text-rose">
+    <hr class="w-24 m-auto mb-6 border-dotted border-t-6 border-circles-rose text-rose">
 
     <section class="px-5">
       <?php foreach ($category_options as $category => $category_name) : ?>
