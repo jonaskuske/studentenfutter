@@ -18,7 +18,9 @@ module.exports = {
       inset: { '1/2': '50%' },
       maxHeight: { '0': 0, '300': '300px' },
       maxWidth: { form: '271px' },
+      scale: { 60: '0.6' },
       spacing: { '1.5': '0.357rem' },
+      transitionDelay: { 0: '0ms' },
       transitionDuration: { 0: '0ms' },
       zIndex: { '-1': '-1' },
     },
@@ -76,6 +78,9 @@ module.exports = {
   },
   variants: {
     margin: ['first', 'responsive'],
+    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
+    scale: ['responsive', 'hover', 'focus', 'group-hover'],
+    transitionDelay: ['responsive', 'group-hover'],
   },
   corePlugins: {
     container: false,

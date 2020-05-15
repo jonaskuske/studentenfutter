@@ -137,15 +137,28 @@
       <?php endif; ?>
 
       <footer class="fixed bottom-0 left-0 w-full px-5 mb-4">
+        <?php
+        $classes_icon = 'inline-block transition-transform duration-200 ease-in-out delay-75 origin-top transform md:group-hover:scale-60 group-hover:delay-0';
+        $classes_text = 'absolute bottom-0 text-xs leading-tight text-black whitespace-no-wrap transition-opacity duration-200 ease-in-out transform translate-x-1/2 opacity-0 right-1/2 md:group-hover:opacity-100 group-hover:delay-150 pt-6 translate-y-px';
+        ?>
         <div class="container flex justify-between px-8 py-2 bg-white shadow rounded-card md:justify-around">
-          <a href="#ingredients" class="text-rose">
-            <?= svg('/assets/icons/ingredients.svg') ?>
+          <a href="#ingredients" class="relative text-rose group">
+            <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/ingredients.svg') ?></span>
+            <span class="<?= $classes_text ?>">
+              Zutaten
+            </span>
           </a>
-          <a href="#preparation" class="text-yellow">
-            <?= svg('/assets/icons/preparation.svg') ?>
+          <a href="#preparation" class="relative text-yellow group">
+            <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/preparation.svg') ?></span>
+            <span class="<?= $classes_text ?>">
+              Zubereitung
+            </span>
           </a>
-          <a href="#info" class="text-blue">
-            <?= svg('/assets/icons/info.svg') ?>
+          <a href="#info" class="relative text-blue group">
+            <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/info.svg') ?></span>
+            <span class="<?= $classes_text ?>">
+              Info, Tipps & Tricks
+            </span>
           </a>
         </div>
       </footer>
