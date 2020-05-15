@@ -55,7 +55,7 @@ exports.borderCircles = plugin(function ({ addUtilities, theme }) {
         {
           borderImageSlice: '33.333% 33.333%',
           borderImageRepeat: 'round',
-          borderImageSource: `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25" version="1.1" fill="${color}"><circle cx="2.5" cy="2.5" r="2.5"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(0,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(0,10)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(10,0)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(10,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,0)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,10)"/></svg>')`.replace(
+          borderImageSource: `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 25 25" version="1.1" fill="${color}"><circle cx="2.5" cy="2.5" r="2.5"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(0,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(0,10)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(10,0)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(10,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,0)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,10)"/></svg>')`.replace(
             /#/g,
             '%23',
           ),
