@@ -14,7 +14,7 @@ return function ($kirby) {
     if ($user = $kirby->user(get('email'))) {
 
       try {
-        $user->login(get('password'));
+        $user->login(get('password'), ['long' => true]);
 
         go(get('return_to') ? Html::decode(get('return_to')) : '/');
       } catch (Exception $e) {
