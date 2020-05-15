@@ -138,8 +138,14 @@
 
       <footer class="fixed bottom-0 left-0 w-full px-5 mb-4">
         <?php
-        $classes_icon = 'inline-block transition-transform duration-200 ease-in-out delay-75 origin-top transform md:group-hover:scale-60 group-hover:delay-0';
-        $classes_text = 'absolute bottom-0 text-xs leading-tight text-black whitespace-no-wrap transition-opacity duration-200 ease-in-out transform translate-x-1/2 opacity-0 right-1/2 md:group-hover:opacity-100 group-hover:delay-150 pt-6 translate-y-px';
+        // On hover: scale icon down and move it to top to make room for text below.
+        $classes_icon = 'inline-block transform origin-top transition-transform duration-200 ease-in-out delay-75 md:group-hover:scale-60 group-hover:delay-0';
+        // Text centered and absolutely positioned at the bottom, min-width + padding-top
+        // so there's always a large enough click/hover target.
+        $text_base = 'absolute min-w-32 pt-6 bottom-0 right-1/2 transform translate-x-1/2 translate-y-px text-black text-center text-xs leading-tight whitespace-no-wrap';
+        // On hover: make text visible, delay so icon has time to move out of the way.
+        $text_transition = 'transition-opacity duration-200 ease-in-out opacity-0 md:group-hover:opacity-100 group-hover:delay-150';
+        $classes_text = $text_base . ' ' . $text_transition;
         ?>
         <div class="container flex justify-between px-8 py-2 bg-white shadow rounded-card md:justify-around">
           <a href="#ingredients" class="relative text-rose group">
