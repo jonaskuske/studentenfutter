@@ -18,6 +18,7 @@ module.exports = {
       inset: { '1/2': '50%' },
       maxHeight: { '0': 0, '300': '300px' },
       maxWidth: { form: '271px' },
+      minWidth: { 32: '8rem' },
       scale: { 60: '0.6' },
       spacing: { '1.5': '0.357rem' },
       transitionDelay: { 0: '0ms' },

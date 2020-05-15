@@ -136,7 +136,7 @@
         </div>
       <?php endif; ?>
 
-      <footer class="fixed bottom-0 left-0 w-full px-5 mb-4">
+      <footer class="fixed bottom-0 right-0 w-full px-5 mb-4" style="margin-left:calc(100vw - 100%)">
         <?php
         // On hover: scale icon down and move it to top to make room for text below.
         $classes_icon = 'inline-block transform origin-top transition-transform duration-200 ease-in-out delay-75 md:group-hover:scale-60 group-hover:delay-0';

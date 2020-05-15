@@ -11,6 +11,8 @@ body {
   @apply flex-col;
   @apply min-h-full;
   @apply font-sans;
+  /* Padding with same width as the scrollbar, prevents content shift if scrollbar disappears */
+  padding-left: calc(100vw - 100%);
 }
 
 main {
@@ -102,34 +104,45 @@ input[type='search']::-webkit-search-results-decoration {
   @apply pointer-events-auto;
 }
 
+.has-scrollbar[class*='scrollbar-'],
 .has-scrollbar [class*='scrollbar-'] {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+.has-scrollbar[class*='scrollbar-']::-webkit-scrollbar,
 .has-scrollbar [class*='scrollbar-']::-webkit-scrollbar {
   background: transparent;
   width: 5px;
   height: 5px;
 }
+.has-scrollbar[class*='scrollbar-']::-webkit-scrollbar-thumb,
 .has-scrollbar [class*='scrollbar-']::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
 }
 
+.has-scrollbar.scrollbar-lightgray::-webkit-scrollbar-thumb,
+.has-scrollbar.hover\:scrollbar-lightgray:hover::-webkit-scrollbar-thumb,
 .has-scrollbar .scrollbar-lightgray::-webkit-scrollbar-thumb,
 .has-scrollbar .hover\:scrollbar-lightgray:hover::-webkit-scrollbar-thumb {
   @apply bg-lightgray;
 }
 
+.has-scrollbar.scrollbar-transparent::-webkit-scrollbar-thumb,
+.has-scrollbar.hover\:scrollbar-transparent:hover::-webkit-scrollbar-thumb,
 .has-scrollbar .scrollbar-transparent::-webkit-scrollbar-thumb,
 .has-scrollbar .hover\:scrollbar-transparent:hover::-webkit-scrollbar-thumb {
   @apply bg-transparent;
 }
 
+.has-scrollbar.scrollbar-lightgray,
+.has-scrollbar.hover\:scrollbar-lightgray:hover,
 .has-scrollbar .scrollbar-lightgray,
 .has-scrollbar .hover\:scrollbar-lightgray:hover {
   scrollbar-width: thin;
   scrollbar-color: theme('colors.lightgray') transparent;
 }
 
+.has-scrollbar.scrollbar-transparent,
+.has-scrollbar.hover\:scrollbar-transparent:hover,
 .has-scrollbar .scrollbar-transparent,
 .has-scrollbar .hover\:scrollbar-transparent:hover {
   scrollbar-width: thin;

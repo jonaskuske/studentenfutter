@@ -1,8 +1,13 @@
 <!-- has to run sync but requires <body>, so we run it here -->
 <?= js('assets/js/scrollbar.js') ?>
 
-<div class="pt-20">
-  <div x-data="{ open: false }" class="fixed top-0 left-0 z-20 w-full p-5 bg-white shadow rounded-b-card">
+<div
+  class="pt-20"
+  x-data="{ open: false }"
+  x-init="$watch('open', function(o) { document.body.classList.toggle('overflow-hidden', o) })"
+  @click.away="open = false"
+>
+  <div class="fixed top-0 left-0 right-0 z-20 p-5 bg-white shadow rounded-b-card" style="margin-left: calc(100vw - 100%);">
     <header class="container flex items-center justify-between">
       <button class="w-6 outline-none leading-zero focus:outline-none" @click="open = !open">
         <svg x-show="!open" width="25" height="19" viewBox="0 0 25 19" class="stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
