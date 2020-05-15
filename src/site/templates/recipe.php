@@ -8,7 +8,11 @@
   <main class="pt-6">
 
     <div class="flex items-center pl-5 pr-2 mb-6">
-      <a href="<?= $return_to ?>" class="flex items-center">
+      <a
+        href="<?= $return_to ?>"
+        class="flex items-center"
+        <?= e(get('return_to'), 'x-data @click.prevent="history.back()"') ?>
+      >
         <span class="mr-2 text-blue"><?= svg('/assets/icons/arrow_back.svg') ?></span>
         Zurück
       </a>
