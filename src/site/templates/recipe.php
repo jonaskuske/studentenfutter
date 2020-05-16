@@ -12,7 +12,7 @@ $back_url = r($last != Url::current(), $last);
 <body>
   <?= snippet('menu') ?>
 
-  <main class="pt-6">
+  <main class="pt-6 transition-opacity duration-100 ease-in">
 
     <div class="flex items-center pl-5 pr-2 mb-6">
       <a
@@ -21,7 +21,7 @@ $back_url = r($last != Url::current(), $last);
         <?= r($back_url, attr([
           'x-data' => '{ active: false }',
           'x-init' => 'history.state !== "start" && history.replaceState("start", document.title);',
-          '@click.prevent' => 'active = true; history.back();',
+          '@click.prevent' => 'active = true; document.querySelector("main").style.opacity = 0; history.back();',
           '@popstate.window' => 'if (active) { active = history.state !== "start"; history.back(); }'
         ])) ?>
       >
