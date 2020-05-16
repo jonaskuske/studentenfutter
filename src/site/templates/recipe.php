@@ -18,7 +18,12 @@ $back_url = r($last != Url::current(), $last);
       <a
         href="<?= $back_url ? $back_url : $site->find('recipes')->url() ?>"
         class="flex items-center"
-        <?= e($back_url, 'x-data @click.prevent="history.back()"') ?>
+        <?= r($back_url, attr([
+          'x-data' => '{ active: false }',
+          'x-init' => 'history.state !== "start" && history.replaceState("start", document.title);',
+          '@click.prevent' => 'active = true; history.back();',
+          '@popstate.window' => 'if (active) { active = history.state !== "start"; history.back(); }'
+        ])) ?>
       >
         <span class="mr-2 text-blue"><?= svg('/assets/icons/arrow_back.svg') ?></span>
         Zurück

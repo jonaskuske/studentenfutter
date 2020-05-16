@@ -1,5 +1,7 @@
 <?php
 
+use Kirby\Toolkit\A;
+
 return function ($site) {
     $category = get('category');
 
@@ -13,8 +15,6 @@ return function ($site) {
         ->blueprint()
         ->field('category')['options'];
 
-    $category_options = array_merge(['' => 'Alle Rezepte'], $category_options);
-
     if (!array_key_exists($category, $category_options)) {
         $category = '';
     }
@@ -23,6 +23,6 @@ return function ($site) {
         'recipes' => $recipes,
         'category_options' => $category_options,
         'selected_category' => $category,
-        'selected_category_name' => $category_options[$category],
+        'selected_category_name' => A::get($category_options, $category),
     ];
 };

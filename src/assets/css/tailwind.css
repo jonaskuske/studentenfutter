@@ -104,6 +104,21 @@ input[type='search']::-webkit-search-results-decoration {
   @apply pointer-events-auto;
 }
 
+@media (max-width: 916px) {
+  .scroll\:flex-grow-0 {
+    @apply flex-grow-0;
+  }
+  .scroll\:hidden {
+    @apply hidden;
+  }
+}
+
+@media (max-width: 1033px) {
+  .mx-scroll {
+    margin: 0 calc(-0.5 * calc(100vw - 100%));
+  }
+}
+
 .has-scrollbar[class*='scrollbar-'],
 .has-scrollbar [class*='scrollbar-'] {
   -ms-overflow-style: -ms-autohiding-scrollbar;
