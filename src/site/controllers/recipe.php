@@ -18,9 +18,6 @@ return function ($kirby, $page) {
       }
     }
 
-    $return_to = get('return_to');
-    $page_url = $page->url() . r($return_to, '?return_to=' . $return_to, '');
-
-    go($page_url);
+    go($page->url());
   }
 };

@@ -1,17 +1,24 @@
+<?php
+
+use Kirby\Cms\Url;
+
+$last = Url::last();
+$back_url = r($last != Url::current(), $last);
+
+?>
+
 <?= snippet('head') ?>
 
 <body>
   <?= snippet('menu') ?>
 
-  <?php $return_to = get('return_to') ?? $site->find('recipes')->url(); ?>
-
   <main class="pt-6">
 
     <div class="flex items-center pl-5 pr-2 mb-6">
       <a
-        href="<?= $return_to ?>"
+        href="<?= $back_url ? $back_url : $site->find('recipes')->url() ?>"
         class="flex items-center"
-        <?= e(get('return_to'), 'x-data @click.prevent="history.back()"') ?>
+        <?= e($back_url, 'x-data @click.prevent="history.back()"') ?>
       >
         <span class="mr-2 text-blue"><?= svg('/assets/icons/arrow_back.svg') ?></span>
         Zurück
@@ -20,7 +27,6 @@
         <?php $is_favorite = $user->favorites()->toPages()->has($page); ?>
 
         <form action="<?= $page->url() ?>" method="POST" class="ml-auto">
-          <input value="<?= esc(get('return_to')) ?>" hidden type="text" name="return_to" id="return_to">
           <input <?= e(!$is_favorite, 'checked') ?> hidden type="checkbox" name="favorite" id="favorite" value="true">
           <button type="submit" class="p-3">
             <span class="text-rose">

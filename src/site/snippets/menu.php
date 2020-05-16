@@ -1,5 +1,13 @@
-<!-- has to run sync but requires <body>, so we run it here -->
-<?= js('assets/js/scrollbar.js') ?>
+<?php
+
+use Kirby\Cms\Url;
+
+$home_url = $site->homePage()->url();
+
+// script has to run sync but requires <body>, so we insert it here
+echo js('assets/js/scrollbar.js');
+
+?>
 
 <div
   class="pt-20"
@@ -23,7 +31,11 @@
 
       <?php $tag = $page->isHomePage() ? 'h1' : 'p'; ?>
       <<?= $tag ?> class="text-xl italic font-bold lowercase leading-wide">
-        <a href="<?= $site->homePage()->url() ?>" class="highlight highlight-rose highlight-lg">
+        <a
+          href="<?= $home_url ?>"
+          class="highlight highlight-rose highlight-lg"
+          <?= e(Url::last() == ($home_url . '/'), 'x-data @click.prevent="history.back()"') ?>
+        >
           <?= $site->title() ?>
         </a>
       </<?= $tag ?>>

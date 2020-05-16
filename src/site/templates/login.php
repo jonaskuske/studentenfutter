@@ -15,7 +15,8 @@
 
 
       <form method="post" action="<?= $page->url() ?>" class="flex flex-col items-center text-rose">
-        <input type="text" name="return_to" id="return_to" value="<?= get('return_to') ?>" hidden>
+        <input value="<?= esc(get('r',''), 'attr') ?>" name="r" id="r" hidden>
+        <input value="<?= csrf() ?>" name="csrf_token" id="csrf_token" hidden>
 
         <div class="flex items-center w-full mx-auto mb-8 border-dotted border-b-8 border-circles-rose max-w-form border-rose">
           <span class="w-8 transform -translate-y-1">

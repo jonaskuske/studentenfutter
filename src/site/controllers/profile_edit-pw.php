@@ -1,8 +1,6 @@
 <?php
 
-use Kirby\Cms\Url;
-
-return function ($kirby) {
+return function ($kirby, $page) {
   $error = false;
 
   if ($user = $kirby->user()) {
@@ -23,7 +21,7 @@ return function ($kirby) {
       }
     }
   } else {
-    go('/login?return_to=' . Url::current());
+    go('/login?r=' . $page->url());
   }
 
   return ['error' => $error, 'user' => $user];

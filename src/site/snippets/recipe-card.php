@@ -1,15 +1,15 @@
 <?php
 
-use Kirby\Cms\Url;
-
 if (isset($recipe)) {
   $image = $image ?? $recipe->image();
   $title = $title ?? $recipe->title()->html();
-  $url = $url ?? $recipe->url() . '?return_to=' . Url::current();
+  $url = $url ?? $recipe->url();
 } else {
   $recipe = null;
   $image = isset($image) ? $image : null;
-} ?>
+}
+
+?>
 
 <div class="relative z-0 shadow rounded-card aspect-ratio-card">
   <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">

@@ -1,5 +1,5 @@
 <?php if (!$kirby->user()) {
-  go('/login?return_to=' . $page->url());
+  go('/login?r=' . $page->url());
 } ?>
 
 <?= snippet('head') ?>
