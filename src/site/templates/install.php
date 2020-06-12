@@ -49,7 +49,9 @@
         </div>
 
         <div class="text-xs leading-tight max-w-form md:text-base md:leading-normal md:max-w-md">
-          <p class="text-center" x-show="isStandalone"><?= $site->title()->html() ?> ist bereits installiert.</p>
+          <p class="text-center" x-show="isStandalone">
+            <?= $site->title()->html() ?> ist installiert. Schau bei deinen Apps nach!
+          </p>
 
           <div x-show="!isStandalone && (canPrompt || (isIOS && !isIOSChrome))" class="textfield flex flex-col">
             <?= $page->info()->kt() ?>
