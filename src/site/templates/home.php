@@ -2,6 +2,7 @@
 
 <body>
   <?= snippet('menu') ?>
+  <?= snippet('install-banner') ?>
 
   <main class="pt-6">
     <section class="mx-5 mb-6">

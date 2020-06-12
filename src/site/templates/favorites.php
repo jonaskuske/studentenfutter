@@ -3,6 +3,7 @@
 } ?>
 
 <?= snippet('head') ?>
+<?= snippet('install-banner') ?>
 
 <body>
   <?= snippet('menu') ?>

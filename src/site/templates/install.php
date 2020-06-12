@@ -33,6 +33,7 @@
 
   <main
     class="flex-grow px-5 pt-6"
+    x-cloak
     x-data="{
       canPrompt: Boolean(window.INSTALL_EVENT),
       isIOS: isIOS(),
@@ -48,8 +49,8 @@
       </h1>
 
       <div class="mx-auto max-w-form md:max-w-md">
-        <div class="max-w-xs mx-auto mb-8">
-          <?= svg('assets/images/app_install.svg') ?>
+        <div style="max-width: 14rem" class="text-rose mx-auto mb-8">
+          <?= svg('assets/icons/install.svg') ?>
         </div>
 
         <div class="text-xs leading-tight max-w-form md:text-base md:leading-normal md:max-w-md">

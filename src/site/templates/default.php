@@ -4,6 +4,7 @@
 
 <body class="<?= e(!$show_title, 'bg-fixed bg-angled-rose') ?>">
   <?= snippet('menu') ?>
+  <?= snippet('install-banner') ?>
 
 
   <main class="flex-grow px-5 py-6 bg-fixed">

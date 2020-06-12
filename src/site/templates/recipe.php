@@ -8,6 +8,7 @@ $back_url = r($last != Url::current(), $last);
 ?>
 
 <?= snippet('head') ?>
+<?= snippet('install-banner') ?>
 
 <body>
   <?= snippet('menu') ?>
