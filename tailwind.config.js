@@ -20,6 +20,9 @@ module.exports = {
       maxWidth: { form: '271px' },
       minWidth: { 32: '8rem' },
       scale: { 60: '0.6' },
+      screens: {
+        'can-hover': { raw: '(hover: hover)' },
+      },
       spacing: { '1.5': '0.357rem' },
       transitionDelay: { 0: '0ms' },
       transitionDuration: { 0: '0ms' },
