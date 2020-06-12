@@ -49,7 +49,7 @@
         </div>
 
         <div class="text-xs leading-tight max-w-form md:text-base md:leading-normal md:max-w-md">
-          <p x-show="isStandalone"><?= $site->title()->html() ?> ist bereits installiert.</p>
+          <p class="text-center" x-show="isStandalone"><?= $site->title()->html() ?> ist bereits installiert.</p>
 
           <div x-show="!isStandalone && (canPrompt || (isIOS && !isIOSChrome))" class="textfield flex flex-col">
             <?= $page->info()->kt() ?>
@@ -60,7 +60,7 @@
           </div>
 
 
-          <p x-show="!isStandalone && ((!canPrompt && !isIOS) || isIOSChrome)">
+          <p class="text-center" x-show="!isStandalone && ((!canPrompt && !isIOS) || isIOSChrome)">
             Öffne <a class="text-rose" href="<?= $site->homePage()->url() ?>"><?= $site->homePage()->url() ?></a> in
             <span x-show="isIOS">Safari</span><span x-show="!isIOS">Chrome</span>,
             um <?= $site->title() ?> installieren zu können.
