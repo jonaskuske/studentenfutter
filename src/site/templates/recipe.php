@@ -155,11 +155,7 @@ $back_url = r($last != Url::current(), $last);
         class="flex justify-center mb-10"
         x-data="{
           canShare: 'share' in navigator,
-          shareData: {
-            title: '<?= esc($page->title(), 'js') ?>',
-            text: '<?= esc($page->title(), 'js') ?> von studentenfutter.app',
-            url: '<?= esc($page->url(), 'js') ?>'
-          }
+          shareData: { title: '<?= esc($page->title(), 'js') ?>', url: '<?= esc($page->url(), 'js') ?>' }
         }"
         x-show="canShare"
       >
