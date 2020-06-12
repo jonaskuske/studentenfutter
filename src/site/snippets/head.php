@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="de" class="h-full font-sans antialiased leading-normal scroll-smooth scroll-pt-20 scrollbar-lightgray">
 
-<head>
+<head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -70,9 +70,9 @@
     property="og:description"
     content="Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei."
   />
-  <meta property="og:image" content="assets/meta/sharing-image.png" />
-  <meta property="og:image:width" content="2000" />
-  <meta property="og:image:height" content="1050" />
+  <meta property="og:image" content="<?= asset('assets/meta/sharing-image.png')->url() ?>" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <meta property="og:url" content="https://studentenfutter.app" />
   <meta property="og:title" content="studentenfutter" />

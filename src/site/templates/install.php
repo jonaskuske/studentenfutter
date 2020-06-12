@@ -20,7 +20,11 @@
       delay: 0,
       timesToShow: 9999999,
       permanentlyHideOnDismiss: false,
-      // hier kann noch "copyTitle" etc. festgelegt werden
+      copyTitle: "Zum Home-Bildschirm hinzufügen",
+      copyBody: "Damit du die volle App-Experience bekommst, füge diese App zu deinem Home-Bildschirm hinzu.",
+      copyShareButtonLabel: "1. Drücke den Teilen-Button in der Menüleiste.",
+      copyAddHomeButtonLabel: "2. Scrolle kurz, drücke auf 'Zum Home-Bildschirm' und anschließend auf 'Hinzufügen'.",
+      copyClosePrompt: "Schließen"
     }
 
     var Prompt = React.createElement(window['react-ios-pwa-prompt'].default, iOSPromptOptions)
@@ -68,7 +72,9 @@
 
 
           <p class="text-center" x-show="!isStandalone && ((!canPrompt && !isIOS) || isIOSChrome)">
-            Öffne <a class="text-rose" href="<?= $site->homePage()->url() ?>"><?= $site->homePage()->url() ?></a> in
+            Öffne <a class="text-rose" href="<?= $site
+              ->homePage()
+              ->url() ?>"><?= $site->homePage()->url() ?></a> in
             <span x-show="isIOS">Safari</span><span x-show="!isIOS">Chrome</span>,
             um <?= $site->title() ?> installieren zu können.
           </p>
