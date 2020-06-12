@@ -7,7 +7,7 @@ $back_url = r($last != Url::current(), $last);
 
 ?>
 
-<?= snippet('head', ['page_description' => $page->info()->kt()->inline()]) ?>
+<?= snippet('head', ['page_description' => $page->info()->excerpt(160)]) ?>
 <?= snippet('install-banner') ?>
 
 <body>

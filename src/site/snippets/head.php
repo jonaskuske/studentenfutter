@@ -1,17 +1,22 @@
 <!doctype html>
 <html lang="de" class="h-full font-sans antialiased leading-normal scroll-smooth scroll-pt-20 scrollbar-lightgray">
 
+<?php
+  $site_title = $site->title();
+  $page_title = isset($page_title) ? $page_title : $page->title();
+  $title = r($page->isHomePage(), $site_title, "{$page_title} | {$site_title}");
+
+  $description = isset($page_description) ? $page_description : 'Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei.';
+
+  $has_recipe_image = $page->template() == 'recipe' && $page->hasImages();
+  $img = $has_recipe_image ? $page->image()->crop(1200, 630)->url() : asset('assets/meta/sharing-image.png')->url();
+ ?>
+
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <title>
-    <?php
-      $page_title = isset($page_title) ? $page_title : $page->title();
-      $full_title = r($page->isHomePage(), $site->title(), "{$page_title} | {$site->title()}");
-    ?>
-    <?= $full_title ?>
-  </title>
+  <title><?= $title ?></title>
 
   <?= css([
     'assets/css/fonts.css',
@@ -55,25 +60,16 @@
   <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="assets/meta/apple-launch-1536x2048.png">
 
   <!-- Sharing Info -->
-<?php
-$desc = isset($page_description) ? $page_description : 'Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei.';
-?>
-  <meta
-    name="description"
-    content="<?= $desc ?>"
-  />
+  <meta name="description" content="<?= $description ?>" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:type" content="website" />
-  <meta
-    property="og:description"
-    content="<?= $desc ?>"
-  />
-  <meta property="og:image" content="<?= asset('assets/meta/sharing-image.png')->url() ?>" />
+  <meta property="og:description" content="<?= $description ?>" />
+  <meta property="og:image" content="<?= $img ?>" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <meta property="og:url" content="<?= $page->url() ?>" />
-  <meta property="og:title" content="<?= $full_title ?>" />
+  <meta property="og:title" content="<?= $title ?>" />
 
   <link rel="canonical" href="<?= $page->url() ?>" />
 
