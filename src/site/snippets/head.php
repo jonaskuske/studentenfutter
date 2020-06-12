@@ -17,11 +17,19 @@
   ]) ?>
 
   <link rel="manifest" href="<?= asset('assets/meta/site.webmanifest')->url() ?>" />
-  <link rel="apple-touch-icon" sizes="180x180" href="<?= asset('assets/meta/apple-touch-icon.png')->url() ?>">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/meta/favicon-32x32.png')->url() ?>">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?= asset('assets/meta/favicon-16x16.png')->url() ?>">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= asset(
+    'assets/meta/apple-touch-icon.png',
+  )->url() ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= asset(
+    'assets/meta/favicon-32x32.png',
+  )->url() ?>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= asset(
+    'assets/meta/favicon-16x16.png',
+  )->url() ?>">
   <link rel="manifest" href="<?= asset('assets/meta/site.webmanifest')->url() ?>">
-  <link rel="mask-icon" href="<?= asset('assets/meta/safari-pinned-tab.svg')->url() ?>" color="#f28b85">
+  <link rel="mask-icon" href="<?= asset(
+    'assets/meta/safari-pinned-tab.svg',
+  )->url() ?>" color="#f28b85">
   <link rel="shortcut icon" href="<?= asset('assets/meta/favicon.ico')->url() ?>">
   <meta name="apple-mobile-web-app-title" content="studentenfutter">
   <meta name="application-name" content="studentenfutter">
@@ -50,6 +58,26 @@
   <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="assets/meta/apple-launch-1668x2224.png">
   <!-- iPad Mini, Air (1536px x 2048px) -->
   <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="assets/meta/apple-launch-1536x2048.png">
+
+  <!-- Sharing Info -->
+  <meta
+    name="description"
+    content="Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei. "
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:description"
+    content="Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei."
+  />
+  <meta property="og:image" content="assets/meta/sharing-image.png" />
+  <meta property="og:image:width" content="2000" />
+  <meta property="og:image:height" content="1050" />
+
+  <meta property="og:url" content="https://studentenfutter.app" />
+  <meta property="og:title" content="studentenfutter" />
+
+  <link rel="canonical" href="https://studentenfutter.app" />
 
   <?= js(['assets/js/polyfills.js', 'assets/js/utils.js', '@auto'], ['defer' => true]) ?>
 
