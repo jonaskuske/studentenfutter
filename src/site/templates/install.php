@@ -16,6 +16,7 @@
     var iOSPromptOptions = {
       delay: 0,
       timesToShow: 9999999,
+      permanentlyHideOnDismiss: false,
       // hier kann noch "copyTitle" etc. festgelegt werden
     }
 
