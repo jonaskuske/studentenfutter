@@ -43,6 +43,10 @@ input[type='search']::-webkit-search-results-decoration {
 
 @tailwind components;
 
+.textfield p ~ p {
+  margin-top: 1em;
+}
+
 .list-dot::before {
   content: '';
   @apply flex-shrink-0;
