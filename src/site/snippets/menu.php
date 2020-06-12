@@ -71,7 +71,7 @@ echo js('assets/js/scrollbar.js');
                 isIOSChrome: isIOSChrome(),
                 isStandalone: isStandalone(),
               }"
-              x-show="!isStandalone && canPrompt || (isIOS && !isIOSChrome)"
+              x-show="!isStandalone && (canPrompt || (isIOS && !isIOSChrome))"
               @appinstalled.window="isStandalone = true"
               @beforeinstallprompt.window="canPrompt = true"
               class="mb-5 italic font-bold leading-relaxed text-md"
