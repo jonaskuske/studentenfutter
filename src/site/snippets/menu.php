@@ -81,7 +81,7 @@ echo js('assets/js/scrollbar.js');
               </a>
             </li>
 
-            <li class="mb-2 text-xs leading-tight text-right">
+            <li class="mt-3 mb-2 text-xs leading-tight text-right">
               <?php if ($kirby->user()) : ?>
                 <a href="<?= $site->find('profile')->url() ?>">
                   <?= $site->find('profile')->title()->html() ?>

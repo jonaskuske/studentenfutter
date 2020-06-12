@@ -14,6 +14,9 @@
 
   <script>
     var iOSPromptOptions = {
+      onClose: function() {
+        ReactDOM.unmountComponentAtNode(document.getElementById('ios-prompt'))
+      },
       delay: 0,
       timesToShow: 9999999,
       permanentlyHideOnDismiss: false,
