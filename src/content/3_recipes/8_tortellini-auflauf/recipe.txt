@@ -1,0 +1,69 @@
+Title: Tortellini-Auflauf
+
+----
+
+Ingredients:
+
+- 
+  textarea: '750g frische Tortellini *– am besten mit Käse-Füllung*'
+- 
+  textarea: 300g passierte Tomaten
+- 
+  textarea: 2 Mozzarella
+- 
+  textarea: Paprikapulver
+- 
+  textarea: 'Salz & Pfeffer'
+
+----
+
+Preparation:
+
+- 
+  textarea: 'Den Ofen auf 200° bei Ober- und Unterhitze vorheizen'
+- 
+  textarea: >
+    Die Tortellini in einer großen
+    Schüssel mit den passierten Tomaten
+    vermischen
+- 
+  textarea: 'Die Mischung mit Paprikapulver, Salz & Pfeffer mischen'
+- 
+  textarea: Alles in eine Auflaufform geben
+- 
+  textarea: >
+    Den Mozzarella in Scheiben schneiden und
+    flächendeckend auf den Tortellini
+    verteilen
+- 
+  textarea: >
+    Den Auflauf ca. 25 Minuten backen, bis
+    der Käse braun wird
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept & Fotos von Rieke
+
+----
+
+Faqs:
+
+- 
+  question: Warum kochst du das Rezept gerne?
+  answer: >
+    „Es ist so ziemlich das am wenigsten
+    aufwendigste Gericht, was ich kenne.
+    Außerdem schmeckt es sehr lecker und
+    macht satt.“
+
+----
+
+Tips: 
+
+----
+
+Tags: tomaten, soße, sauce, gratin, vegetarisch, käse, pasta, nudeln

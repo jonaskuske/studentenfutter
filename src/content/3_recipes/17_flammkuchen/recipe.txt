@@ -1,0 +1,85 @@
+Title: Flammkuchen
+
+----
+
+Ingredients:
+
+- 
+  textarea: 220 g Mehl
+- 
+  textarea: 3 EL Olivenöl
+- 
+  textarea: 1 Eigelb
+- 
+  textarea: 1/2 TL Salz
+- 
+  textarea: 100 ml warmes Wasser
+- 
+  textarea: 200 g Schinkenwürfel
+- 
+  textarea: 1 halbe Zwiebel
+- 
+  textarea: 1 Becher Schmand (200 g)
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Das Mehl mit 2 EL Olivenöl, Eigelb,
+    Salz und Wasser zu einem glatten Teig
+    verkneten
+- 
+  textarea: >
+    Die Teigkugel mit dem restlichen Öl
+    bestreichen, in Folie wickeln und bei
+    Zimmertemperatur ca. 30 Minuten ruhen
+    lassen
+- 
+  textarea: >
+    Den Backofen bei Umluft auf ca 220°
+    vorheizen
+- 
+  textarea: 'Den Teig auf Backpapier ausrollen *– am besten zu zweit*'
+- 
+  textarea: 'Den Schmand aufstreichen *– je nach Geschmack reicht auch ein halber Becher*'
+- 
+  textarea: >
+    Die Zwiebel in Streifen schneiden und
+    mit den Schinkenwürfeln auf dem
+    Flammkuchen verstreuen
+- 
+  textarea: >
+    Den Flammkuchen ca. 8 Minuten backen bis
+    er braun wird
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept & Fotos von Dana
+
+----
+
+Faqs: 
+
+----
+
+Tips:
+
+- 
+  textarea: Der Teig reicht für einen Flammkuchen.
+- 
+  textarea: >
+    Im Rezept wird der Standard-Belag, also
+    Zwiebeln und Schinkenwürfel, verwendet.
+    Es kann aber prinzipiell alles als Belag
+    verwendet werden. Einfach ausprobieren,
+    was am besten schmeckt.
+
+----
+
+Tags: schinken, Ofen, Zwiebel, teig, backen

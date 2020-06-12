@@ -1,0 +1,93 @@
+Title: Kichererbsen-Curry mit Spätzle
+
+----
+
+Ingredients:
+
+- 
+  textarea: 400 g frische Spätzle
+- 
+  textarea: 1 kleine Zwiebel
+- 
+  textarea: 1 Dose Kichererbsen (450 g)
+- 
+  textarea: 200–300 g Sahne
+- 
+  textarea: 2 gehäufte TL Curry-Pulver
+- 
+  textarea: 1/2 TL Paprika-Pulver
+- 
+  textarea: 'Salz & Pfeffer'
+- 
+  textarea: Öl zum Anbraten
+- 
+  textarea: '*Bei Bedarf: Mehl oder Speisestärke zum Andicken*'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Die Zwiebel würfeln und mit einem
+    Schuss Öl in einem Topf ca. 2 Minuten
+    lang andünsten
+- 
+  textarea: 'Die Kichererbsen hinzugeben und bei geschlossenem Deckel auf mittlerer Hitze ebenfalls andünsten *– ab und zu umrühren damit nichts anbrennt*'
+- 
+  textarea: >
+    Wenn sich die Schale der Kichererbsen zu
+    lösen beginnt, die Sahne hinzugeben und
+    die Soße kurz aufkochen lassen
+- 
+  textarea: >
+    Nebenbei die Spätzle in einer Pfanne
+    oder einem Wok anbraten oder alternativ
+    in einem Topf mit Wasser kochen
+- 
+  textarea: >
+    Wenn die Soße kocht, nach Geschmack mit
+    Mehl oder Speisestärke andicken
+- 
+  textarea: 'Paprika- und Currypulver hinzugeben, mit Salz & Pfeffer würzen und gut umrühren'
+- 
+  textarea: >
+    Die Soße auf niedriger Hitze köcheln
+    lassen, bis die Gewürze gut aufgenommen
+    wurden
+- 
+  textarea: 'Mit Salz & Pfeffer abschmecken'
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept & Fotos von Rieke
+
+----
+
+Faqs:
+
+- 
+  question: Wo hast du das Rezept her?
+  answer: >
+    „Das Rezept basiert auf einem Rezept,
+    das ich in einem Kochbuch entdeckt habe.
+    Ich habe es aber so stark abgewandelt,
+    dass außer den Kichererbsen nichts mehr
+    vom Original-Rezept übrig ist.“
+
+----
+
+Tips:
+
+- 
+  textarea: >
+    Anstelle von Spätzle schmecken auch
+    Schupfnudeln oder Reis sehr gut dazu.
+
+----
+
+Tags: sahne, curry, schupfnudeln, reis

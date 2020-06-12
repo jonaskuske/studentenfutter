@@ -1,0 +1,47 @@
+Title: PICK UP! did nothing wrong
+
+----
+
+Ingredients:
+
+- 
+  textarea: 1 PICK UP!-Riegel
+- 
+  textarea: '1 Packung Porridge *– am besten "Classic"*'
+- 
+  textarea: kochendes Wasser
+
+----
+
+Preparation:
+
+- 
+  textarea: Den Porridge in eine Schüssel geben
+- 
+  textarea: Ein wenig kochendes Wasser hinzugeben
+- 
+  textarea: Abkühlen lassen
+- 
+  textarea: >
+    Den PICK UP!-Riegel zerkrümeln und
+    über de Porridge streuen
+
+----
+
+Category: quicky
+
+----
+
+Info: Rezept von Rid. Er studiert Philosophie in Bremen
+
+----
+
+Faqs: 
+
+----
+
+Tips: 
+
+----
+
+Tags: frühstück, vegetarisch, Snack, porridge

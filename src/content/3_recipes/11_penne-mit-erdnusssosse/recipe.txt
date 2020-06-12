@@ -1,0 +1,76 @@
+Title: Penne mit Erdnusssoße
+
+----
+
+Ingredients:
+
+- 
+  textarea: Penne
+- 
+  textarea: 4–5 EL Erdnussbutter
+- 
+  textarea: 1 Dose Kokosmilch
+- 
+  textarea: 1 Zwiebel
+- 
+  textarea: 'Ingwer* – Menge je nach Geschmack wählen*'
+- 
+  textarea: 1–2 Knoblauchzehen
+- 
+  textarea: Mehrere Handvoll frischer Spinat
+
+----
+
+Preparation:
+
+- 
+  textarea: Die Nudeln in gesalzenem Wasser kochen
+- 
+  textarea: >
+    Die Zwiebel, den Ingwer und die
+    Knoblauchzehen klein schneiden
+- 
+  textarea: Zwiebeln anbraten
+- 
+  textarea: >
+    Wenn die Zwiebeln glasig sind, die
+    Kokosmilch und die Erdnussbutter in die
+    Pfanne geben
+- 
+  textarea: >
+    Anschließend den Ingwer und den
+    Knoblauch hinzufügen
+- 
+  textarea: >
+    Alles gut umrühren bis sich die
+    Erdnussbutter mit der Kokosmilch zu
+    einer tollen Soße verbunden hat
+- 
+  textarea: Den Spinat hinzu geben
+- 
+  textarea: >
+    Wenn die Nudeln fertig sind,
+    abschütten, zur Soße geben und
+    umrühren
+- 
+  textarea: Mit Salz oder Sojasoße würzen
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept von Feli
+
+----
+
+Faqs: 
+
+----
+
+Tips: 
+
+----
+
+Tags: nudeln, pasta, erdnuss, spinat, kokosmilch

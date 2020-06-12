@@ -1,0 +1,91 @@
+Title: Erdnuss-Bananen-Curry
+
+----
+
+Ingredients:
+
+- 
+  textarea: 1 Tasse Reis
+- 
+  textarea: 1 Paprika
+- 
+  textarea: 1 Zucchino
+- 
+  textarea: 1 Karotte
+- 
+  textarea: 2 Zwiebeln
+- 
+  textarea: 3 Knoblauchzehen
+- 
+  textarea: 1 Dose Kichererbsen
+- 
+  textarea: 1 Dose Kokosmilch
+- 
+  textarea: 1 TL Gemüsebrühpulver
+- 
+  textarea: ca. 2 TL Currypulver
+- 
+  textarea: 1–2 Schuss Zitronensaft
+- 
+  textarea: 1 EL Erdnussmus
+- 
+  textarea: Öl zum Anbraten
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Den Reis kochen und nebenbei das Gemüse
+    sowie die Banane klein schneiden
+- 
+  textarea: >
+    Die Zwiebeln in einen Topf oder eine
+    Pfanne geben und anbraten
+- 
+  textarea: >
+    Sind die Zwiebeln glasig, das restliche
+    Gemüse, die Kichererbsen und das
+    Gemüsebrühpulver dazu geben
+- 
+  textarea: >
+    Ist das Gemüse fast fertig, kommt die
+    Banane dazu, zuletzt noch der Knoblauch
+- 
+  textarea: >
+    Alles mit Sojasoße ablöschen und die
+    Kokosmilch dazu geben
+- 
+  textarea: 'Sobald sich die Kokosmilch gelöst hat, das Currypulver und den Zitronensaft dazu geben *– mit der Zitrone nicht geizen*'
+- 
+  textarea: >
+    Zum Schluss noch einen Esslöffel
+    Erdnussmus dazu geben und alles gut
+    verrühren
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept von Maike
+
+----
+
+Faqs: 
+
+----
+
+Tips:
+
+- 
+  textarea: |
+    Anstelle des Erdnussmus kann auch
+    cremige Erdnussbutter verwendet
+    werden.
+
+----
+
+Tags: paprika, reis, zucchini, gemüse, Möhren, karotten, kichererbsen, kokosmilch, gewürze, zitrone

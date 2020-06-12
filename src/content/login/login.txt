@@ -1,3 +1,9 @@
 Title: Login
+
 ----
-Info: Um Funktionen wie das Speichern von Favoriten zu nutzen, musst du dich einloggen. Wenn du noch keinen Account hast, kannst du dir mit Klick auf den Button “Registrieren” einfach einen Account erstellen.
+
+Info:
+
+Um Funktionen wie das Speichern von Favoriten zu nutzen, musst du dich einloggen. Wenn du noch keinen Account hast, kannst du dir mit Klick auf den Button “Registrieren” einfach einen Account erstellen.
+
+*Für die Verwendung der Login-Funktion wird ein "Session-Cookie" gesetzt, der 2 Wochen gespeichert bleibt.*

@@ -1,0 +1,93 @@
+Title: Linsensuppe
+
+----
+
+Ingredients:
+
+- 
+  textarea: 250 g rote Linsen
+- 
+  textarea: 1 halbe Stange Lauch
+- 
+  textarea: 3 Karotten
+- 
+  textarea: 1 Zwiebel
+- 
+  textarea: 1 TL Gemüsebrühpulver
+- 
+  textarea: 1–2 Zitronen
+- 
+  textarea: 1 Orange
+- 
+  textarea: Kurkuma
+- 
+  textarea: 'Salz & Pfeffer'
+- 
+  textarea: Olivenöl zum Anbraten
+- 
+  textarea: '*Optional: Glatte Petersilie und Joghurt als Topping*'
+
+----
+
+Preparation:
+
+- 
+  textarea: Zwiebeln und Karotten klein schneiden
+- 
+  textarea: Lauch in Ringe schneiden
+- 
+  textarea: Als Erstes die Zwiebel in Öl andünsten
+- 
+  textarea: >
+    Danach den Lauch und die Karotten
+    dazugeben und 5–10 Minuten anbraten
+- 
+  textarea: >
+    Anschließend die Linsen dazugeben und
+    ebenfalls kurz mit anbraten
+- 
+  textarea: >
+    Das Gemüse und die Linsen mit heißem
+    Wasser ablöschen und das
+    Gemüsebrühpulver dazugeben
+- 
+  textarea: >
+    Die Linsen 10–20 Minuten köcheln
+    lassen und immer wieder Wasser
+    nachgeben, falls es zu wenig ist
+- 
+  textarea: >
+    Wenn die Linsen schön weich sind, alles
+    pürieren
+- 
+  textarea: 'Am Schluss so viel gepressten Zitronen- und Orangensaft dazugeben, wie man mag'
+- 
+  textarea: 'Mit Kurkuma, Salz & Pfeffer abschmecken und nach Geschmack mit gehackter glatter Petersilie und Joghurt toppen'
+
+----
+
+Category: salad_soup
+
+----
+
+Info: Rezept von Isabel
+
+----
+
+Faqs:
+
+- 
+  question: Wo hast du das Rezept her?
+  answer: |
+    „Das war ein Tipp der Freundin meines
+    Mitbewohners. Ich habe es dann immer
+    weiter abgewandelt. Die Hauptsache
+    ist, dass Linsen und Zitrone drin sind.“
+
+----
+
+Tips: 
+
+----
+
+Tags: karotten, Möhren, Zitrone, Lauch, rote, linsen

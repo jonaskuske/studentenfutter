@@ -1,0 +1,86 @@
+Title: Kartoffel-Gemüse-Suppe
+
+----
+
+Ingredients:
+
+- 
+  textarea: 1/2 Netz Kartoffeln
+- 
+  textarea: 2–3 Möhren
+- 
+  textarea: 1 Zwiebel
+- 
+  textarea: 1–2 Knoblauchzehen
+- 
+  textarea: 1 Becher Sahne (200 g)
+- 
+  textarea: 200 g TK-Erbsen
+- 
+  textarea: 1 EL Gemüsebrühpulver
+- 
+  textarea: 'Salz & Pfeffer'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Die Kartoffeln schälen und klein
+    schneiden
+- 
+  textarea: 'Die Möhren klein schneiden und zusammen mit den Kartoffeln kochen *– Wichtig: Das Wasser zum Kochen sollte das Gemüse nur leicht bedecken*'
+- 
+  textarea: >
+    Sobald das Wasser kocht, das
+    Gemüsebrühpulver hinzugeben
+- 
+  textarea: >
+    Die Zwiebel klein schneiden und
+    andünsten, bis sie glasig wird
+- 
+  textarea: >
+    Für einen kurzen Moment (max. 1 Minute)
+    den Knoblauch zu den Zwiebeln geben
+- 
+  textarea: |
+    Wenn die Kartoffeln weich sind, die Zwiebeln, den Knoblauch und die Sahne dazu geben und alles
+    1–2 Minuten köcheln lassen
+- 
+  textarea: >
+    Den Topf vom Herd nehmen und die Suppe
+    gut pürieren
+- 
+  textarea: >
+    Wenn die Suppe cremig püriert ist,
+    wieder auf den Herd stellen und die
+    Erbsen dazu geben
+- 
+  textarea: >
+    Noch einmal 3–4 Minuten köcheln
+    lassen
+- 
+  textarea: >
+    Abschließend alles mit Salz, Pfeffer
+    und Gewürzen abschmecken
+
+----
+
+Category: salad_soup
+
+----
+
+Info: Rezept & Fotos von Jonas
+
+----
+
+Faqs: 
+
+----
+
+Tips: 
+
+----
+
+Tags: Erbsen, Möhren, sahne

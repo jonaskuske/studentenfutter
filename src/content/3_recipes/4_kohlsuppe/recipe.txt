@@ -69,3 +69,7 @@ Tips:
   textarea: >
     Die Suppe schmeckt besonders gut, wenn
     sie eine Nacht lang zieht.
+
+----
+
+Tags: Gemüse, vegetarisch

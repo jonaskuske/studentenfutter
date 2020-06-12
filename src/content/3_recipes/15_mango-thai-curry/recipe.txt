@@ -1,0 +1,100 @@
+Title: Mango-Thai-Curry
+
+----
+
+Ingredients:
+
+- 
+  textarea: |
+    Hühnerfleisch *– geht auch sehr
+    gut ohne Fleisch*
+- 
+  textarea: Basmatireis
+- 
+  textarea: 1 Zucchino
+- 
+  textarea: 1 Brokkoli
+- 
+  textarea: 1 Paprika
+- 
+  textarea: 1 Mango
+- 
+  textarea: 1–2 Knoblauchzehen
+- 
+  textarea: 1 Zwiebel
+- 
+  textarea: 1 Dose Kokosmilch
+- 
+  textarea: frischer Koriander
+- 
+  textarea: Salz, Pfeffer und Currypulver
+- 
+  textarea: Sojasoße
+- 
+  textarea: '99 %ige Zartbitter Schokolade'
+- 
+  textarea: Kokosfett
+- 
+  textarea: '*Optional: Süßkartoffeln, Karotten, Chili, Cashewkerne*'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Das Gemüse klein schneiden und die
+    Mango würfeln
+- 
+  textarea: >
+    Das Huhn klein schneiden und mit der
+    Zwiebel und dem Knoblauch in Kokosfett
+    zart anbraten
+- 
+  textarea: >
+    Das Fleisch aus der Pfanne nehmen und in
+    einer Schüssel aufheben, damit es
+    während der Zubereitung des Rests nicht
+    zäh wird
+- 
+  textarea: 'Den Basmatireis waschen und mit Salz kochen *– optional Sesam und Koriander hinzugeben*'
+- 
+  textarea: 'Das Gemüse anbraten *– mit oder ohne Chili oder Cashews*'
+- 
+  textarea: >
+    Alles mit Kokosmilch ablöschen und nach
+    Geschmack mit Curry, Kurkuma, frischem
+    Koriander, Chili, Salz, Pfeffer und
+    einem Esslöffel Sojasoße würzen
+- 
+  textarea: >
+    Zum Abrunden ein Stück Schokolade
+    dazugeben
+- 
+  textarea: 'Zum Schluss das Hähnchen und die Mangowürfel dazugeben *– erst jetzt, damit die Mango nicht zerfällt*'
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept von Nico
+
+----
+
+Faqs: 
+
+----
+
+Tips:
+
+- 
+  textarea: >
+    Die Kokosmilch kann auch in beliebigem
+    Verhältnis mit Kokos-Reis-Drink ersetzt
+    werden.
+
+----
+
+Tags: Gemüse, reis, Zucchini, broccoli, paprika, kokosmilch, gewürze

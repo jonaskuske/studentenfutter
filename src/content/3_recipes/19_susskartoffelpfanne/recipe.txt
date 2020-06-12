@@ -1,0 +1,73 @@
+Title: Süßkartoffelpfanne
+
+----
+
+Ingredients:
+
+- 
+  textarea: Süßkartoffeln
+- 
+  textarea: Kartoffeln
+- 
+  textarea: 1 Zwiebel
+- 
+  textarea: 1 Paprika
+- 
+  textarea: 1–2 Knoblauchzehen
+- 
+  textarea: 1 Packung Wiener
+- 
+  textarea: 100–200 ml Sahne
+- 
+  textarea: Rosmarin
+- 
+  textarea: Paprikapulver
+- 
+  textarea: 'Salz & Pfeffer'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Die Kartoffeln und Süßkartoffeln klein
+    schneiden und kochen, bis sie weich sind
+- 
+  textarea: >
+    Die Zwiebel, den Knoblauch und die
+    Wiener klein schneiden und in einer
+    Pfanne mit heißem Öl anbraten
+- 
+  textarea: >
+    Die Paprika klein schneiden und
+    hinzugeben
+- 
+  textarea: Als nächstes die Sahne hinzugeben
+- 
+  textarea: 'Alles kurz aufkochen lassen und mit Rosmarin, Paprikapulver, Salz & Pfeffer abschmecken'
+- 
+  textarea: >
+    Zum Schluss die Kartoffeln und
+    Süßkartoffeln abgießen, in die Pfanne
+    geben und alles vermengen
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept & Fotos von Annika
+
+----
+
+Faqs: 
+
+----
+
+Tips: 
+
+----
+
+Tags: wiener, paprika, sahne, kartoffel, süßkartoffel

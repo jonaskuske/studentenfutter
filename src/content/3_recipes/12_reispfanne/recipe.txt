@@ -1,0 +1,94 @@
+Title: Reispfanne
+
+----
+
+Ingredients:
+
+- 
+  textarea: 1 Tasse Basmati-Reis
+- 
+  textarea: 2 Tassen Wasser
+- 
+  textarea: 1 EL Quinoa
+- 
+  textarea: 2 Möhren
+- 
+  textarea: 1 Zucchino
+- 
+  textarea: 1 Tasse TK-Erbsen
+- 
+  textarea: 1 Becher Sahne
+- 
+  textarea: 'ausreichend geriebenen Cheddar von Kerrygold zum Garnieren *– d.h. mindestens zwei Packungen*'
+- 
+  textarea: Butter
+- 
+  textarea: 'Salz & Pfeffer'
+- 
+  textarea: Gemüsebrühpulver
+- 
+  textarea: '*alternatives Gemüse: eine Dose Mais & eine Paprika*'
+
+----
+
+Preparation:
+
+- 
+  textarea: 'Als Erstes den Reis kochen: zwei Tassen Wasser & eine Prise Salz mit einer Tasse Reis und einem EL Quinoa in einen Topf geben und kurz aufkochen lassen, danach auf kleiner Stufe köcheln bzw. quellen lassen (ca. 20–30 Minuten)'
+- 
+  textarea: Das Gemüse in kleine Würfel schneiden
+- 
+  textarea: >
+    In einer Pfanne die Butter auf höchster
+    Stufe erhitzen und die Möhren und
+    Zucchino darin anbraten
+- 
+  textarea: Die TK-Erbsen hinzugeben
+- 
+  textarea: |
+    Das Gemüse auf mittlerer Stufe weiter braten und nach ca. 10 Minuten mit Sahne
+    ablöschen, danach noch mal aufkochen lassen bis die Möhren weich sind
+- 
+  textarea: 'Mit Salz & Pfeffer abschmecken, bei Bedarf mit einem TL Gemüsebrühpulver würzen'
+- 
+  textarea: >
+    Die Pfanne vom Herd nehmen und den Reis
+    in die Gemüsepfanne füllen und mischen
+- 
+  textarea: >
+    Das fertige Gericht auf dem Teller mit
+    ausreichend Cheddar garnieren und
+    genießen
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept & Fotos von Henni
+
+----
+
+Faqs:
+
+- 
+  question: Woher hast du das Rezept?
+  answer: |
+    „Soweit ich mich erinnern kann, gehört
+    das zu den ersten Gerichten, die ich
+    zusammen mit meiner Mama gekocht
+    habe.“
+
+----
+
+Tips:
+
+- 
+  textarea: |
+    Hennis Tante Christel hat den Reistopf zum Quellen immer unter die Bettdecke
+    gepackt – da ist es schön warm und nichts brennt an.
+
+----
+
+Tags: Gemüse, Möhren, Zucchini, Erbsen, käse, reis

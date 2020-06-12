@@ -1,0 +1,61 @@
+Title: Gnocchi mit Käsesoße
+
+----
+
+Ingredients:
+
+- 
+  textarea: 600 g Kartoffel-Gnocchi
+- 
+  textarea: 200 g Sahne
+- 
+  textarea: 100 g Bergader Edelpilz Käse
+- 
+  textarea: 1 Knoblauchzehe
+- 
+  textarea: Butter zum Anbraten
+- 
+  textarea: 'Salz & Pfeffer'
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Die Kartoffel-Gnocchi mit ein wenig
+    Butter laut Packungsanleitung in der
+    Pfanne anbraten, bis diese die
+    gewünschte Bräune erreicht haben
+- 
+  textarea: >
+    In einem Topf die Sahne erwärmen, den
+    Bergader Edelpilz darin auflösen und
+    das Ganze kurz aufkochen und andicken
+    lassen
+- 
+  textarea: 'Anschließend mit Hilfe von Knoblauch, Salz & Pfeffer nach eigenem Belieben abschmecken'
+
+----
+
+Category: main_dish
+
+----
+
+Info: Rezept von Denise
+
+----
+
+Faqs:
+
+- 
+  question: Warum kochst du das Rezept gerne?
+  answer: „Take it easy, let’s get cheesy!“
+
+----
+
+Tips: 
+
+----
+
+Tags: sahne, bergader, käse

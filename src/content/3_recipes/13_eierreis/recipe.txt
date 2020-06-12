@@ -1,0 +1,75 @@
+Title: Eierreis
+
+----
+
+Ingredients:
+
+- 
+  textarea: 1 Tasse Reis
+- 
+  textarea: 2 Eier
+- 
+  textarea: 1/2 Bund Frühlingszwiebeln
+- 
+  textarea: Sojasoße
+- 
+  textarea: Butter
+
+----
+
+Preparation:
+
+- 
+  textarea: >
+    Den Reis kochen und etwas abkühlen
+    lassen
+- 
+  textarea: >
+    Anschließend den Reis mit den Eiern
+    mischen und nach Belieben würzen
+- 
+  textarea: >
+    Die Frühlingszwiebeln in Ringe
+    schneiden
+- 
+  textarea: >
+    Die Frühlingszwiebeln in einer Pfanne
+    in Butter anbraten, anschließend die
+    Reis-Eier-Mischung hinzufügen und mit
+    2–3 EL Sojasoße würzen
+- 
+  textarea: >
+    Zum Schluss alles mit frischen
+    Frühlingszwiebeln garnieren
+
+----
+
+Category: main_dish
+
+----
+
+Info:
+
+Rezept & Foto von Lena. Sie studiert Chemie in
+Konstanz.
+
+----
+
+Faqs:
+
+- 
+  question: Warum kochst du das Rezept gerne?
+  answer: >
+    „Es geht schnell und braucht wenig
+    Zutaten.“
+- 
+  question: Wo hast du das Rezept her?
+  answer: „Aus einem Youtube-Video.“
+
+----
+
+Tips: 
+
+----
+
+Tags: Frühlingszwiebeln, Soja, Eier, reis
