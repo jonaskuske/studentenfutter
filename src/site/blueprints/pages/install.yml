@@ -1,0 +1,11 @@
+title: Install
+icon: 📱
+fields:
+  info:
+    type: textarea
+    label: Installations-Hinweis
+    width: 2/3
+    size: medium
+    buttons:
+      - bold
+      - italic

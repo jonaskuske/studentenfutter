@@ -64,18 +64,33 @@ echo js('assets/js/scrollbar.js');
               </li>
             <?php endforeach ?>
 
-            <li class="mb-5 italic font-bold leading-relaxed text-md">
+            <li
+              x-data="{
+                canPrompt: Boolean(window.INSTALL_EVENT),
+                isIOS: navigator.userAgent.match('iOS') && !navigator.userAgent.match('CriOS'),
+                isInstalled: navigator.standalone || matchMedia('(display-mode: standalone)').matches,
+              }"
+              x-show="(canPrompt || isIOS) && !isInstalled"
+              @appinstalled.window="isInstalled = true"
+              @beforeinstallprompt.window="canPrompt = true"
+              class="mb-5 italic font-bold leading-relaxed text-md"
+            >
+              <a href="<?= url('install') ?>" class="highlight highlight-rose highlight-sm">
+                App installieren
+              </a>
+            </li>
+
+            <li class="mb-2 text-xs leading-tight text-right">
               <?php if ($kirby->user()) : ?>
-                <a href="<?= $site->find('profile')->url() ?>" class="highlight highlight-rose highlight-sm">
+                <a href="<?= $site->find('profile')->url() ?>">
                   <?= $site->find('profile')->title()->html() ?>
                 </a>
               <?php else : ?>
-                <a href="<?= url('login') ?>" class="highlight highlight-rose highlight-sm">
+                <a href="<?= url('login') ?>">
                   Einloggen/Registrieren
                 </a>
               <?php endif ?>
             </li>
-
             <li class="text-xs leading-tight text-right">
               <a href="<?= url('/legal') ?>">Rechtliches</a>
             </li>

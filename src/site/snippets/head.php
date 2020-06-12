@@ -63,11 +63,16 @@
   ]) ?>
 
   <script>
-    if ('serviceWorker' in navigator && location.hostname !== '__localhost') {
+    if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
       navigator.serviceWorker.register('/service-worker.js').then(
         () => console.log('Service Worker registered.'),
         (error) => console.error('Service Worker failed to register', error),
       )
     }
+
+    window.addEventListener('beforeinstallprompt', function(event) {
+      event.preventDefault()
+      window.INSTALL_EVENT = event
+    })
   </script>
 </head>
