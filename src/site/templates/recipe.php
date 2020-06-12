@@ -68,35 +68,39 @@ $back_url = r($last != Url::current(), $last);
     <?php endif; ?>
 
     <div class="px-5 pb-20">
-      <h2 class="flex items-center mb-4 text-lg italic leading-loose" id="ingredients">
-        <span class="mr-2 transform translate-y-1 text-rose">
-          <?= svg('/assets/icons/ingredients.svg') ?>
-        </span>
-        <span class="highlight highlight-rose">Zutaten</span>
-      </h2>
+      <section class="js-observed" id="ingredients">
+        <h2 class="flex items-center mb-4 text-lg italic leading-loose">
+          <span class="mr-2 transform translate-y-1 text-rose">
+            <?= svg('/assets/icons/ingredients.svg') ?>
+          </span>
+          <span class="highlight highlight-rose">Zutaten</span>
+        </h2>
 
-      <ul class="mb-10">
-        <?php foreach ($page->ingredients()->toStructure() as $ingredient) : ?>
-          <li class="flex mb-4 list-dot">
-            <p><?= $ingredient->textarea()->kt()->inline() ?></p>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+        <ul class="mb-10">
+          <?php foreach ($page->ingredients()->toStructure() as $ingredient) : ?>
+            <li class="flex mb-4 list-dot">
+              <p><?= $ingredient->textarea()->kt()->inline() ?></p>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </section>
 
-      <h2 class="flex items-center mb-4 text-lg italic leading-loose" id="preparation">
-        <span class="mr-2 transform translate-y-1 text-yellow">
-          <?= svg('/assets/icons/preparation.svg') ?>
-        </span>
-        <span class="highlight highlight-yellow">Zubereitung</span>
-      </h2>
+      <section class="js-observed" id="preparation">
+        <h2 class="flex items-center mb-4 text-lg italic leading-loose">
+         <span class="mr-2 transform translate-y-1 text-yellow">
+           <?= svg('/assets/icons/preparation.svg') ?>
+          </span>
+         <span class="highlight highlight-yellow">Zubereitung</span>
+        </h2>
 
-      <ul class="mb-10">
-        <?php foreach ($page->preparation()->toStructure() as $step) : ?>
-          <li class="flex mb-4 list-dot">
-            <p><?= $step->textarea()->kt()->inline() ?></p>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+        <ul class="mb-10">
+          <?php foreach ($page->preparation()->toStructure() as $step) : ?>
+            <li class="flex mb-4 list-dot">
+              <p><?= $step->textarea()->kt()->inline() ?></p>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </section>
 
       <?php
       $info = $page->info();
@@ -106,50 +110,52 @@ $back_url = r($last != Url::current(), $last);
       ?>
 
       <?php if ($hasInfoSection) : ?>
-        <h2 class="flex items-center mb-4 text-lg italic leading-loose" id="info">
-          <span class="mr-2 transform translate-y-1 text-blue">
-            <?= svg('/assets/icons/info.svg') ?>
-          </span>
-          <span class="highlight highlight-blue">Infos, Tipps & Tricks</span>
-        </h2>
+        <section class="js-observed" id="info">
+          <h2 class="flex items-center mb-4 text-lg italic leading-loose">
+            <span class="mr-2 transform translate-y-1 text-blue">
+              <?= svg('/assets/icons/info.svg') ?>
+            </span>
+            <span class="highlight highlight-blue">Infos, Tipps & Tricks</span>
+          </h2>
 
-        <div class="mb-10">
-          <?php if ($info) : ?>
-            <p class="mb-4 italic"><?= $info->kt()->inline() ?></p>
-          <?php endif; ?>
+          <div class="mb-10">
+            <?php if ($info) : ?>
+              <p class="mb-4 italic"><?= $info->kt()->inline() ?></p>
+            <?php endif; ?>
 
-          <?php if (!$tips->isEmpty()) : ?>
-            <ul>
-              <?php foreach ($tips as $tip) : ?>
-                <li class="flex mb-4">
-                  <span class="mr-1.5 transform translate-y-px text-blue">
-                    <?= svg('/assets/icons/tip.svg') ?>
-                  </span>
-                  <p><?= $tip->textarea()->kt()->inline() ?></p>
-                </li>
-              <?php endforeach; ?>
-            </ul>
-          <?php endif; ?>
+            <?php if (!$tips->isEmpty()) : ?>
+              <ul>
+                <?php foreach ($tips as $tip) : ?>
+                  <li class="flex mb-4">
+                    <span class="mr-1.5 transform translate-y-px text-blue">
+                      <?= svg('/assets/icons/tip.svg') ?>
+                    </span>
+                    <p><?= $tip->textarea()->kt()->inline() ?></p>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
+            <?php endif; ?>
 
-          <?php if (!$faqs->isEmpty()) : ?>
-            <dl>
-              <?php foreach ($faqs as $faq) : ?>
-                <dt class="flex mb-1">
-                  <span class="mr-1.5 transform translate-y-px text-rose">
-                    <?= svg('/assets/icons/question.svg') ?>
-                  </span>
-                  <p><?= $faq->question()->kt()->inline() ?></p>
-                </dt>
-                <dd class="flex mb-4">
-                  <span class="mr-1.5 transform translate-y-px text-yellow">
-                    <?= svg('/assets/icons/answer.svg') ?>
-                  </span>
-                  <p><?= $faq->answer()->kt()->inline() ?></p>
-                </dd>
-              <?php endforeach; ?>
-            </dl>
-          <?php endif; ?>
-        </div>
+            <?php if (!$faqs->isEmpty()) : ?>
+              <dl>
+                <?php foreach ($faqs as $faq) : ?>
+                  <dt class="flex mb-1">
+                    <span class="mr-1.5 transform translate-y-px text-rose">
+                      <?= svg('/assets/icons/question.svg') ?>
+                    </span>
+                    <p><?= $faq->question()->kt()->inline() ?></p>
+                  </dt>
+                  <dd class="flex mb-4">
+                    <span class="mr-1.5 transform translate-y-px text-yellow">
+                      <?= svg('/assets/icons/answer.svg') ?>
+                    </span>
+                    <p><?= $faq->answer()->kt()->inline() ?></p>
+                  </dd>
+                <?php endforeach; ?>
+              </dl>
+            <?php endif; ?>
+          </div>
+        </section>
       <?php endif; ?>
 
       <div
@@ -175,19 +181,19 @@ $back_url = r($last != Url::current(), $last);
         $classes_text = $text_base . ' ' . $text_transition;
         ?>
         <div class="container flex justify-between px-8 py-2 bg-white shadow rounded-card md:justify-around">
-          <a href="#ingredients" class="relative text-rose group">
+          <a href="#ingredients" class="relative text-rose text-lightgray group">
             <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/ingredients.svg') ?></span>
             <span class="<?= $classes_text ?>">
               Zutaten
             </span>
           </a>
-          <a href="#preparation" class="relative text-yellow group">
+          <a href="#preparation" class="relative text-yellow text-lightgray group">
             <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/preparation.svg') ?></span>
             <span class="<?= $classes_text ?>">
               Zubereitung
             </span>
           </a>
-          <a href="#info" class="relative text-blue group">
+          <a href="#info" class="relative text-blue text-lightgray group">
             <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/info.svg') ?></span>
             <span class="<?= $classes_text ?>">
               Info, Tipps & Tricks

@@ -29,6 +29,7 @@
   <meta name="msapplication-config" content="<?= asset('assets/meta/browserconfig.xml')->url() ?>">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#FFFFFF">
 
   <!-- Splashscreen iOS -->
   <!-- iPhone Xs Max (1242px x 2688px) -->
@@ -84,8 +85,8 @@
   <script>
     if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
       navigator.serviceWorker.register('/service-worker.js').then(
-        () => console.log('Service Worker registered.'),
-        (error) => console.error('Service Worker failed to register', error),
+        function(){ console.log('Service Worker registered.') },
+        function(error) { console.error('Service Worker failed to register', error) }
       )
     }
 

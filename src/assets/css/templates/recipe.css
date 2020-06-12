@@ -1,3 +1,7 @@
 em {
   font-weight: 300;
 }
+
+section {
+  outline: none !important;
+}
