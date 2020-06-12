@@ -59,21 +59,14 @@ Editor:
     },
     {
         "attrs": {
-            "guid": "/pages/about/files/map-germany.svg",
-            "id": "about/map-germany.svg",
-            "ratio": 0.8014354066985646,
-            "caption": "",
-            "css": ""
+            "guid": "/pages/about/files/inforgrafik_web.png",
+            "id": "about/inforgrafik_web.png",
+            "ratio": 0.8214920071047958,
+            "caption": ""
         },
         "content": "",
-        "id": "_kd1k0znv3",
+        "id": "_vvz4nd8ue",
         "type": "image"
-    },
-    {
-        "attrs": [],
-        "content": "",
-        "id": "_ec12k0ru2",
-        "type": "paragraph"
     },
     {
         "attrs": [],
