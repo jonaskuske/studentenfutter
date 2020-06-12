@@ -48,7 +48,7 @@
     x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 transform "
     x-transition:leave-end="opacity-0 transform translate-y-full"
-    class="fixed bottom-0 left-0 w-full z-30 p-5"
+    class="fixed bottom-0 left-0 w-full flex z-30 p-5"
   >
     <div @click.away="showBanner = false" class="relative p-5 py-6 mx-auto mt-auto bg-white shadow rounded-card">
       <button class="absolute top-0 right-0 px-4 py-3" @click="showBanner = false">
