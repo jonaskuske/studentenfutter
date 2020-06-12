@@ -3,7 +3,7 @@
     return {
       showBanner: false,
       standalone: isStandalone(),
-      canPrompt: false,
+      canPrompt: Boolean(window.INSTALL_EVENT) || (isIOS() && !isIOSChrome()),
       isFirst: !localStorage.getItem('install_banner'),
       run: function() {
         if (this.standalone || !this.canPrompt || !this.isFirst) return;
