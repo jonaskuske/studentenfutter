@@ -6,8 +6,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <title>
-    <?php $page_title = isset($page_title) ? $page_title : $page->title(); ?>
-    <?= e($page->isHomePage(), $site->title(), "{$page_title} | {$site->title()}") ?>
+    <?php
+      $page_title = isset($page_title) ? $page_title : $page->title();
+      $full_title = r($page->isHomePage(), $site->title(), "{$page_title} | {$site->title()}");
+    ?>
+    <?= $full_title ?>
   </title>
 
   <?= css([
@@ -52,24 +55,27 @@
   <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="assets/meta/apple-launch-1536x2048.png">
 
   <!-- Sharing Info -->
+<?php
+$desc = isset($page_description) ? $page_description : 'Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei.';
+?>
   <meta
     name="description"
-    content="Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei. "
+    content="<?= $desc ?>"
   />
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:type" content="website" />
   <meta
     property="og:description"
-    content="Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei."
+    content="<?= $desc ?>"
   />
   <meta property="og:image" content="<?= asset('assets/meta/sharing-image.png')->url() ?>" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <meta property="og:url" content="https://studentenfutter.app" />
-  <meta property="og:title" content="studentenfutter" />
+  <meta property="og:url" content="<?= $page->url() ?>" />
+  <meta property="og:title" content="<?= $full_title ?>" />
 
-  <link rel="canonical" href="https://studentenfutter.app" />
+  <link rel="canonical" href="<?= $page->url() ?>" />
 
   <?= js(['assets/js/polyfills.js', 'assets/js/utils.js', '@auto'], ['defer' => true]) ?>
 
