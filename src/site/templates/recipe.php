@@ -66,7 +66,7 @@ $back_url = r($last != Url::current(), $last);
       </ul>
     <?php endif; ?>
 
-    <div class="px-5">
+    <div class="px-5 pb-20">
       <h2 class="flex items-center mb-4 text-lg italic leading-loose" id="ingredients">
         <span class="mr-2 transform translate-y-1 text-rose">
           <?= svg('/assets/icons/ingredients.svg') ?>
@@ -112,7 +112,7 @@ $back_url = r($last != Url::current(), $last);
           <span class="highlight highlight-blue">Infos, Tipps & Tricks</span>
         </h2>
 
-        <div class="mb-20">
+        <div class="mb-10">
           <?php if ($info) : ?>
             <p class="mb-4 italic"><?= $info->kt()->inline() ?></p>
           <?php endif; ?>
@@ -150,6 +150,21 @@ $back_url = r($last != Url::current(), $last);
           <?php endif; ?>
         </div>
       <?php endif; ?>
+
+      <div
+        class="flex justify-center mb-10"
+        x-data="{
+          canShare: 'share' in navigator,
+          shareData: {
+            title: '<?= esc($page->title(), 'js') ?>',
+            text: '<?= esc($page->title(), 'js') ?> von studentenfutter.app',
+            url: '<?= esc($page->url(), 'js') ?>'
+          }
+        }"
+        x-show="canShare"
+      >
+        <button class="text-black button border-rose" @click="navigator.share(shareData)">Teilen</button>
+      </div>
 
       <footer class="fixed bottom-0 right-0 w-full px-5 mb-4" style="margin-left:calc(100vw - 100%)">
         <?php
