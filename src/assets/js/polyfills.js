@@ -1,8 +1,8 @@
 'use strict'
 ;(function loadPolyfills(doc, cdn, smoothscroll) {
   if (!('scrollBehavior' in doc.documentElement.style)) {
-    insertScript(cdn + smoothscroll + '-polyfill/dist/' + smoothscroll + '.min.js')
-    insertScript(cdn + smoothscroll + '-anchor-polyfill')
+    insertScript(cdn + smoothscroll + '-polyfill@0.4.4')
+    insertScript(cdn + smoothscroll + '-anchor-polyfill@1.3.2')
   }
 
   if (!('objectFit' in new Image().style)) {
@@ -20,4 +20,4 @@
     script.onload = onload
     return doc.head.appendChild(script)
   }
-})(document, '//unpkg.com/', 'smoothscroll')
+})(document, '//cdn.jsdelivr.net/npm/', 'smoothscroll')

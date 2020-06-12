@@ -7,9 +7,9 @@
     window.global = window // "react-ios-pwa-prompt" requires "global" to exist
   </script>
   <?= js([
-    '//unpkg.com/react/umd/react.production.min.js',
-    '//unpkg.com/react-dom/umd/react-dom.production.min.js',
-    '//unpkg.com/react-ios-pwa-prompt',
+    '//cdn.jsdelivr.net/npm/react/umd/react.production.min.js',
+    '//cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js',
+    '//cdn.jsdelivr.net/npm/react-ios-pwa-prompt',
   ]) ?>
 
   <script>
