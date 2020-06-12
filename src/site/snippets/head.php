@@ -51,7 +51,7 @@
   <!-- iPad Mini, Air (1536px x 2048px) -->
   <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="assets/meta/apple-launch-1536x2048.png">
 
-  <?= js(['assets/js/polyfills.js', '@auto'], ['defer' => true]) ?>
+  <?= js(['assets/js/polyfills.js', 'assets/js/utils.js', '@auto'], ['defer' => true]) ?>
 
   <?= js('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js', [
     'type' => 'module',

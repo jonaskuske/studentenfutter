@@ -67,11 +67,12 @@ echo js('assets/js/scrollbar.js');
             <li
               x-data="{
                 canPrompt: Boolean(window.INSTALL_EVENT),
-                isIOS: navigator.userAgent.match('iOS') && !navigator.userAgent.match('CriOS'),
-                isInstalled: navigator.standalone || matchMedia('(display-mode: standalone)').matches,
+                isIOS: isIOS(),
+                isIOSChrome: isIOSChrome(),
+                isStandalone: isStandalone(),
               }"
-              x-show="(canPrompt || isIOS) && !isInstalled"
-              @appinstalled.window="isInstalled = true"
+              x-show="!isStandalone && canPrompt || (isIOS && !isIOSChrome)"
+              @appinstalled.window="isStandalone = true"
               @beforeinstallprompt.window="canPrompt = true"
               class="mb-5 italic font-bold leading-relaxed text-md"
             >

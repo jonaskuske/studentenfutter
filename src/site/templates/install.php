@@ -31,11 +31,11 @@
     class="flex-grow px-5 pt-6"
     x-data="{
       canPrompt: Boolean(window.INSTALL_EVENT),
-      isIOS: navigator.userAgent.match('iOS'),
-      isIOSChrome: navigator.userAgent.match('CriOS'),
-      isInstalled: navigator.standalone || matchMedia('(display-mode: standalone)').matches,
+      isIOS: isIOS(),
+      isIOSChrome: isIOSChrome(),
+      isStandalone: isStandalone(),
     }"
-    @appinstalled.window="isInstalled = true"
+    @appinstalled.window="isStandalone = true"
     @beforeinstallprompt.window="canPrompt = true"
   >
     <div class="pt-4 pb-12 bg-white shadow rounded-card">
@@ -49,9 +49,9 @@
         </div>
 
         <div class="text-xs leading-tight max-w-form md:text-base md:leading-normal md:max-w-md">
-          <p x-show="isInstalled"><?= $site->title()->html() ?> ist bereits installiert.</p>
+          <p x-show="isStandalone"><?= $site->title()->html() ?> ist bereits installiert.</p>
 
-          <div x-show="!isInstalled && (canPrompt || (isIOS && !isIOSChrome))" class="textfield flex flex-col">
+          <div x-show="!isStandalone && (canPrompt || (isIOS && !isIOSChrome))" class="textfield flex flex-col">
             <?= $page->info()->kt() ?>
 
             <button @click="showInstallPrompt();" class="mx-auto mt-6 text-black button border-yellow bg-yellow">
@@ -60,7 +60,7 @@
           </div>
 
 
-          <p x-show="!isInstalled && ((!canPrompt && !isIOS) || isIOSChrome)">
+          <p x-show="!isStandalone && ((!canPrompt && !isIOS) || isIOSChrome)">
             Öffne <a class="text-rose" href="<?= $site->homePage()->url() ?>"><?= $site->homePage()->url() ?></a> in
             <span x-show="isIOS">Safari</span><span x-show="!isIOS">Chrome</span>,
             um <?= $site->title() ?> installieren zu können.
