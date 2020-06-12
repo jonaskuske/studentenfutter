@@ -59,7 +59,8 @@
 
         <div class="text-xs leading-tight max-w-form md:text-base md:leading-normal md:max-w-md">
           <p class="text-center" x-show="isStandalone">
-            <?= $site->title()->html() ?> ist installiert. Schau bei deinen Apps nach!
+            <?= $site->title()->html() ?> ist installiert.<br />
+            Schau bei deinen Apps nach!
           </p>
 
           <div x-show="!isStandalone && (canPrompt || (isIOS && !isIOSChrome))" class="textfield flex flex-col">
@@ -72,9 +73,7 @@
 
 
           <p class="text-center" x-show="!isStandalone && ((!canPrompt && !isIOS) || isIOSChrome)">
-            Öffne <a class="text-rose" href="<?= $site
-              ->homePage()
-              ->url() ?>"><?= $site->homePage()->url() ?></a> in
+            Öffne <a class="text-rose" href="<?= $site->homePage()->url() ?>"><?= $site->homePage()->url() ?></a> in
             <span x-show="isIOS">Safari</span><span x-show="!isIOS">Chrome</span>,
             um <?= $site->title() ?> installieren zu können.
           </p>
