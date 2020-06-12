@@ -6,6 +6,7 @@
  */
 
 use Kirby\Http\Server;
+use Kirby\Cms\Response;
 
 $is_dev = Server::host() === 'localhost' && Server::port() === 8080;
 
@@ -13,6 +14,14 @@ return [
   'production' => !$is_dev,
   'debug' => $is_dev,
   'routes' => [
+    [
+      'pattern' => 'service-worker.js',
+      'action' => function () {
+        $path_to_sw = __DIR__ . '/../../assets/js/service-worker.js';
+
+        return Response::file($path_to_sw);
+      },
+    ],
     [
       'pattern' => 'logout',
       'action' => function () {
