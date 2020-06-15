@@ -8,18 +8,42 @@ if (!('IntersectionObserver' in window)) {
 } else addScrollListener()
 
 function addScrollListener() {
+  let manualOverride, overrideTimeout
+
   const items = [].slice.call(document.querySelectorAll('.js-observed')).map(function (section) {
     return {
       section: section,
       anchor: document.querySelector('footer a[href="#' + section.id + '"]'),
       visible: false,
+      fullyVisible: false,
     }
   })
 
-  const observer = new IntersectionObserver(handleChanges, { rootMargin: '-33.333% 0px -10% 0px' })
+  const observer = new IntersectionObserver(handleChanges, {
+    rootMargin: '-10% 0px -10% 0px',
+    threshold: [0, 1],
+  })
+
   items.forEach(function (item) {
     observer.observe(item.section)
+    item.anchor.addEventListener('click', handleOverride)
   })
+
+  function handleChanges(entries) {
+    entries.forEach(updateVisibility)
+
+    let firstFullyVisibleEntry, lastVisibleEntry
+
+    items.forEach(function (item) {
+      if (item.visible) lastVisibleEntry = item
+      if (!firstFullyVisibleEntry && item.fullyVisible) firstFullyVisibleEntry = item
+    })
+
+    if (manualOverride) return
+
+    const highlightedEntry = firstFullyVisibleEntry || lastVisibleEntry || items[0]
+    colorize(highlightedEntry.anchor)
+  }
 
   function updateVisibility(entry) {
     let item
@@ -32,18 +56,24 @@ function addScrollListener() {
     }
 
     item.visible = entry.isIntersecting
+    item.fullyVisible = entry.intersectionRatio === 1.0
   }
 
-  function handleChanges(entries) {
-    entries.forEach(updateVisibility)
-
-    let lastVisibleEntry = items[0]
-
+  function colorize(anchor) {
     items.forEach(function (item) {
       item.anchor.classList.add('text-lightgray')
-      if (item.visible) lastVisibleEntry = item
     })
+    anchor.classList.remove('text-lightgray')
+  }
 
-    lastVisibleEntry.anchor.classList.remove('text-lightgray')
+  function handleOverride(evt) {
+    manualOverride = true
+    clearTimeout(overrideTimeout)
+
+    colorize(evt.currentTarget)
+
+    overrideTimeout = setTimeout(function () {
+      manualOverride = false
+    }, 1000)
   }
 }
