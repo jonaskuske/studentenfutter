@@ -13,6 +13,7 @@ $is_dev = Server::host() === 'localhost' && Server::port() === 8080;
 return [
   'production' => !$is_dev,
   'debug' => $is_dev,
+  'bvdputte.fingerprint.query' => true,
   'routes' => [
     [
       'pattern' => 'service-worker.js',

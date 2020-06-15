@@ -83,6 +83,6 @@ function addScrollListener() {
 
     overrideTimeout = setTimeout(function () {
       manualOverride = false
-    }, 500)
+    }, 1000)
   }
 }
