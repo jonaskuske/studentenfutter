@@ -29,34 +29,43 @@ function addScrollListener() {
     item.anchor.addEventListener('click', handleOverride)
   })
 
-  function handleChanges(entries) {
-    entries.forEach(updateVisibility)
+  let lastChangedToFullyVisible
 
-    let firstFullyVisibleEntry, lastVisibleEntry
+  function handleChanges(changedEntries) {
+    let firstFullyVisibleInChangedEntries, lastVisible, lastFullyVisible
+
+    changedEntries.forEach(function (entry) {
+      let item = getItemFromSection(entry.target)
+
+      item.visible = entry.isIntersecting
+      item.fullyVisible = entry.intersectionRatio === 1.0
+
+      if (item.fullyVisible) {
+        if (!firstFullyVisibleInChangedEntries) firstFullyVisibleInChangedEntries = item
+      } else {
+        if (lastChangedToFullyVisible === item) lastChangedToFullyVisible = null
+      }
+    })
+
+    if (firstFullyVisibleInChangedEntries) {
+      lastChangedToFullyVisible = firstFullyVisibleInChangedEntries
+    }
 
     items.forEach(function (item) {
-      if (item.visible) lastVisibleEntry = item
-      if (!firstFullyVisibleEntry && item.fullyVisible) firstFullyVisibleEntry = item
+      if (item.visible) lastVisible = item
+      if (item.fullyVisible) lastFullyVisible = item
     })
 
     if (manualOverride) return
 
-    const highlightedEntry = firstFullyVisibleEntry || lastVisibleEntry || items[0]
-    colorize(highlightedEntry.anchor)
+    const highlighted = lastChangedToFullyVisible || lastFullyVisible || lastVisible || items[0]
+    colorize(highlighted.anchor)
   }
 
-  function updateVisibility(entry) {
-    let item
-
+  function getItemFromSection(section) {
     for (let i = 0; i < items.length; i++) {
-      if (items[i].section === entry.target) {
-        item = items[i]
-        break
-      }
+      if (items[i].section === section) return items[i]
     }
-
-    item.visible = entry.isIntersecting
-    item.fullyVisible = entry.intersectionRatio === 1.0
   }
 
   function colorize(anchor) {
@@ -74,6 +83,6 @@ function addScrollListener() {
 
     overrideTimeout = setTimeout(function () {
       manualOverride = false
-    }, 1000)
+    }, 500)
   }
 }
