@@ -8,7 +8,7 @@
     <div class="mb-6"><?= snippet('headings/favorites', ['tag' => 'h2']) ?></div>
 
     <?php if ($favorites->isNotEmpty()): ?>
-      <?= snippet('recipe-row', ['recipes' => $favorites]) ?>
+      <?= snippet('recipe-row', ['recipes' => $favorites, 'more_url' => '/favorites']) ?>
     <?php else: ?>
       <p class="mb-4 text-center">Du hast noch keine Rezepte gespeichert.</p>
     <?php endif; ?>
