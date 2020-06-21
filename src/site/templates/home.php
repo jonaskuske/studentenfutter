@@ -3,6 +3,7 @@
 <body>
   <?= snippet('menu') ?>
   <?= snippet('install-banner') ?>
+  <?= snippet('online-banner', ['for' => 'offline']) ?>
 
   <main class="pt-6">
     <section class="mx-5 mb-6">
@@ -12,19 +13,21 @@
     <section class="mb-12">
       <div class="mb-6"><?= snippet('headings/favorites', ['tag' => 'h2']) ?></div>
 
-      <?php if ($user = $kirby->user()) : ?>
-        <?php if (($favorites = $user->favorites()->toPages())->isEmpty()) : ?>
+      <?php if ($user = $kirby->user()): ?>
+        <?php if (($favorites = $user->favorites()->toPages())->isEmpty()): ?>
           <p class="px-5 text-center">
-            Hallo, <?= esc($user->name()) ?>!<br>
+            <?php if ($name = $user->name()->toString()): ?>
+              Hallo, <?= esc($name) ?>!<br>
+            <?php endif; ?>
             Du hast noch keine Favoriten gespeichert.
           </p>
-        <?php else : ?>
+        <?php else: ?>
           <?= snippet('recipe-row', [
             'recipes' => $favorites,
             'more_url' => url('/favorites'),
           ]) ?>
         <?php endif; ?>
-      <?php else : ?>
+      <?php else: ?>
         <p class="px-5 text-center">
           <a href="<?= url('/login') ?>" class="underline text-blue">Anmelden</a>,
           um eigene Favoriten zu speichern.
@@ -32,7 +35,7 @@
       <?php endif; ?>
     </section>
 
-    <?php foreach ($category_options as $category => $category_name) : ?>
+    <?php foreach ($category_options as $category => $category_name): ?>
       <section class="mb-12">
         <div class="mb-6">
           <?= snippet(['headings/' . $category, 'headings/default'], ['text' => $category_name]) ?>
@@ -40,9 +43,9 @@
 
         <?php $category_recipes = $recipes->filterBy('category', $category); ?>
 
-        <?php if ($category_recipes->isEmpty()) : ?>
+        <?php if ($category_recipes->isEmpty()): ?>
           <p class="px-5 text-center">Keine Rezepte vorhanden.</p>
-        <?php else : ?>
+        <?php else: ?>
           <?= snippet('recipe-row', [
             'recipes' => $category_recipes,
             'more_url' => $site->find('recipes')->url() . '?category=' . $category,

@@ -20,7 +20,7 @@ main {
 }
 
 [x-cloak] {
-  display: none;
+  display: none !important;
 }
 
 /* clears the 'X' from Internet Explorer and WebKit */

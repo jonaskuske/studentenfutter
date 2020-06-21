@@ -31,7 +31,7 @@ echo js('assets/js/scrollbar.js');
           </svg>
         </button>
 
-        <?php $tag = $page->isHomePage() ? 'h1' : 'p'; ?>
+        <?php $tag = isset($h1) || $page->isHomePage() ? 'h1' : 'p'; ?>
         <<?= $tag ?> class="text-xl italic font-bold lowercase leading-wide">
           <a
             href="<?= $home_url ?>"

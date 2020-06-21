@@ -1,29 +1,15 @@
-<script>
-  function installBanner() {
-    return {
-      showBanner: false,
-      standalone: isStandalone(),
-      canPrompt: Boolean(window.INSTALL_EVENT) || (isIOS() && !isIOSChrome()),
-      isFirst: !localStorage.getItem('install_banner'),
-      run: function() {
-        if (this.standalone || !this.canPrompt || !this.isFirst) return;
-        this.isFirst = false;
-        localStorage.setItem('install_banner', 1);
-        var _this = this;
-        setTimeout(function() { _this.showBanner = true }, 800)
-      }
-    }
-  }
-</script>
 <div
   x-cloak
-  x-data="installBanner()"
+  x-data="{ showBanner: false }"
   x-init="
     $watch('showBanner', function(show) { document.body.classList[show ? 'add' : 'remove']('overflow-hidden') });
-    $watch('canPrompt', function() { run() });
-    run();
   "
-  @beforeinstallprompt.window="canPrompt = true"
+  @online.window="
+    'serviceWorker in navigator' && (showBanner = <?= e($for == 'online', 'true', 'false') ?>)
+  "
+  @offline.window="
+    'serviceWorker in navigator' && (showBanner = <?= e($for == 'online', 'false', 'true') ?>)
+  "
 >
   <!-- backdrop -->
   <div
@@ -60,19 +46,17 @@
 
       <div class="flex pr-3" style="max-width: 295px">
         <div style="width: 95px" class="flex-shrink-0 mr-5 text-yellow">
-          <?= svg('assets/icons/install.svg') ?>
+          <?= svg('assets/icons/offline.svg') ?>
         </div>
 
         <div class="pt-px mt-1 mr-1">
           <p class="mb-3 text-xs leading-tight">
-            Für die volle App-Experience, installiere dir diese Seite als Web App.
+            Du bist <?= e($for == 'online', 'wieder', 'nicht mehr') ?> mit dem Internet verbunden.
+            In den <?= e($for == 'online', 'Online', 'Offline') ?>-Modus wechseln?
           </p>
-          <a
-            href="<?= url('install') ?>"
-            class="block min-w-0 text-black button border-yellow bg-yellow"
-          >
-            Installieren
-          </a>
+          <button @click="location.reload()" class="block min-w-0 text-black button border-yellow bg-yellow">
+            <?= e($for == 'online', 'Online', 'Offline') ?>-Modus
+          </button>
         </div>
       </div>
     </div>

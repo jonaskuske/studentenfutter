@@ -3,6 +3,7 @@
 <body>
   <?= snippet('menu') ?>
   <?= snippet('install-banner') ?>
+  <?= snippet('online-banner', ['for' => 'offline']) ?>
 
   <main class="pt-6">
     <h1 class="mb-4 text-xl italic font-bold text-center leading-wide">

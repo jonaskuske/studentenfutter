@@ -17,11 +17,14 @@
 
     <section class="px-5">
       <?php if ($favorites->isEmpty()) : ?>
-        <p class="mb-6 text-center">
+        <p class="mb-4 text-center">
           Noch keine Favoriten gespeichert.
-          <br>
-          <br>
-          Tippe bei einem Rezept auf das Herz, um es zu deinen Favoriten hinzuzufügen.
+        </p>
+        <p class="text-center">
+            Tippe bei einem Rezept auf das Herz, um es zu deinen Favoriten hinzuzufügen.
+            <span x-data x-show="'serviceWorker' in navigator">
+              <br class="hidden sm:inline">Es ist dann auch offline verfügbar.
+            </span>
         </p>
       <?php else : ?>
         <?= snippet('recipe-list', ['recipes' => $favorites]) ?>
