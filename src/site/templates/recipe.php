@@ -39,12 +39,12 @@ $back_url = r($last != Url::current(), $last);
         ->has($page); ?>
       <div
         class="flex items-center h-12 ml-auto"
-        x-cloak
         x-data="favorite(<?= e($is_favorite, 'true', 'false') ?>)"
         @online.window="online = true"
         @offline.window="online = false"
       >
         <form
+          x-cloak
           x-show="online"
           @submit="submit($event)"
           action="<?= $page->url() ?>"
@@ -68,7 +68,7 @@ $back_url = r($last != Url::current(), $last);
             </span>
           </button>
         </form>
-        <div x-show="!online" class="w-6 mr-3 text-rose">
+        <div x-cloak x-show="!online" class="w-6 mr-3 text-rose">
           <?= svg('assets/icons/offline.svg') ?>
         </div>
       </div>
