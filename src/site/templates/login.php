@@ -1,6 +1,5 @@
-<?= snippet('head') ?>
+<?= snippet('head', ['body_class' => 'bg-fixed bg-angled-rose']) ?>
 
-<body class="bg-fixed bg-angled-rose">
   <?= snippet('menu') ?>
 
   <main class="flex-grow px-5 pt-6">
@@ -44,4 +43,3 @@
       </form>
     </div>
   </main>
-</body>

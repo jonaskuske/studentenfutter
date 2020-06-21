@@ -46,7 +46,7 @@
 
       <div class="flex pr-3" style="max-width: 295px">
         <div style="width: 95px" class="flex-shrink-0 mr-5 text-yellow">
-          <?= svg('assets/icons/offline.svg') ?>
+          <?= svg('assets/icons/' . $for . '.svg') ?>
         </div>
 
         <div class="pt-px mt-1 mr-1">

@@ -1,16 +1,29 @@
 <!doctype html>
-<html lang="de" class="h-full font-sans antialiased leading-normal scroll-smooth scroll-pt-20 scrollbar-lightgray">
+<html
+  lang="de"
+  class="h-full font-sans antialiased leading-normal scroll-smooth scroll-pt-20 scrollbar-lightgray"
+>
 
 <?php
-  $site_title = $site->title();
-  $page_title = isset($page_title) ? $page_title : $page->title();
-  $title = r($page->isHomePage(), $site_title, "{$page_title} | {$site_title}");
+$site_title = $site->title();
+$page_title = isset($page_title) ? $page_title : $page->title();
+$title = r($page->isHomePage(), $site_title, "{$page_title} | {$site_title}");
 
-  $description = isset($page_description) ? $page_description : 'Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei.';
+$default_description =
+  'Die App mit Rezepten von Studierenden aus ganz Deutschland. Egal, ob Salat, Suppe, Hauptgericht oder Dessert. Hier ist für jede*n etwas dabei.';
 
-  $has_recipe_image = $page->template() == 'recipe' && $page->hasImages();
-  $img = $has_recipe_image ? $page->image()->crop(1200, 630)->url() : asset('assets/meta/sharing-image.png')->url();
- ?>
+$description = isset($page_description) ? $page_description : $default_description;
+
+$default_image = asset('assets/meta/sharing-image.png')->url();
+
+$has_img = $page->template() == 'recipe' && $page->hasImages();
+$img = $has_img
+  ? $page
+    ->image()
+    ->crop(1200, 630)
+    ->url()
+  : $default_image;
+?>
 
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
@@ -20,16 +33,34 @@
 
   <?= css([
     'assets/css/fonts.css',
-    r($kirby->option('production'), 'assets/css/tailwind.min.css', 'assets/css/tailwind.dev.css'),
+    $kirby->option('production') ? 'assets/css/tailwind.min.css' : 'assets/css/tailwind.dev.css',
     '@auto',
   ]) ?>
 
   <link rel="manifest" href="<?= asset('assets/meta/site.webmanifest')->url() ?>" />
-  <link rel="apple-touch-icon" sizes="180x180" href="<?= asset('assets/meta/apple-touch-icon.png')->url() ?>">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/meta/favicon-32x32.png')->url() ?>">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?= asset('assets/meta/favicon-16x16.png')->url() ?>">
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="<?= asset('assets/meta/apple-touch-icon.png')->url() ?>"
+  >
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="<?= asset('assets/meta/favicon-32x32.png')->url() ?>"
+  >
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="<?= asset('assets/meta/favicon-16x16.png')->url() ?>"
+  >
   <link rel="manifest" href="<?= asset('assets/meta/site.webmanifest')->url() ?>">
-  <link rel="mask-icon" href="<?= asset('assets/meta/safari-pinned-tab.svg')->url() ?>" color="#f28b85">
+  <link
+    rel="mask-icon"
+    href="<?= asset('assets/meta/safari-pinned-tab.svg')->url() ?>"
+    color="#f28b85"
+  >
   <link rel="shortcut icon" href="<?= asset('assets/meta/favicon.ico')->url() ?>">
   <meta name="apple-mobile-web-app-title" content="studentenfutter">
   <meta name="application-name" content="studentenfutter">
@@ -75,19 +106,13 @@
 
   <?= js(['assets/js/polyfills.js', 'assets/js/utils.js', '@auto'], ['defer' => true]) ?>
 
-  <?= js('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js', [
-    'type' => 'module',
-  ]) ?>
-
-  <?= js('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js', [
-    'nomodule' => true,
-    'defer' => true,
-  ]) ?>
+  <?= js('assets/js/vendor/alpine.min.js', ['type' => 'module']) ?>
+  <?= js('assets/js/vendor/alpine-ie11.min.js', ['nomodule' => true, 'defer' => true]) ?>
 
   <script>
-    if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
+    if ('serviceWorker' in navigator && location.hostname !== '.localhost') {
       navigator.serviceWorker.register('/service-worker.js').then(
-        function(){ console.log('Service Worker registered.') },
+        function(reg){ reg.active && reg.active.postMessage({ type: 'UPDATE_CACHE' }) },
         function(error) { console.error('Service Worker failed to register', error) }
       )
     }
@@ -98,3 +123,19 @@
     })
   </script>
 </head>
+
+<body>
+<script>
+'use strict'
+;(function detectScrollbar(doc) {
+  var el = doc.body.appendChild(doc.createElement('div'))
+
+  el.style.cssText =
+    'width:100px;height:100px;overflow:scroll !important;position:absolute;top:-100vh'
+
+  var hasScrollbar = el.offsetWidth - el.clientWidth > 0
+  if (hasScrollbar) doc.documentElement.classList.add('has-scrollbar')
+
+  doc.body.removeChild(el)
+})(document)
+</script>

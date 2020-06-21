@@ -5,7 +5,6 @@
 <?= snippet('head') ?>
 <?= snippet('install-banner') ?>
 
-<body>
   <?= snippet('menu') ?>
 
   <?php $favorites = $kirby->user()->favorites()->toPages(); ?>
@@ -31,4 +30,3 @@
       <?php endif; ?>
     </section>
   </main>
-</body>

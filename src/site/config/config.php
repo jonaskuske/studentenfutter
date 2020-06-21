@@ -1,12 +1,8 @@
 <?php
 
-/**
- * All config options:
- * https://getkirby.com/docs/reference/system/options
- */
-
 use Kirby\Http\Server;
 use Kirby\Cms\Response;
+use Kirby\Toolkit\F;
 
 $is_dev = Server::host() === 'localhost' && Server::port() === 8080;
 
@@ -18,9 +14,19 @@ return [
     [
       'pattern' => 'service-worker.js',
       'action' => function () {
-        $path_to_sw = __DIR__ . '/../../assets/js/service-worker.js';
+        require_once __DIR__ . '/asset-manifest.php';
 
-        return Response::file($path_to_sw);
+        $sw_path = __DIR__ . '/../../assets/js/service-worker.js';
+        $sw_mime = F::extensionToMime(F::extension($sw_path));
+        $sw_code = F::read($sw_path);
+
+        $sw = preg_replace(
+          ['/__ASSET_HASH__/', '/__ASSET_MANIFEST__/'],
+          [$asset_hash, $asset_manifest],
+          $sw_code,
+        );
+
+        return new Response($sw, $sw_mime);
       },
     ],
     [

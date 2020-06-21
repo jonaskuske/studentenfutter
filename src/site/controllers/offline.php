@@ -12,8 +12,19 @@ return function ($kirby, $site, $page) {
 
   $kirby->response->header('X-Robots-Tag', 'noindex, nofollow');
 
-  $urlsToCache = A::join($favorites->pluck('url'));
-  $kirby->response->header('X-SW-Cache', $urlsToCache);
+  $dependencies = A::merge([], $favorites->pluck('url'));
+  $revalidate = [];
+
+  if ($user) {
+    $dependencies[] = '/favorites';
+
+    // always revalidate /favorites when updating offline cache
+    $revalidate[] = '/favorites';
+  }
+
+  $kirby->response->header('X-SW-Dependencies', A::join($dependencies));
+  // Always revalidate /favorites when /offline is updated
+  $kirby->response->header('X-SW-Revalidate', A::join($revalidate));
 
   return compact('favorites', 'user');
 };

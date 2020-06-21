@@ -1,6 +1,5 @@
-<?= snippet('head') ?>
+<?= snippet('head', ['body_class' => 'bg-fixed bg-angled-rose']) ?>
 
-<body class="bg-fixed bg-angled-rose">
   <?= snippet('menu') ?>
 
   <script>
@@ -83,4 +82,3 @@
 
     <div id="ios-prompt"></div>
   </main>
-</body>

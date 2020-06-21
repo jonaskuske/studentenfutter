@@ -1,5 +1,33 @@
 'use strict'
 
+function favorite(initial) {
+  return {
+    isFavorite: initial,
+    online: typeof navigator.onLine === 'boolean' ? navigator.onLine : true,
+    submit: function (evt) {
+      if (!window.fetch) return
+
+      var _this = this
+      evt.preventDefault()
+
+      fetch(location.href, {
+        method: 'POST',
+        body: 'favorite=' + (this.isFavorite ? 'false' : 'true'),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      }).then(function (r) {
+        if (!r.ok) return
+
+        _this.isFavorite = !_this.isFavorite
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then(function (reg) {
+            reg.active.postMessage({ type: 'UPDATE_CACHE' })
+          })
+        }
+      })
+    },
+  }
+}
+
 if (!('IntersectionObserver' in window)) {
   const script = document.createElement('script')
   script.src = 'https://cdn.jsdelivr.net/npm/intersection-observer/intersection-observer.min.js'

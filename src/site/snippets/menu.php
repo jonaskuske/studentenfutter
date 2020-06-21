@@ -5,9 +5,6 @@ use Kirby\Cms\Url;
 $home_url = $site->homePage()->url();
 $can_go_back = rtrim(Url::last(), '/') == $home_url;
 
-// script has to run sync but requires <body>, so we insert it here
-echo js('assets/js/scrollbar.js');
-
 ?>
 
 <div

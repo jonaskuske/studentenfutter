@@ -1,8 +1,8 @@
-<?= snippet('head') ?>
-
 <?php $show_title = $page->show_title()->toBool(); ?>
 
-<body class="<?= e(!$show_title, 'bg-fixed bg-angled-rose') ?>">
+<?= snippet('head', ['body_class' => r(!$show_title, 'bg-fixed bg-angled-rose')]) ?>
+
+
   <?= snippet('menu') ?>
   <?= snippet('install-banner') ?>
 
@@ -29,4 +29,3 @@
       <?php endif; ?>
     <?php endforeach; ?>
   </main>
-</body>

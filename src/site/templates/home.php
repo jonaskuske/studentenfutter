@@ -1,6 +1,5 @@
 <?= snippet('head') ?>
 
-<body>
   <?= snippet('menu') ?>
   <?= snippet('install-banner') ?>
   <?= snippet('online-banner', ['for' => 'offline']) ?>
@@ -54,4 +53,3 @@
       </section>
     <?php endforeach; ?>
   </main>
-</body>
