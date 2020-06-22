@@ -10,22 +10,24 @@ return function ($kirby) {
   $error = false;
 
   if ($kirby->request()->is('POST')) {
-
     if ($user = $kirby->user(get('email'))) {
-
       try {
         if (!csrf(get('csrf_token'))) {
-          throw new Exception("CSRF Token ungültig.");
+          throw new Exception('CSRF Token ungültig.');
         }
 
         $user->login(get('password'), ['long' => true]);
 
         go(get('r') ? Html::decode(get('r')) : '/');
       } catch (Exception $e) {
-        $error = $e->getMessage();
+        if ($e->getCode() == 'error.user.password.notSame') {
+          $error = 'Mail-Adresse oder Passwort ungültig.';
+        } else {
+          $error = $e->getMessage();
+        }
       }
     } else {
-      $error = 'User existiert nicht.';
+      $error = 'Mail-Adresse oder Passwort ungültig.';
     }
   }
 

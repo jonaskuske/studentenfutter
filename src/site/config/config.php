@@ -3,12 +3,18 @@
 use Kirby\Http\Server;
 use Kirby\Cms\Response;
 use Kirby\Toolkit\F;
+use Kirby\Toolkit\I18n;
 
 $is_dev = Server::host() === 'localhost' && Server::port() === 8080;
 
 return [
   'production' => !$is_dev,
   'debug' => $is_dev,
+  'hooks' => [
+    'route:after' => function () {
+      I18n::$locale = 'de';
+    },
+  ],
   'bvdputte.fingerprint.query' => true,
   'routes' => [
     [
