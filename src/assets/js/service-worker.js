@@ -49,6 +49,9 @@ async function handleActivate(event) {
 
   const cacheNames = await caches.keys()
   await all(cacheNames.map((name) => !allowed.includes(name) && caches.delete(name)))
+
+  if (registration.navigationPreload) await registration.navigationPreload.enable()
+
   console.log('[sw] activated')
 }
 
