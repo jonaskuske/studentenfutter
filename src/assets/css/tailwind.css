@@ -6,6 +6,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+:not(:focus-visible) {
+  outline: none !important;
+}
+
 body {
   @apply flex;
   @apply flex-col;

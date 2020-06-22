@@ -15,7 +15,7 @@
           <?= svg('/assets/icons/input_password.svg') ?>
         </span>
         <input
-          class="mb-1 placeholder-rose"
+          class="mb-1 placeholder-rose focus:outline-none"
           type="old_password"
           id="old_password"
           name="old_password"
@@ -29,7 +29,7 @@
           <?= svg('/assets/icons/input_password.svg') ?>
         </span>
         <input
-          class="mb-1 placeholder-rose"
+          class="mb-1 placeholder-rose focus:outline-none"
           type="password"
           id="password"
           name="password"

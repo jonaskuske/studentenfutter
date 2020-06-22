@@ -15,7 +15,7 @@
         </span>
         <input
           value="<?= esc(get('name') ?? $user->name()) ?>"
-          class="mb-1 placeholder-rose"
+          class="mb-1 placeholder-rose focus:outline-none"
           type="name"
           id="name"
           name="name"
@@ -30,7 +30,7 @@
         </span>
         <input
           value="<?= esc(get('email') ?? $user->email()) ?>"
-          class="mb-1 placeholder-rose"
+          class="mb-1 placeholder-rose focus:outline-none"
           type="email"
           id="email"
           name="email"

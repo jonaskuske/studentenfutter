@@ -19,7 +19,7 @@
         </span>
         <input
           value="<?= esc(get('name')) ?>"
-          class="mb-1 placeholder-rose"
+          class="mb-1 placeholder-rose focus:outline-none"
           type="name"
           id="name"
           name="name"
@@ -34,7 +34,7 @@
         </span>
         <input
           value="<?= esc(get('email')) ?>"
-          class="mb-1 placeholder-rose"
+          class="mb-1 placeholder-rose focus:outline-none"
           type="email"
           id="email"
           name="email"
@@ -48,7 +48,7 @@
           <?= svg('/assets/icons/input_password.svg') ?>
         </span>
         <input
-          class="mb-1 placeholder-rose"
+          class="mb-1 placeholder-rose focus:outline-none"
           placeholder="Passwort"
           type="password"
           id="password"

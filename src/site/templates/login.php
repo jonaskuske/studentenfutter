@@ -23,7 +23,7 @@
           </span>
           <input
             value="<?= esc(get('email')) ?>"
-            class="mb-1 placeholder-rose"
+            class="mb-1 placeholder-rose focus:outline-none"
             type="email"
             id="email"
             name="email"
@@ -36,7 +36,7 @@
           </span>
           <input
             value="<?= esc(get('password')) ?>"
-            class="mb-1 placeholder-rose"
+            class="mb-1 placeholder-rose focus:outline-none"
             placeholder="Passwort"
             type="password"
             id="password"
