@@ -14,13 +14,29 @@
         <span class="w-8">
           <?= svg('/assets/icons/input_password.svg') ?>
         </span>
-        <input class="mb-1 placeholder-rose" type="old_password" id="old_password" name="old_password" placeholder="Altes Passwort" required>
+        <input
+          class="mb-1 placeholder-rose"
+          type="old_password"
+          id="old_password"
+          name="old_password"
+          placeholder="Altes Passwort"
+          autocomplete="current-password"
+          required
+        >
       </div>
       <div class="flex items-center w-full mx-auto mb-12 border-b-8 border-dotted border-circles-rose max-w-form border-rose">
         <span class="w-8">
           <?= svg('/assets/icons/input_password.svg') ?>
         </span>
-        <input class="mb-1 placeholder-rose" type="password" id="password" name="password" placeholder="Neues Passwort" required>
+        <input
+          class="mb-1 placeholder-rose"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Neues Passwort"
+          autocomplete="new-password"
+          required
+        >
       </div>
 
       <?php if ($error): ?>

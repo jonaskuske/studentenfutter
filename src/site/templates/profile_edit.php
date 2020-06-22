@@ -20,6 +20,7 @@
           id="name"
           name="name"
           placeholder="Name"
+          autocomplete="name"
           required
         >
       </div>
@@ -34,6 +35,7 @@
           id="email"
           name="email"
           placeholder="Mail-Adresse"
+          autocomplete="email"
           required
         >
       </div>
