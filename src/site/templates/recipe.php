@@ -11,9 +11,9 @@ $back_url = r($last != Url::current(), $last);
 
   <?= snippet('menu') ?>
 
-<main class="pt-6 transition-opacity duration-100 ease-in">
+<main class="pt-2 transition-opacity duration-100 ease-in">
 
-  <div class="flex items-center pl-5 pr-2 mb-6">
+  <div class="flex items-center pl-5 pr-2 mb-2">
     <a
       href="<?= $back_url ? $back_url : $site->find('recipes')->url() ?>"
       class="flex items-center"
@@ -68,8 +68,13 @@ $back_url = r($last != Url::current(), $last);
             </span>
           </button>
         </form>
-        <div x-cloak x-show="!online" class="w-6 mr-3 text-rose">
-          <?= svg('assets/icons/offline.svg') ?>
+        <div x-cloak x-show="!online" class="flex items-center mr-3 group">
+          <span class="duration-500 opacity-0 group-hover:opacity-100 text-lightgray select-none">
+            Offline-Ansicht
+          </span>
+          <div class="flex-shrink-0 w-6 ml-2 text-rose">
+            <?= svg('assets/icons/offline.svg') ?>
+          </div>
         </div>
       </div>
     <?php endif; ?>

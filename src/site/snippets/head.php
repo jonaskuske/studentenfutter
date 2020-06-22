@@ -109,15 +109,31 @@ $img = $has_img
   <?= js('assets/js/vendor/alpine.min.js', ['type' => 'module']) ?>
   <?= js('assets/js/vendor/alpine-ie11.min.js', ['nomodule' => true, 'defer' => true]) ?>
 
-  <script>
+  <script type="module">
+    const handleRegistration = async (registration) => {
+      if (registration.active) registration.active.postMessage({ type: 'UPDATE_CACHE' })
+
+      if ('periodicSync' in registration) {
+        try {
+          const p = await navigator.permissions.query({ name: 'periodic-background-sync' })
+          if (p.state === 'granted') {
+            await registration.periodicSync.register('UPDATE_CACHE', { minInterval: 6 * ONE_HOUR })
+            console.log('Registered background sync')
+          }
+        } catch(error) {
+          console.error(error)
+        }
+      }
+    }
+
     if ('serviceWorker' in navigator && location.hostname !== '.localhost') {
       navigator.serviceWorker.register('/service-worker.js').then(
-        function(reg){ reg.active && reg.active.postMessage({ type: 'UPDATE_CACHE' }) },
-        function(error) { console.error('Service Worker failed to register', error) }
+        handleRegistration,
+        (error) => console.error('Service Worker failed to register', error)
       )
     }
 
-    window.addEventListener('beforeinstallprompt', function(event) {
+    window.addEventListener('beforeinstallprompt', (event) => {
       event.preventDefault()
       window.INSTALL_EVENT = event
     })
@@ -126,16 +142,16 @@ $img = $has_img
 
 <body>
 <script>
-'use strict'
-;(function detectScrollbar(doc) {
-  var el = doc.body.appendChild(doc.createElement('div'))
+  'use strict'
+  ;(function detectScrollbar(doc) {
+    var el = doc.body.appendChild(doc.createElement('div'))
 
-  el.style.cssText =
-    'width:100px;height:100px;overflow:scroll !important;position:absolute;top:-100vh'
+    el.style.cssText =
+      'width:100px;height:100px;overflow:scroll !important;position:absolute;top:-100vh'
 
-  var hasScrollbar = el.offsetWidth - el.clientWidth > 0
-  if (hasScrollbar) doc.documentElement.classList.add('has-scrollbar')
+    var hasScrollbar = el.offsetWidth - el.clientWidth > 0
+    if (hasScrollbar) doc.documentElement.classList.add('has-scrollbar')
 
-  doc.body.removeChild(el)
-})(document)
+    doc.body.removeChild(el)
+  })(document)
 </script>

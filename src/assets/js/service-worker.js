@@ -15,6 +15,7 @@ const ONE_DAY = 24 * ONE_HOUR
 
 const trim = (str) => str.trim()
 const all = (promises) => Promise.all(promises)
+const isDef = (val) => val != null
 const doFetch = (req, opts) => fetch(req, opts).then((res) => (res.ok ? res : Promise.reject(res)))
 const isImage = (url) => Boolean(url.match(/\.(jpe?g|png|gif|svg)(\?.*)?$/i))
 const shouldCachePermanently = (url) => isImage(url)
@@ -46,18 +47,6 @@ async function handleInstall(event) {
   const [static, dynamic] = await all([caches.open(STATIC_CACHE), caches.open(DYNAMIC_CACHE)])
   await all([static.addAll(STATIC_ASSETS), addToCache(dynamic, OFFLINE_FALLBACK)])
   console.log('[sw] installed')
-
-  if ('periodicSync' in self) {
-    try {
-      const syncPermission = await navigator.permissions.query({ name: 'periodic-background-sync' })
-      if (syncPermission.state === 'granted') {
-        await self.periodicSync.register('UPDATE_CACHE', { minInterval: 12 * ONE_HOUR })
-        console.log('[sw] registered background sync')
-      }
-    } catch (error) {
-      console.error(error)
-    }
-  }
 }
 
 async function handleActivate(event) {
@@ -97,9 +86,19 @@ async function handleFetch(event) {
       const networkResp = await fetch(req)
       return networkResp
     } catch (error) {
-      console.error(error)
       const cachedResp = await caches.match(req)
       if (cachedResp) return cachedResp
+
+      if (req.url.match(/tailwind\.dev\.css/)) {
+        return caches.match(req.url.replace('tailwind.dev.css', 'tailwind.min.css'), {
+          ignoreSearch: true,
+        })
+      }
+
+      if (isImage(req.url)) {
+        const matchingResp = await getMatchingImage(req.url)
+        if (matchingResp) return matchingResp
+      }
 
       return caches.match(OFFLINE_FALLBACK)
     }
@@ -121,12 +120,35 @@ async function handlePeriodicSync(event) {
 }
 
 async function addToCache(cache, req) {
-  console.log('[sw] attempting to cache:', req.url || req)
+  const url = req.url || req
+
+  console.log('[sw] attempting to cache:', url)
   const [response, cachedResp] = await all([doFetch(req), cache.match(req)])
 
   await updateDependencies(response, cachedResp)
   await cache.put(req, response)
-  console.log('[sw] cached:', req.url || req)
+
+  if ('index' in registration) {
+    const id = getHeader(response, 'X-SW-Index-ID')
+    const title = getHeader(response, 'X-SW-Index-Title')
+    const description = getHeader(response, 'X-SW-Index-Description') || undefined
+    const icon = getHeader(response, 'X-SW-Index-Icon') || undefined
+    if (id && title && description && icon) {
+      const sizes = getHeader(response, 'X-SW-Index-Icon-Sizes') || undefined
+      const type = getHeader(response, 'X-SW-Index-Icon-Type') || undefined
+
+      await registration.index.add({
+        id,
+        title,
+        description,
+        url,
+        launchUrl: url,
+        icons: [{ src: icon, sizes, type }],
+      })
+    }
+  }
+
+  console.log('[sw] cached:', url)
 }
 
 async function updateDependencies(res, cachedRes) {
@@ -175,10 +197,66 @@ async function removeFromCache(cache, req) {
   const stored = await cache.match(req)
 
   if (stored) {
+    if ('index' in registration) {
+      const id = getHeader(stored, 'X-SW-Index-ID')
+      if (id) await registration.index.delete(id)
+    }
     console.log('[sw] attempting to remove transitive deps:', req)
     await updateDependencies(null, stored)
   }
 
   await cache.delete(req)
   console.log('[sw] removed:', req)
+}
+
+async function getMatchingImage(url) {
+  const original = parseImageURL(url)
+
+  const permanent = await caches.open(PERMANENT_CACHE)
+  const responses = await permanent.keys()
+
+  let match
+
+  for (const res of responses) {
+    const img = parseImageURL(res.url)
+    if (original.sourceURL !== img.sourceURL || !isSameAspectRatio(original, img)) {
+      continue
+    }
+
+    if (!match) match = img
+    else {
+      // choose largest
+      if (isDef(match.width) && img.width > match.width) match = img
+      else if (isDef(match.height) && img.height > match.height) match = img
+    }
+  }
+
+  if (match) return permanent.match(match.url)
+}
+
+function parseImageURL(url) {
+  const match = url.match(/(\d*)x(\d*)\..*$/)
+  if (!match) return { url, sourceURL: url }
+
+  const sourceURL = url.replace(match[0], '')
+  const width = parseInt(match[1], 10) || undefined
+  const height = parseInt(match[2], 10) || undefined
+
+  return { url, sourceURL, width, height }
+}
+
+function isSameAspectRatio(a, b) {
+  const aHasWidth = isDef(a.width)
+  const bHasWidth = isDef(b.width)
+  const aHasHeight = isDef(a.height)
+  const bHasHeight = isDef(b.height)
+
+  if (aHasWidth && bHasWidth && !aHasHeight && !bHasHeight) return true
+  if (aHasHeight && bHasHeight && !aHasWidth && !bHasWidth) return true
+
+  if (aHasWidth && bHasWidth && aHasHeight && bHasHeight) {
+    return a.width / a.height === b.width / b.height
+  }
+
+  return false
 }
