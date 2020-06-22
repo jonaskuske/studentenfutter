@@ -2,7 +2,7 @@
 
 $files = [
   '/assets/css/fonts.css',
-  '/assets/css/tailwind' . kirby()->option('production') ? '.min.css' : '.dev.css',
+  '/assets/css/tailwind' . (kirby()->option('production') ? '.min.css' : '.dev.css'),
   '/assets/css/templates/recipe.css',
   '/assets/js/polyfills.js',
   '/assets/js/utils.js',

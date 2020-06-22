@@ -53,11 +53,11 @@ return [
 
         $response = [
           'id' => $page->id(),
-          'title' => $page->title(),
+          'title' => $page->title()->toString(),
           'description' => $page->info()->excerpt(160),
           'url' => $page->url(),
           'launchUrl' => $page->url(),
-          'icon' => array_map(function ($size) use ($icon) {
+          'icons' => array_map(function ($size) use ($icon) {
             $src = $icon->crop($size, $size)->url();
             return ['src' => $src, 'sizes' => $size . 'x' . $size, 'type' => F::mime($src)];
           }, $sizes),
