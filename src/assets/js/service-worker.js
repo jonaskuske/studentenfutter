@@ -84,12 +84,6 @@ async function handleFetch(event) {
       const cachedResp = await caches.match(req)
       if (cachedResp) return cachedResp
 
-      if (req.url.match(/tailwind\.dev\.css/)) {
-        return caches.match(req.url.replace('tailwind.dev.css', 'tailwind.min.css'), {
-          ignoreSearch: true,
-        })
-      }
-
       if (isImage(req.url)) {
         const matchingResp = await getMatchingImage(req.url)
         if (matchingResp) return matchingResp
@@ -125,21 +119,13 @@ async function addToCache(cache, req) {
 
   if ('index' in registration) {
     const id = getHeader(response, 'X-SW-Index-ID')
-    const title = getHeader(response, 'X-SW-Index-Title')
-    const description = getHeader(response, 'X-SW-Index-Description') || undefined
-    const icon = getHeader(response, 'X-SW-Index-Icon') || undefined
-    if (id && title && description && icon) {
-      const sizes = getHeader(response, 'X-SW-Index-Icon-Sizes') || undefined
-      const type = getHeader(response, 'X-SW-Index-Icon-Type') || undefined
-
-      await registration.index.add({
-        id,
-        title,
-        description,
-        url,
-        launchUrl: url,
-        icons: [{ src: icon, sizes, type }],
-      })
+    if (id) {
+      try {
+        const indexData = await doFetch(`/content-index/${id}`).then((res) => res.json())
+        await registration.index.add(indexData)
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 

@@ -39,5 +39,32 @@ return [
         go('login');
       },
     ],
+    [
+      'pattern' => 'content-index/(:all)',
+      'action' => function ($id) {
+        $page = page($id);
+
+        if (!$page) {
+          return null;
+        }
+
+        $sizes = [128, 256, 512, 1024];
+        $icon = $page->image() ?? asset('assets/meta/sharing-image.png');
+
+        $response = [
+          'id' => $page->id(),
+          'title' => $page->title(),
+          'description' => $page->info()->excerpt(160),
+          'url' => $page->url(),
+          'launchUrl' => $page->url(),
+          'icon' => array_map(function ($size) use ($icon) {
+            $src = $icon->crop($size, $size)->url();
+            return ['src' => $src, 'sizes' => $size . 'x' . $size, 'type' => F::mime($src)];
+          }, $sizes),
+        ];
+
+        return $response;
+      },
+    ],
   ],
 ];

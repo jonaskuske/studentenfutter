@@ -33,15 +33,7 @@ return function ($kirby, $site, $page) {
 
   $kirby->response->header('X-SW-Dependencies', A::join($dependencies));
 
-  $kirby->response->header('X-SW-Index-ID', $page->uid());
-  $kirby->response->header('X-SW-Index-Title', $page->title() . ' | ' . $site->title());
-  $kirby->response->header('X-SW-Index-Description', $page->info()->excerpt(160));
-  if ($image = $page->image()) {
-    $src = $image->crop(128, 128)->url();
-    $kirby->response->header('X-SW-Index-Icon', $src);
-    $kirby->response->header('X-SW-Index-Icon-Sizes', '128x128');
-    $kirby->response->header('X-SW-Index-Icon-Type', F::mime($src));
-  }
+  $kirby->response->header('X-SW-Index-ID', $page->id());
 
   return compact('images');
 };
