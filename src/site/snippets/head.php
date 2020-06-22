@@ -110,6 +110,11 @@ $img = $has_img
   <?= js('assets/js/vendor/alpine-ie11.min.js', ['nomodule' => true, 'defer' => true]) ?>
 
   <script type="module">
+    const ONE_SECOND = 1000
+    const ONE_MINUTE = 60 * ONE_SECOND
+    const ONE_HOUR = 60 * ONE_MINUTE
+    const ONE_DAY = 24 * ONE_HOUR
+
     const handleRegistration = async (registration) => {
       if (registration.active) registration.active.postMessage({ type: 'UPDATE_CACHE' })
 

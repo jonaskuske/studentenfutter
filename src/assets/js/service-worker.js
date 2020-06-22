@@ -8,11 +8,6 @@ const STATIC_ASSETS = JSON.parse(`__ASSET_MANIFEST__`)
 
 const OFFLINE_FALLBACK = '/offline'
 
-const ONE_SECOND = 1000
-const ONE_MINUTE = 60 * ONE_SECOND
-const ONE_HOUR = 60 * ONE_MINUTE
-const ONE_DAY = 24 * ONE_HOUR
-
 const trim = (str) => str.trim()
 const all = (promises) => Promise.all(promises)
 const isDef = (val) => val != null
