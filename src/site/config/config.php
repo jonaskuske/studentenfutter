@@ -23,7 +23,7 @@ return [
         $sw = preg_replace(
           ['/__ASSET_HASH__/', '/__ASSET_MANIFEST__/'],
           [$asset_hash, $asset_manifest],
-          $sw_code,
+          $sw_code
         );
 
         return new Response($sw, $sw_mime);

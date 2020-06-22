@@ -29,6 +29,128 @@
   "theme_color": "#FFFFFF",
   "start_url": "/",
   "display": "standalone",
+  "shortcuts": [
+    {
+      "name": "Suche",
+      "short_name": "Suche",
+      "description": "Nach Rezepten suchen",
+      "url": "/search",
+      "icons": [
+        {
+          "src": "search.png",
+          "sizes": "36x36"
+        },
+        {
+          "src": "search_2.png",
+          "sizes": "48x48"
+        },
+        {
+          "src": "search_3.png",
+          "sizes": "72x72"
+        },
+        {
+          "src": "search_4.png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "search_5.png",
+          "sizes": "144x144"
+        },
+        {
+          "src": "search_6.png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "search_7.png",
+          "sizes": "256x256"
+        },
+        {
+          "src": "search_8.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Favoriten",
+      "short_name": "Favoriten",
+      "description": "Deine Favoriten anzeigen",
+      "url": "/favorites",
+      "icons": [
+        {
+          "src": "favorites.png",
+          "sizes": "36x36"
+        },
+        {
+          "src": "favorites_2.png",
+          "sizes": "48x48"
+        },
+        {
+          "src": "favorites_3.png",
+          "sizes": "72x72"
+        },
+        {
+          "src": "favorites_4.png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "favorites_5.png",
+          "sizes": "144x144"
+        },
+        {
+          "src": "favorites_6.png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "favorites_7.png",
+          "sizes": "256x256"
+        },
+        {
+          "src": "favorites_8.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Alle Rezepte",
+      "short_name": "Alle Rezepte",
+      "description": "Alle Rezepte ansehen",
+      "url": "/recipes",
+      "icons": [
+        {
+          "src": "all_recipes.png",
+          "sizes": "36x36"
+        },
+        {
+          "src": "all_recipes_2.png",
+          "sizes": "48x48"
+        },
+        {
+          "src": "all_recipes_3.png",
+          "sizes": "72x72"
+        },
+        {
+          "src": "all_recipes_4.png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "all_recipes_5.png",
+          "sizes": "144x144"
+        },
+        {
+          "src": "all_recipes_6.png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "all_recipes_7.png",
+          "sizes": "256x256"
+        },
+        {
+          "src": "all_recipes_8.png",
+          "sizes": "512x512"
+        }
+      ]
+    }
+  ],
   "related_applications": [
     {
       "platform": "webapp",
