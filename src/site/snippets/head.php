@@ -122,7 +122,7 @@ $img = $has_img
         try {
           const p = await navigator.permissions.query({ name: 'periodic-background-sync' })
           if (p.state === 'granted') {
-            await registration.periodicSync.register('UPDATE_CACHE', { minInterval: 6 * ONE_HOUR })
+            await registration.periodicSync.register('UPDATE_CACHE', { minInterval: 30 * ONE_MINUTE })
             console.log('Registered background sync')
           }
         } catch(error) {
