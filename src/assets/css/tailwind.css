@@ -45,6 +45,13 @@ input[type='search']::-webkit-search-results-decoration {
   display: none;
 }
 
+@media (display-mode: standalone) {
+  html,
+  body {
+    overscroll-behavior: contain;
+  }
+}
+
 @tailwind components;
 
 .textfield p ~ p {
