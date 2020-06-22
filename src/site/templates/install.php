@@ -43,6 +43,8 @@
       isIOSChrome: isIOSChrome(),
       isStandalone: isStandalone(),
     }"
+    x-init="navigator.getInstalledRelatedApps && navigator.getInstalledRelatedApps()
+    .then(function(apps) { if (apps.length) isStandalone = true })"
     @appinstalled.window="isStandalone = true"
     @beforeinstallprompt.window="canPrompt = true"
   >
@@ -52,7 +54,7 @@
       </h1>
 
       <div class="mx-auto max-w-form md:max-w-md">
-        <div style="max-width: 14rem" class="text-rose mx-auto mb-8">
+        <div style="max-width: 14rem" class="mx-auto mb-8 text-rose">
           <?= svg('assets/icons/install.svg') ?>
         </div>
 
@@ -62,7 +64,10 @@
             Schau bei deinen Apps nach!
           </p>
 
-          <div x-show="!isStandalone && (canPrompt || (isIOS && !isIOSChrome))" class="textfield flex flex-col">
+          <div
+            x-show="!isStandalone && (canPrompt || (isIOS && !isIOSChrome))"
+            class="flex flex-col textfield"
+          >
             <?= $page->info()->kt() ?>
 
             <button @click="showInstallPrompt();" class="mx-auto mt-6 text-black button border-yellow bg-yellow">
@@ -72,7 +77,10 @@
 
 
           <p class="text-center" x-show="!isStandalone && ((!canPrompt && !isIOS) || isIOSChrome)">
-            Öffne <a class="text-rose" href="<?= $site->homePage()->url() ?>"><?= $site->homePage()->url() ?></a> in
+            Öffne
+            <a class="text-rose" href="<?= $site->homePage()->url() ?>">
+              <?= $site->homePage()->url() ?>
+            </a> in
             <span x-show="isIOS">Safari</span><span x-show="!isIOS">Chrome</span>,
             um <?= $site->title() ?> installieren zu können.
           </p>

@@ -28,5 +28,11 @@
   "background_color": "#FFFFFF",
   "theme_color": "#FFFFFF",
   "start_url": "/",
-  "display": "standalone"
+  "display": "standalone",
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://studentenfutter.app/assets/meta/site.webmanifest"
+    }
+  ]
 }
