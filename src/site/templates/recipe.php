@@ -32,17 +32,14 @@ $back_url = r($last != Url::current(), $last);
       <span class="mr-2 text-blue"><?= svg('/assets/icons/arrow_back.svg') ?></span>
       Zurück
     </a>
-    <?php if ($user = $kirby->user()): ?>
-      <?php $is_favorite = $user
-        ->favorites()
-        ->toPages()
-        ->has($page); ?>
-      <div
-        class="flex items-center h-12 ml-auto"
-        x-data="favorite(<?= e($is_favorite, 'true', 'false') ?>)"
-        @online.window="online = true"
-        @offline.window="online = false"
-      >
+
+    <div
+      class="flex items-center h-12 ml-auto"
+      x-data="favorite(<?= e($isFavorite, 'true', 'false') ?>)"
+      @online.window="online = true"
+      @offline.window="online = false"
+    >
+    <?php if ($user): ?>
         <form
           x-cloak
           x-show="online"
@@ -51,7 +48,7 @@ $back_url = r($last != Url::current(), $last);
           method="POST"
         >
           <input
-            <?= e(!$is_favorite, 'checked') ?>
+            <?= e(!$isFavorite, 'checked') ?>
             :checked="!isFavorite"
             hidden
             type="checkbox"
@@ -60,16 +57,17 @@ $back_url = r($last != Url::current(), $last);
             value="true"
           >
           <button type="submit" class="p-3">
-            <span class="text-rose" x-show="isFavorite" <?= e(!$is_favorite, 'x-cloak') ?>>
+            <span class="text-rose" x-show="isFavorite" <?= e(!$isFavorite, 'x-cloak') ?>>
               <?= svg('/assets/icons/heart_filled.svg') ?>
             </span>
-            <span class="text-rose" x-show="!isFavorite" <?= e($is_favorite, 'x-cloak') ?>>
+            <span class="text-rose" x-show="!isFavorite" <?= e($isFavorite, 'x-cloak') ?>>
               <?= svg('/assets/icons/heart_empty.svg') ?>
             </span>
           </button>
         </form>
+        <?php endif; ?>
         <div x-cloak x-show="!online" class="flex items-center mr-3 group">
-          <span class="duration-500 opacity-0 group-hover:opacity-100 text-lightgray select-none">
+          <span class="duration-500 opacity-0 select-none group-hover:opacity-100 text-lightgray">
             Offline-Ansicht
           </span>
           <div class="flex-shrink-0 w-6 ml-2 text-rose">
@@ -77,7 +75,6 @@ $back_url = r($last != Url::current(), $last);
           </div>
         </div>
       </div>
-    <?php endif; ?>
   </div>
 
   <h1 class="px-5 mb-6 text-xl italic font-bold leading-wide">

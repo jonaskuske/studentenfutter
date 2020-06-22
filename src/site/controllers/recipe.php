@@ -4,8 +4,10 @@ use Kirby\Toolkit\A;
 use Kirby\Toolkit\F;
 
 return function ($kirby, $site, $page) {
+  $user = $kirby->user();
+
   if ($kirby->request()->is('POST')) {
-    if ($user = $kirby->user()) {
+    if ($user) {
       try {
         $favorites = $user->favorites()->toPages();
 
@@ -35,5 +37,12 @@ return function ($kirby, $site, $page) {
 
   $kirby->response->header('X-SW-Index-ID', $page->id());
 
-  return compact('images');
+  $isFavorite = $user
+    ? $user
+      ->favorites()
+      ->toPages()
+      ->has($page)
+    : false;
+
+  return compact('images', 'user', 'isFavorite');
 };
