@@ -25,23 +25,23 @@ const shouldCachePermanently = (url) => isImage(url)
 const getHeader = (res, header) => (res && res.headers.get(header)) || ''
 const arrayFromHeader = (header = '') => header.split(',').map(trim).filter(Boolean)
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(handleInstall(event).then(() => self.skipWaiting()))
+addEventListener('install', (event) => {
+  event.waitUntil(handleInstall(event).then(() => skipWaiting()))
 })
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(handleActivate(event).then(() => self.clients.claim()))
+addEventListener('activate', (event) => {
+  event.waitUntil(handleActivate(event).then(() => clients.claim()))
 })
 
-self.addEventListener('fetch', (event) => {
+addEventListener('fetch', (event) => {
   event.respondWith(handleFetch(event))
 })
 
-self.addEventListener('message', (event) => {
+addEventListener('message', (event) => {
   event.waitUntil(handleMessage(event))
 })
 
-self.addEventListener('periodicsync', (event) => {
+addEventListener('periodicsync', (event) => {
   event.waitUntil(handlePeriodicSync(event))
 })
 
@@ -87,6 +87,16 @@ async function handleFetch(event) {
   const versionSpecified = url.search.match(/[?&]v=[^&]/)
   const staticCacheResp = await staticCache.match(req, { ignoreSearch: !versionSpecified })
   if (staticCacheResp) return staticCacheResp
+
+  if (req.mode === 'navigate') {
+    // Update the offline fallback on each navigation
+    // to ensure it matches the last seen online experience
+    event.waitUntil(
+      caches.open(DYNAMIC_CACHE).then((dynamicCache) => {
+        addToCache(dynamicCache, OFFLINE_FALLBACK)
+      })
+    )
+  }
 
   try {
     const networkResp = (await event.preloadResponse) || (await fetch(req))

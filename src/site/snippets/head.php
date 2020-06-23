@@ -116,8 +116,6 @@ $img = $has_img
     const ONE_DAY = 24 * ONE_HOUR
 
     const handleRegistration = async (registration) => {
-      if (registration.active) registration.active.postMessage({ type: 'UPDATE_CACHE' })
-
       if ('periodicSync' in registration) {
         try {
           const p = await navigator.permissions.query({ name: 'periodic-background-sync' })
@@ -131,7 +129,7 @@ $img = $has_img
       }
     }
 
-    if ('serviceWorker' in navigator && location.hostname !== '.localhost') {
+    if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js').then(
         handleRegistration,
         (error) => console.error('%c[sw]', 'color: darkgray', 'failed to register', error)
