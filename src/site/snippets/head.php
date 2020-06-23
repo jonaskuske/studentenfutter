@@ -123,7 +123,7 @@ $img = $has_img
           const p = await navigator.permissions.query({ name: 'periodic-background-sync' })
           if (p.state === 'granted') {
             await registration.periodicSync.register('UPDATE_CACHE', { minInterval: ONE_HOUR })
-            console.log('Registered background sync')
+            console.log('%c[sw]', 'color: darkgray', 'registered background sync')
           }
         } catch(error) {
           console.error(error)
@@ -134,7 +134,7 @@ $img = $has_img
     if ('serviceWorker' in navigator && location.hostname !== '.localhost') {
       navigator.serviceWorker.register('/service-worker.js').then(
         handleRegistration,
-        (error) => console.error('Service Worker failed to register', error)
+        (error) => console.error('%c[sw]', 'color: darkgray', 'failed to register', error)
       )
     }
 

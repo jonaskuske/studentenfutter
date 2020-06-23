@@ -51,7 +51,7 @@ async function handleInstall(event) {
   const dynamicCache = await caches.open(DYNAMIC_CACHE)
 
   if ((await caches.keys()).includes(STATIC_CACHE)) {
-    addToCache(await caches.open(DYNAMIC_CACHE), OFFLINE_FALLBACK)
+    addToCache(dynamicCache, OFFLINE_FALLBACK)
   } else {
     log('caching: static assets')
     const staticCache = await caches.open(STATIC_CACHE)
