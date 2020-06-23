@@ -4,7 +4,6 @@ use Kirby\Cms\Url;
 
 $home_url = $site->homePage()->url();
 $can_go_back = rtrim(Url::last(), '/') == $home_url;
-
 ?>
 
 <div
@@ -33,12 +32,19 @@ $can_go_back = rtrim(Url::last(), '/') == $home_url;
           <a
             href="<?= $home_url ?>"
             class="highlight highlight-rose highlight-lg"
-            <?= r($can_go_back, attr([
-              'x-data' => '{ active: false }',
-              'x-init' => 'history.replaceState("start", document.title);',
-              '@click.prevent' => 'active = true; history.back();',
-              '@popstate.window' => 'if (active) { active = history.state !== "start"; history.back(); }'
-            ])) ?>
+            <?= r(
+              $can_go_back,
+              attr([
+                'x-data' => '{ active: false }',
+                'x-init' => 'history.replaceState("start", document.title);',
+                '@click' => "if (!window.REFRESH_ON_NAV) {
+                  \$event.preventDefault(); active = true; history.back();
+                }",
+                '@popstate.window' => "if (active) {
+                  active = history.state !== 'start'; history.back();
+                }",
+              ]),
+            ) ?>
           >
             <?= $site->title() ?>
           </a>
@@ -53,13 +59,13 @@ $can_go_back = rtrim(Url::last(), '/') == $home_url;
       <div class="container transition-all" :class="{ 'invisible delay-500': !open }">
         <nav x-cloak :class="open ? 'max-h-300' : 'max-h-0'" class="overflow-hidden transition-all duration-500 ease-in-out">
           <ul class="pt-12 pl-5">
-            <?php foreach ($pages->listed() as $entry) : ?>
+            <?php foreach ($pages->listed() as $entry): ?>
               <li class="mb-5 italic font-bold leading-relaxed text-md">
                 <a href="<?= $entry->url() ?>" class="highlight highlight-rose highlight-sm">
                   <?= $entry->title()->html() ?>
                 </a>
               </li>
-            <?php endforeach ?>
+            <?php endforeach; ?>
 
             <li
               x-data="{
@@ -77,15 +83,18 @@ $can_go_back = rtrim(Url::last(), '/') == $home_url;
             </li>
 
             <li class="mt-3 mb-2 text-xs leading-tight text-right">
-              <?php if ($kirby->user()) : ?>
+              <?php if ($kirby->user()): ?>
                 <a href="<?= $site->find('profile')->url() ?>">
-                  <?= $site->find('profile')->title()->html() ?>
+                  <?= $site
+                    ->find('profile')
+                    ->title()
+                    ->inline() ?>
                 </a>
-              <?php else : ?>
+              <?php else: ?>
                 <a href="<?= url('login') ?>">
                   Einloggen/Registrieren
                 </a>
-              <?php endif ?>
+              <?php endif; ?>
             </li>
             <li class="text-xs leading-tight text-right">
               <a href="<?= url('/legal') ?>">Rechtliches</a>

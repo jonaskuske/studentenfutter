@@ -22,10 +22,15 @@ $back_url = r($last != Url::current(), $last);
         attr([
           'x-data' => '{ active: false }',
           'x-init' => 'history.state !== "start" && history.replaceState("start", document.title);',
-          '@click.prevent' =>
-            'active = true; document.querySelector("main").style.opacity = 0; history.back();',
-          '@popstate.window' =>
-            'if (active) { active = history.state !== "start"; history.back(); }',
+          '@click' => "if (!window.REFRESH_ON_NAV) {
+            \$event.preventDefault();
+            active = true;
+            document.querySelector('main').style.opacity = 0;
+            history.back();
+          }",
+          '@popstate.window' => "if (active) {
+            active = history.state !== 'start'; history.back();
+          }",
         ]),
       ) ?>
     >

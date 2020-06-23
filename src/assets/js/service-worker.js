@@ -1,16 +1,24 @@
-/** __ASSET_(HASH, MANIFEST)__ are inserted by server */
-
+// Populated once during install, then treated as offline-first.
+// Invalidated if the server-generated asset hash changes.
 const STATIC_CACHE = 'static@__ASSET_HASH__'
+
+// Entries stored here are added and constantly updated during runtime.
+// Invalidated alongside STATIC_CACHE so we don't keep entries that rely on previous asset versions.
 const DYNAMIC_CACHE = 'dynamic@__ASSET_HASH__'
+
+// Entries stored here are added during runtime and never invalidated.
+// (but deleted manually if an entry is a dependency and its parent is removed)
 const PERMANENT_CACHE = 'permanent@1'
+
+// Entry point for offline app shell, used as response if no other match was found.
+// Like all cache entries, it declares its dependencies via the X-SW-Dependencies header.
+const OFFLINE_FALLBACK = '/offline'
 
 const STATIC_ASSETS = JSON.parse(`__ASSET_MANIFEST__`)
 
-const OFFLINE_FALLBACK = '/offline'
-
 const trim = (str) => str.trim()
 const all = (promises) => Promise.all(promises)
-const isDef = (val) => val != null
+const log = (...args) => console.log('%c[sw]', 'color: darkgray', ...args)
 const doFetch = (req, opts) => fetch(req, opts).then((res) => (res.ok ? res : Promise.reject(res)))
 const isImage = (url) => Boolean(url.match(/\.(jpe?g|png|gif|svg)(\?.*)?$/i))
 const shouldCachePermanently = (url) => isImage(url)
@@ -26,11 +34,11 @@ self.addEventListener('activate', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
-  return event.respondWith(handleFetch(event))
+  event.respondWith(handleFetch(event))
 })
 
 self.addEventListener('message', (event) => {
-  handleMessage(event)
+  event.waitUntil(handleMessage(event))
 })
 
 self.addEventListener('periodicsync', (event) => {
@@ -38,209 +46,259 @@ self.addEventListener('periodicsync', (event) => {
 })
 
 async function handleInstall(event) {
-  console.log('[sw] installing..')
-  const [static, dynamic] = await all([caches.open(STATIC_CACHE), caches.open(DYNAMIC_CACHE)])
-  await all([static.addAll(STATIC_ASSETS), addToCache(dynamic, OFFLINE_FALLBACK)])
-  console.log('[sw] installed')
+  log('installing')
+
+  const dynamicCache = await caches.open(DYNAMIC_CACHE)
+
+  if ((await caches.keys()).includes(STATIC_CACHE)) {
+    addToCache(await caches.open(DYNAMIC_CACHE), OFFLINE_FALLBACK)
+  } else {
+    log('caching: static assets')
+    const staticCache = await caches.open(STATIC_CACHE)
+    await all([staticCache.addAll(STATIC_ASSETS), addToCache(dynamicCache, OFFLINE_FALLBACK)])
+  }
+
+  log('installed')
 }
 
 async function handleActivate(event) {
+  log('activating')
   const allowed = [STATIC_CACHE, DYNAMIC_CACHE, PERMANENT_CACHE]
 
   const cacheNames = await caches.keys()
   await all(cacheNames.map((name) => !allowed.includes(name) && caches.delete(name)))
 
-  if (registration.navigationPreload) await registration.navigationPreload.enable()
+  await updateContentIndex()
 
-  console.log('[sw] activated')
+  if (registration.navigationPreload) {
+    await registration.navigationPreload.enable()
+  }
+
+  log('activated')
 }
 
 async function handleFetch(event) {
-  const preloadResp = await event.preloadResponse
-  if (preloadResp) return preloadResp
-
   const req = event.request
+  const url = new URL(req.url)
 
-  const dynamic = await caches.open(DYNAMIC_CACHE)
-  const cachedInDynamic = await dynamic.match(req)
+  // Entries in static cache: offline-first
+  // Allows requesting assets without specifying their version (?v=<hash>)
+  const staticCache = await caches.open(STATIC_CACHE)
+  const versionSpecified = url.search.match(/[?&]v=[^&]/)
+  const staticCacheResp = await staticCache.match(req, { ignoreSearch: !versionSpecified })
+  if (staticCacheResp) return staticCacheResp
 
-  if (cachedInDynamic) {
-    try {
-      const networkResp = await fetch(req).then((response) => {
-        const clonedResp = response.clone()
-        updateDependencies(clonedResp, cachedInDynamic).then(() => {
-          dynamic.put(req, clonedResp)
-        })
+  try {
+    const networkResp = (await event.preloadResponse) || (await fetch(req))
+    const clonedResp = networkResp.clone()
 
-        return response
+    event.waitUntil(
+      // If request is stored in the dynamic cache, update its cache entry
+      caches.open(DYNAMIC_CACHE).then(async (dynamicCache) => {
+        const cachedResp = await dynamicCache.match(req)
+        if (!cachedResp) return
+
+        await updateDependencies({ from: cachedResp, to: clonedResp, label: `updating ${req.url}` })
+        await dynamicCache.put(req, clonedResp)
       })
+    )
 
-      return networkResp
-    } catch (error) {
-      return cachedInDynamic
+    return networkResp
+  } catch (error) {
+    const cachedResp = await caches.match(req)
+    if (cachedResp) return cachedResp
+
+    if (isImage(req.url)) {
+      // Check if we have another version of this image in cache
+      // e.g. respond with ninja-400x200.jpg for ninja-600x300.jpg
+      const matchingResp = await getMatchingImage(req.url)
+      if (matchingResp) return matchingResp
     }
-  } else {
-    try {
-      const networkResp = await fetch(req)
-      return networkResp
-    } catch (error) {
-      const cachedResp = await caches.match(req)
-      if (cachedResp) return cachedResp
 
-      if (isImage(req.url)) {
-        const matchingResp = await getMatchingImage(req.url)
-        if (matchingResp) return matchingResp
-      }
-
-      return caches.match(OFFLINE_FALLBACK)
-    }
+    return caches.match(OFFLINE_FALLBACK)
   }
 }
 
 async function handleMessage(event) {
   if (event.data && event.data.type === 'UPDATE_CACHE') {
-    const dynamic = await caches.open(DYNAMIC_CACHE)
-    addToCache(dynamic, OFFLINE_FALLBACK)
+    const dynamicCache = await caches.open(DYNAMIC_CACHE)
+    addToCache(dynamicCache, OFFLINE_FALLBACK)
   }
 }
 
 async function handlePeriodicSync(event) {
   if (event.tag === 'UPDATE_CACHE') {
-    const dynamic = await caches.open(DYNAMIC_CACHE)
-    await addToCache(dynamic, OFFLINE_FALLBACK)
+    const dynamicCache = await caches.open(DYNAMIC_CACHE)
+    await addToCache(dynamicCache, OFFLINE_FALLBACK)
   }
 }
 
 async function addToCache(cache, req) {
-  const url = req.url || req
+  const [cachedResp, response] = await all([cache.match(req), doFetch(req)])
 
-  console.log('[sw] attempting to cache:', url)
-  const [response, cachedResp] = await all([doFetch(req), cache.match(req)])
-
-  await updateDependencies(response, cachedResp)
+  await updateDependencies({ from: cachedResp, to: response, label: `caching ${req.url || req}` })
   await cache.put(req, response)
 
-  if ('index' in registration) {
-    const id = getHeader(response, 'X-SW-Index-ID')
-    if (id) {
-      try {
-        const indexData = await doFetch(`/content-index/${id}`).then((res) => res.json())
-        await registration.index.add(indexData)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-  }
-
-  console.log('[sw] cached:', url)
+  const indexId = getHeader(response, 'X-SW-Index-ID')
+  if (indexId) await addToContentIndex(indexId)
 }
 
-async function updateDependencies(res, cachedRes) {
-  console.log('[sw] attempting to update deps for', res || cachedRes)
+async function removeFromCache(cache, req) {
+  const cachedResp = await cache.match(req)
 
-  const depHeader = getHeader(res, 'X-SW-Dependencies')
-  const cachedDepHeader = getHeader(cachedRes, 'X-SW-Dependencies')
+  if (cachedResp) {
+    await updateDependencies({ from: cachedResp, to: null, label: `removing ${req.url || req}` })
 
-  const deps = arrayFromHeader(depHeader)
-  const cachedDeps = arrayFromHeader(cachedDepHeader)
-  const revalidate = arrayFromHeader(getHeader(res, 'X-SW-Revalidate'))
-
-  if (depHeader === cachedDepHeader && !revalidate.length) {
-    console.log('[sw] no update neccessary for:', res)
-    return
+    const indexId = getHeader(cachedResp, 'X-SW-Index-ID')
+    if (indexId) await removeFromContentIndex(indexId)
   }
 
-  const [dynamic, permanent] = await all([caches.open(DYNAMIC_CACHE), caches.open(PERMANENT_CACHE)])
+  await cache.delete(req)
+}
 
-  const toAdd = new Set(deps.filter((url) => !cachedDeps.includes(url)))
-  const toRemove = new Set(cachedDeps.filter((url) => !deps.includes(url)))
+async function updateDependencies({ from, to, label }) {
+  console.group('%c[sw]', 'color: darkgray', label)
+  const { add, remove } = diffDependencies({ from, to })
+  console.groupEnd()
 
-  console.log('[sw] to add:', toAdd)
-  console.log('[sw] to remove:', toRemove)
+  if (!add && !remove) return
 
-  for (const dep of revalidate) {
-    console.log('[sw] revalidating:', dep)
-    toAdd.add(dep)
-  }
+  const dynamicCache = await caches.open(DYNAMIC_CACHE)
+  const permanentCache = await caches.open(PERMANENT_CACHE)
 
-  const addPromises = [...toAdd].map((url) => {
-    const cache = shouldCachePermanently(url) ? permanent : dynamic
+  const addPromises = [...add].map((url) => {
+    const cache = shouldCachePermanently(url) ? permanentCache : dynamicCache
     return addToCache(cache, url)
   })
 
-  const removePromises = [...toRemove].map((url) => {
-    const cache = shouldCachePermanently(url) ? permanent : dynamic
+  const removePromises = [...remove].map((url) => {
+    const cache = shouldCachePermanently(url) ? permanentCache : dynamicCache
     return removeFromCache(cache, url)
   })
 
   await all([...addPromises, ...removePromises])
 }
 
-async function removeFromCache(cache, req) {
-  console.log('[sw] attempting to remove:', req)
-  const stored = await cache.match(req)
+function diffDependencies({ from, to }) {
+  const fromHeader = getHeader(from, 'X-SW-Dependencies')
+  const toHeader = getHeader(to, 'X-SW-Dependencies')
+  const fromDeps = arrayFromHeader(fromHeader)
+  const toDeps = arrayFromHeader(toHeader)
+  const revalidate = new Set(arrayFromHeader(getHeader(to, 'X-SW-Revalidate')))
 
-  if (stored) {
-    if ('index' in registration) {
-      const id = getHeader(stored, 'X-SW-Index-ID')
-      if (id) await registration.index.delete(id)
-    }
-    console.log('[sw] attempting to remove transitive deps:', req)
-    await updateDependencies(null, stored)
+  if (fromHeader === toHeader && !revalidate.size) {
+    log(toDeps.length === 0 ? 'no dependencies' : 'no changed dependencies')
+
+    return { add: null, remove: null }
   }
 
-  await cache.delete(req)
-  console.log('[sw] removed:', req)
+  const add = new Set(toDeps.filter((url) => !fromDeps.includes(url)))
+  const remove = new Set(fromDeps.filter((url) => !toDeps.includes(url)))
+
+  log('add:', add)
+  log('remove:', remove)
+  log('revalidate:', revalidate)
+
+  for (const dep of revalidate) add.add(dep)
+
+  return { add, remove }
+}
+
+async function updateContentIndex() {
+  if (!('index' in registration)) return
+
+  log('updating content index')
+
+  const dynamicCache = await caches.open(DYNAMIC_CACHE)
+
+  const indexedEntries = await registration.index.getAll()
+  const idsInIndex = new Set(indexedEntries.map((entry) => entry.id))
+
+  const cachedRequests = await dynamicCache.keys()
+  const idsInCache = all(
+    cachedRequests.map(async (req) => {
+      const response = await dynamicCache.match(req)
+      return getHeader(response, 'X-SW-Index-ID')
+    })
+  ).filter(Boolean)
+
+  for (const id of idsInCache) {
+    if (idsInIndex.has(id)) idsInIndex.delete(id)
+    else await addToContentIndex(id)
+  }
+
+  for (const remainingId of idsInIndex) {
+    await removeFromContentIndex(remainingId)
+  }
+}
+
+async function addToContentIndex(id) {
+  if (!('index' in registration)) return
+
+  log('adding to content index:', id)
+
+  try {
+    const indexData = await doFetch(`/content-index/${id}`).then((res) => res.json())
+    await registration.index.add(indexData)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+async function removeFromContentIndex(id) {
+  if (!('index' in registration)) return
+
+  log('removing from content index:', id)
+
+  await registration.index.delete(id)
 }
 
 async function getMatchingImage(url) {
-  const original = parseImageURL(url)
+  const requested = parseImageURL(url)
 
-  const permanent = await caches.open(PERMANENT_CACHE)
-  const responses = await permanent.keys()
+  const permanentCache = await caches.open(PERMANENT_CACHE)
+  const requests = await permanentCache.keys()
 
   let match
 
-  for (const res of responses) {
-    const img = parseImageURL(res.url)
-    if (original.sourceURL !== img.sourceURL || !isSameAspectRatio(original, img)) {
-      continue
-    }
+  for (const req of requests) {
+    const img = parseImageURL(req.url)
 
-    if (!match) match = img
-    else {
-      // choose largest
-      if (isDef(match.width) && img.width > match.width) match = img
-      else if (isDef(match.height) && img.height > match.height) match = img
+    if (requested.originalURL === img.originalURL && isSameAspectRatio(requested, img)) {
+      if (requested.originalURL === img.url) {
+        // if we have the original, non-resized version in cache,
+        // use that one and stop looking – there's no larger one
+        match = img
+        break
+      } else if (!match) {
+        // no match yet? use the image
+        match = img
+      } else {
+        // already a match? compare and use the larger one
+        if (match.width && img.width > match.width) match = img
+        else if (match.height && img.height > match.height) match = img
+      }
     }
   }
 
-  if (match) return permanent.match(match.url)
+  if (match) return permanentCache.match(match.url)
 }
 
 function parseImageURL(url) {
-  const match = url.match(/(\d*)x(\d*)\..*$/)
-  if (!match) return { url, sourceURL: url }
+  const match = url.match(/-(\d*)x(\d*)\..+$/)
+  if (!match) return { url, originalURL: url }
 
-  const sourceURL = url.replace(match[0], '')
+  const originalURL = url.replace(match[0], '')
   const width = parseInt(match[1], 10) || undefined
   const height = parseInt(match[2], 10) || undefined
 
-  return { url, sourceURL, width, height }
+  return { url, originalURL, width, height }
 }
 
 function isSameAspectRatio(a, b) {
-  const aHasWidth = isDef(a.width)
-  const bHasWidth = isDef(b.width)
-  const aHasHeight = isDef(a.height)
-  const bHasHeight = isDef(b.height)
-
-  if (aHasWidth && bHasWidth && !aHasHeight && !bHasHeight) return true
-  if (aHasHeight && bHasHeight && !aHasWidth && !bHasWidth) return true
-
-  if (aHasWidth && bHasWidth && aHasHeight && bHasHeight) {
+  if ((a.width && a.height) || (b.width && b.height)) {
     return a.width / a.height === b.width / b.height
   }
 
-  return false
+  return true
 }

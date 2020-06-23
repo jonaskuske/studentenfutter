@@ -18,6 +18,7 @@ function favorite(initial) {
         if (!r.ok) return
 
         _this.isFavorite = !_this.isFavorite
+        window.REFRESH_ON_NAV = true
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then(function (reg) {
             reg.active.postMessage({ type: 'UPDATE_CACHE' })
