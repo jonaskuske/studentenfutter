@@ -3,10 +3,13 @@
 $files = [
   '/assets/css/fonts.css',
   '/assets/css/tailwind' . (kirby()->option('production') ? '.min.css' : '.dev.css'),
+  // template assets are used by multiple pages, so we add them here
+  // instead of declaring them as page dependencies (which must be unique)
   '/assets/css/templates/recipe.css',
+  '/assets/css/templates/default.css',
+  '/assets/js/templates/recipe.js',
   '/assets/js/polyfills.js',
   '/assets/js/utils.js',
-  '/assets/js/templates/recipe.js',
   '/assets/js/vendor/alpine.min.js',
   '/assets/js/vendor/focus-visible.min.js',
   '/assets/js/vendor/object-fit-images.min.js',
@@ -19,11 +22,7 @@ $files = [
 ];
 
 $hashedFiles = array_map(function ($path) {
-  if (preg_match('/\/assets\/(css|js)/', $path)) {
-    return $path . '?v=' . md5_file(__DIR__ . '/../..' . $path);
-  } else {
-    return $path;
-  }
+  return $path . '?v=' . md5_file(__DIR__ . '/../..' . $path);
 }, $files);
 
 $asset_manifest = json_encode($hashedFiles, JSON_PRETTY_PRINT);

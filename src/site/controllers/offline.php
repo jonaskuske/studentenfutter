@@ -12,10 +12,11 @@ return function ($kirby, $site, $page) {
 
   $kirby->response->header('X-Robots-Tag', 'noindex, nofollow');
 
-  $dependencies = [];
+  $dependencies = ['/about', '/legal'];
   $revalidate = [];
 
   if ($user) {
+    $dependencies[] = '/profile';
     $dependencies[] = '/favorites';
 
     // always revalidate /favorites as /offline directly embeds

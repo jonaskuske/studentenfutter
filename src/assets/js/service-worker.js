@@ -18,7 +18,8 @@ const STATIC_ASSETS = JSON.parse(`__ASSET_MANIFEST__`)
 
 const trim = (str) => str.trim()
 const all = (promises) => Promise.all(promises)
-const log = (...args) => console.log('%c[sw]', 'color: darkgray', ...args)
+const log = (...a) => console.log('%c[sw]', 'color: darkgray', ...a)
+const logBold = (...a) => console.log('%c[sw] %c%s', 'color:darkgray', 'font-weight:bold', ...a)
 const doFetch = (req, opts) => fetch(req, opts).then((res) => (res.ok ? res : Promise.reject(res)))
 const isImage = (url) => Boolean(url.match(/\.(jpe?g|png|gif|svg)(\?.*)?$/i))
 const shouldCachePermanently = (url) => isImage(url)
@@ -46,23 +47,23 @@ addEventListener('periodicsync', (event) => {
 })
 
 async function handleInstall(event) {
-  log('installing')
+  logBold('installing')
 
   const dynamicCache = await caches.open(DYNAMIC_CACHE)
 
   if ((await caches.keys()).includes(STATIC_CACHE)) {
     addToCache(dynamicCache, OFFLINE_FALLBACK)
   } else {
-    log('caching: static assets')
+    logBold('caching: static assets')
     const staticCache = await caches.open(STATIC_CACHE)
     await all([staticCache.addAll(STATIC_ASSETS), addToCache(dynamicCache, OFFLINE_FALLBACK)])
   }
 
-  log('installed')
+  logBold('installed')
 }
 
 async function handleActivate(event) {
-  log('activating')
+  logBold('activating')
   const allowed = [STATIC_CACHE, DYNAMIC_CACHE, PERMANENT_CACHE]
 
   const cacheNames = await caches.keys()
@@ -74,7 +75,7 @@ async function handleActivate(event) {
     await registration.navigationPreload.enable()
   }
 
-  log('activated')
+  logBold('activated')
 }
 
 async function handleFetch(event) {
@@ -167,7 +168,7 @@ async function removeFromCache(cache, req) {
 }
 
 async function updateDependencies({ from, to, label }) {
-  console.group('%c[sw]', 'color: darkgray', label)
+  console.groupCollapsed('%c[sw]', 'color: darkgray', label)
   const { add, remove } = diffDependencies({ from, to })
   console.groupEnd()
 
@@ -217,7 +218,7 @@ function diffDependencies({ from, to }) {
 async function updateContentIndex() {
   if (!('index' in registration)) return
 
-  log('updating content index')
+  logBold('updating content index')
 
   const dynamicCache = await caches.open(DYNAMIC_CACHE)
 
@@ -245,7 +246,7 @@ async function updateContentIndex() {
 async function addToContentIndex(id) {
   if (!('index' in registration)) return
 
-  log('adding to content index:', id)
+  logBold('adding to content index:', id)
 
   try {
     const indexData = await doFetch(`/content-index/${id}`).then((res) => res.json())
@@ -258,7 +259,7 @@ async function addToContentIndex(id) {
 async function removeFromContentIndex(id) {
   if (!('index' in registration)) return
 
-  log('removing from content index:', id)
+  logBold('removing from content index:', id)
 
   await registration.index.delete(id)
 }
