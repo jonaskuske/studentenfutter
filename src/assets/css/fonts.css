@@ -2,6 +2,7 @@
   font-family: 'Chivo';
   font-style: italic;
   font-weight: 300;
+  font-display: block;
   src: local('Chivo Light Italic'), local('Chivo-LightItalic'),
     url(../fonts/Chivo_Light-Italic.woff2) format('woff2'),
     url(../fonts/Chivo_Light-Italic.woff) format('woff');
@@ -12,6 +13,7 @@
   font-family: 'Chivo';
   font-style: normal;
   font-weight: 400;
+  font-display: block;
   src: local('Chivo Regular'), local('Chivo-Regular'),
     url(../fonts/Chivo_Regular.woff2) format('woff2'),
     url(../fonts/Chivo_Regular.woff) format('woff');
@@ -23,6 +25,7 @@
   font-family: 'Chivo';
   font-style: italic;
   font-weight: 400;
+  font-display: block;
   src: local('Chivo Italic'), local('Chivo-Italic'),
     url(../fonts/Chivo_Regular-Italic.woff2) format('woff2'),
     url(../fonts/Chivo_Regular-Italic.woff) format('woff');
@@ -34,6 +37,7 @@
   font-family: 'Chivo';
   font-style: italic;
   font-weight: 700;
+  font-display: block;
   src: local('Chivo Bold Italic'), local('Chivo-BoldItalic'),
     url(../fonts/Chivo_Bold-Italic.woff2) format('woff2'),
     url(../fonts/Chivo_Bold-Italic.woff) format('woff');
