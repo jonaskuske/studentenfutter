@@ -96,6 +96,17 @@ async function handleFetch(event) {
   const staticCacheResp = await staticCache.match(req, { ignoreSearch: !versionSpecified })
   if (staticCacheResp) return staticCacheResp
 
+  // On slow connections, don't bother with fetching the original sized image
+  // if we have another version in cache
+  if (isImage(req.url)) {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
+
+    if (connection && ['2g', '3g'].includes(connection.effectiveType)) {
+      const matchingResp = await getMatchingImage(req.url)
+      if (matchingResp) return matchingResp
+    }
+  }
+
   if (req.mode === 'navigate') {
     // Update the offline fallback on each navigation
     // to ensure it matches the last seen online experience
