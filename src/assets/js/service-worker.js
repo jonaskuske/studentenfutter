@@ -82,6 +82,13 @@ async function handleFetch(event) {
   const req = event.request
   const url = new URL(req.url)
 
+  // Entries in permanent cache: offline-first (e.g. images)
+  if (shouldCachePermanently(req.url)) {
+    const permanentCache = await caches.open(PERMANENT_CACHE)
+    const cachedResp = await permanentCache.match(req)
+    if (cachedResp) return cachedResp
+  }
+
   // Entries in static cache: offline-first
   // Allows requesting assets without specifying their version (?v=<hash>)
   const staticCache = await caches.open(STATIC_CACHE)
