@@ -81,70 +81,92 @@ async function handleActivate(event) {
 async function handleFetch(event) {
   const req = event.request
   const url = new URL(req.url)
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
+  const isSlowConnection = ['2g', '3g'].includes(connection.effectiveType)
 
-  // Entries in permanent cache: offline-first (e.g. images)
-  if (shouldCachePermanently(req.url)) {
-    const permanentCache = await caches.open(PERMANENT_CACHE)
-    const cachedResp = await permanentCache.match(req)
-    if (cachedResp) return cachedResp
-  }
+  const staticCache = await caches.open(STATIC_CACHE)
+  const dynamicCache = await caches.open(DYNAMIC_CACHE)
+  const permanentCache = await caches.open(PERMANENT_CACHE)
 
   // Entries in static cache: offline-first
-  // Allows requesting assets without specifying their version (?v=<hash>)
-  const staticCache = await caches.open(STATIC_CACHE)
+  // Allow requesting assets without specifying their version (?v=<hash>)
   const versionSpecified = url.search.match(/[?&]v=[^&]/)
   const staticCacheResp = await staticCache.match(req, { ignoreSearch: !versionSpecified })
   if (staticCacheResp) return staticCacheResp
 
-  // On slow connections, don't bother with fetching the original sized image
-  // if we have another version in cache
-  if (isImage(req.url)) {
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
-
-    if (connection && ['2g', '3g'].includes(connection.effectiveType)) {
-      const matchingResp = await getMatchingImage(req.url)
-      if (matchingResp) return matchingResp
-    }
+  // Entries in permanent cache: offline-first (e.g. images)
+  if (shouldCachePermanently(req.url)) {
+    const cachedResp = await permanentCache.match(req)
+    if (cachedResp) return cachedResp
   }
 
+  // On slow connections, don't bother with fetching the requested image if
+  // we have another version of it cached (e.g. 400x200 instead of 600x300)
+  if (isImage(req.url) && isSlowConnection) {
+    const matchingResp = await getMatchingImage(permanentCache, req.url)
+    if (matchingResp) return matchingResp
+  }
+
+  // Update the offline fallback on each navigation
+  // to ensure it matches the last seen online experience
   if (req.mode === 'navigate') {
-    // Update the offline fallback on each navigation
-    // to ensure it matches the last seen online experience
-    event.waitUntil(
-      caches.open(DYNAMIC_CACHE).then((dynamicCache) => {
-        addToCache(dynamicCache, OFFLINE_FALLBACK)
-      })
-    )
+    event.waitUntil(addToCache(dynamicCache, OFFLINE_FALLBACK))
   }
 
   try {
+    const cachedResp = await dynamicCache.match(req)
+
+    // On slow connections: immediately return cached response (offline-first),
+    // fetch new resource in the background and update the cache
+    if (cachedResp && isSlowConnection) {
+      event.waitUntil(
+        (async function () {
+          const networkResp = (await event.preloadResponse) || (await fetch(req))
+          await updateDependencies({
+            from: cachedResp,
+            to: networkResp,
+            label: `updating ${req.url}`,
+          })
+          await dynamicCache.put(req, networkResp)
+        })()
+      )
+
+      return cachedResp
+    }
+
+    // For fast connections, go network-first: fetch and return the latest response,
+    // if it's also stored in our dynamic cache, update it in the background
     const networkResp = (await event.preloadResponse) || (await fetch(req))
     const clonedResp = networkResp.clone()
 
-    event.waitUntil(
-      // If request is stored in the dynamic cache, update its cache entry
-      caches.open(DYNAMIC_CACHE).then(async (dynamicCache) => {
-        const cachedResp = await dynamicCache.match(req)
-        if (!cachedResp) return
-
-        await updateDependencies({ from: cachedResp, to: clonedResp, label: `updating ${req.url}` })
-        await dynamicCache.put(req, clonedResp)
-      })
-    )
+    if (cachedResp) {
+      event.waitUntil(
+        updateDependencies({
+          from: cachedResp,
+          to: clonedResp,
+          label: `updating ${req.url}`,
+        }).then(() => dynamicCache.put(req, clonedResp))
+      )
+    }
 
     return networkResp
   } catch (error) {
+    // On error, we'll...
+
+    // 1. Search for a match in all caches.
     const cachedResp = await caches.match(req)
     if (cachedResp) return cachedResp
 
+    // 2. For images, check if we have the requested image in a different size.
     if (isImage(req.url)) {
       // Check if we have another version of this image in cache
       // e.g. respond with ninja-400x200.jpg for ninja-600x300.jpg
-      const matchingResp = await getMatchingImage(req.url)
+      const matchingResp = await getMatchingImage(permanentCache, req.url)
       if (matchingResp) return matchingResp
     }
 
-    return caches.match(OFFLINE_FALLBACK)
+    // 3. Return the offline page for navigations, else 404.
+    return req.mode === 'navigate' ? caches.match(OFFLINE_FALLBACK) : create404()
   }
 }
 
@@ -244,11 +266,13 @@ async function updateContentIndex() {
   const idsInIndex = new Set(indexedEntries.map((entry) => entry.id))
 
   const cachedRequests = await dynamicCache.keys()
-  const idsInCache = all(
-    cachedRequests.map(async (req) => {
-      const response = await dynamicCache.match(req)
-      return getHeader(response, 'X-SW-Index-ID')
-    })
+  const idsInCache = (
+    await all(
+      cachedRequests.map(async (req) => {
+        const response = await dynamicCache.match(req)
+        return getHeader(response, 'X-SW-Index-ID')
+      })
+    )
   ).filter(Boolean)
 
   for (const id of idsInCache) {
@@ -282,11 +306,9 @@ async function removeFromContentIndex(id) {
   await registration.index.delete(id)
 }
 
-async function getMatchingImage(url) {
+async function getMatchingImage(cache, url) {
   const requested = parseImageURL(url)
-
-  const permanentCache = await caches.open(PERMANENT_CACHE)
-  const requests = await permanentCache.keys()
+  const requests = await cache.keys()
 
   let match
 
@@ -310,7 +332,7 @@ async function getMatchingImage(url) {
     }
   }
 
-  if (match) return permanentCache.match(match.url)
+  if (match) return cache.match(match.url)
 }
 
 function parseImageURL(url) {
@@ -330,4 +352,13 @@ function isSameAspectRatio(a, b) {
   }
 
   return true
+}
+
+function create404() {
+  const body = { code: 404, message: "Sorry, you're offline." }
+  return new Response(JSON.stringify(body), {
+    status: 404,
+    statusText: 'Not found',
+    headers: { 'Content-Type': 'application/json' },
+  })
 }
