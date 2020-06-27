@@ -82,7 +82,7 @@ async function handleFetch(event) {
   const req = event.request
   const url = new URL(req.url)
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
-  const isSlowConnection = ['2g', '3g'].includes(connection.effectiveType)
+  const isSlowConnection = connection && ['2g', '3g'].includes(connection.effectiveType)
 
   const staticCache = await caches.open(STATIC_CACHE)
   const dynamicCache = await caches.open(DYNAMIC_CACHE)
