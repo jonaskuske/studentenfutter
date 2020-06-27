@@ -1,7 +1,6 @@
 <?php
 
 $files = [
-  '/assets/css/fonts.css',
   '/assets/css/tailwind' . (kirby()->option('production') ? '.min.css' : '.dev.css'),
   // template assets are used by multiple pages, so we add them here
   // instead of declaring them as page dependencies (which must be unique)

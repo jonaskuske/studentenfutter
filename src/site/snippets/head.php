@@ -32,10 +32,52 @@ $img = $has_img
   <title><?= $title ?></title>
 
   <?= css([
-    'assets/css/fonts.css',
     $kirby->option('production') ? 'assets/css/tailwind.min.css' : 'assets/css/tailwind.dev.css',
     '@auto',
   ]) ?>
+
+  <style>
+  @font-face {
+    font-family: 'Chivo';
+    font-style: italic;
+    font-weight: 300;
+    font-display: block;
+    src: local('Chivo Light Italic'), local('Chivo-LightItalic'),
+      url(<?= asset('assets/fonts/Chivo_Light-Italic.woff2')->url() ?>) format('woff2'),
+      url(<?= asset('assets/fonts/Chivo_Light-Italic.woff')->url() ?>) format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: local('Chivo Regular'), local('Chivo-Regular'),
+      url(<?= asset('assets/fonts/Chivo_Regular.woff2')->url() ?>) format('woff2'),
+      url(<?= asset('assets/fonts/Chivo_Regular.woff')->url() ?>) format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Chivo';
+    font-style: italic;
+    font-weight: 400;
+    font-display: block;
+    src: local('Chivo Italic'), local('Chivo-Italic'),
+      url(<?= asset('assets/fonts/Chivo_Regular-Italic.woff2')->url() ?>) format('woff2'),
+      url(<?= asset('assets/fonts/Chivo_Regular-Italic.woff')->url() ?>) format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Chivo';
+    font-style: italic;
+    font-weight: 700;
+    font-display: block;
+    src: local('Chivo Bold Italic'), local('Chivo-BoldItalic'),
+      url(<?= asset('assets/fonts/Chivo_Bold-Italic.woff2')->url() ?>) format('woff2'),
+      url(<?= asset('assets/fonts/Chivo_Bold-Italic.woff')->url() ?>) format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  </style>
 
   <link rel="manifest" href="<?= asset('assets/meta/site.webmanifest')->url() ?>" />
   <link
