@@ -188,7 +188,8 @@ $img = $has_img
   </script>
 </head>
 
-<body>
+<body <?= attr([ 'class' => isset($body_class) ? $body_class : '' ]) ?>>
+
 <script>
   'use strict'
   ;(function detectScrollbar(doc) {
