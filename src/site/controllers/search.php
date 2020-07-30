@@ -7,7 +7,7 @@ return function ($site) {
         ->find('recipes')
         ->children()
         ->listed()
-        ->search($query, 'title|tags');
+        ->search($query, 'title|tags|info');
 
     return ['query' => $query, 'results' => $results];
 };
