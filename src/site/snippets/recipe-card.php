@@ -16,8 +16,7 @@ if (isset($recipe)) {
     <?php if ($image) : ?>
       <img
         src="<?= $image->thumb(['width' => 400])->url() ?>"
-        x-data="{ loaded: false }"
-        x-init="loaded = !!($el.complete && $el.naturalWidth && $el.naturalHeight)"
+        x-data="{ loaded: !!($el.complete && $el.naturalWidth && $el.naturalHeight) }"
         class="absolute top-0 object-cover w-full h-full transition-opacity ease-in -z-1"
         :class="loaded ? 'duration-500' : 'opacity-0'"
         @load="loaded = true"
