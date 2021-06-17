@@ -1,8 +1,5 @@
 'use strict'
 ;(function loadPolyfills(doc, base) {
-  // until https://github.com/alpinejs/alpine/pull/469 is merged
-  SVGElement.prototype.contains = SVGElement.prototype.contains || HTMLElement.prototype.contains
-
   if (!('scrollBehavior' in doc.documentElement.style)) {
     insertScript(base + 'smoothscroll-polyfill.min.js')
     insertScript(base + 'smoothscroll-anchor-polyfill.min.js')

@@ -7,7 +7,7 @@ const tailwindPlugins = require('./tailwindcss-plugins')
 
 /** @type { TailwindConfig } */
 module.exports = {
-  purge: ['**/*.html', '**/*.php', '**/*.svg'],
+  purge: { mode: 'layers', content: ['**/*.html', '**/*.php', '**/*.svg'] },
   theme: {
     extend: {
       borderWidth: { 6: '6px' },

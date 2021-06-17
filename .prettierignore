@@ -1,4 +1,6 @@
 *.min.*
+tailwind.dev.css
 content/
 kirby/
 media/
+plugins/
