@@ -11,9 +11,8 @@ return function ($site) {
     ->blueprint()
     ->field('category')['options'];
 
-
   return [
     'recipes' => $recipes,
-    'category_options' => $category_options,
+    'category_options' => $category_options
   ];
 };

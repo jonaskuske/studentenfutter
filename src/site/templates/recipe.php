@@ -30,8 +30,8 @@ $back_url = r($last != Url::current(), $last);
           }",
           '@popstate.window' => "if (active) {
             active = history.state !== 'start'; history.back();
-          }",
-        ]),
+          }"
+        ])
       ) ?>
     >
       <span class="mr-2 text-blue"><?= svg('/assets/icons/arrow_back.svg') ?></span>
@@ -95,7 +95,7 @@ $back_url = r($last != Url::current(), $last);
             class="<?= e(
               $gallery,
               'aspect-ratio-tall',
-              'aspect-ratio-wide',
+              'aspect-ratio-wide'
             ) ?> relative block overflow-hidden shadow rounded-card"
           >
             <img

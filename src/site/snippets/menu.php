@@ -42,8 +42,8 @@ $can_go_back = rtrim(Url::last(), '/') == $home_url;
                 }",
                 '@popstate.window' => "if (active) {
                   active = history.state !== 'start'; history.back();
-                }",
-              ]),
+                }"
+              ])
             ) ?>
           >
             <?= $site->title() ?>

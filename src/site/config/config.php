@@ -13,7 +13,7 @@ return [
   'hooks' => [
     'route:after' => function () {
       I18n::$locale = 'de';
-    },
+    }
   ],
   'bvdputte.fingerprint.query' => true,
   'routes' => [
@@ -33,7 +33,7 @@ return [
         );
 
         return new Response($sw, $sw_mime);
-      },
+      }
     ],
     [
       'pattern' => 'logout',
@@ -43,7 +43,7 @@ return [
         }
 
         go('login');
-      },
+      }
     ],
     [
       'pattern' => 'content-index/(:all)',
@@ -66,11 +66,11 @@ return [
           'icons' => array_map(function ($size) use ($icon) {
             $src = $icon->crop($size, $size)->url();
             return ['src' => $src, 'sizes' => $size . 'x' . $size, 'type' => F::mime($src)];
-          }, $sizes),
+          }, $sizes)
         ];
 
         return $response;
-      },
-    ],
-  ],
+      }
+    ]
+  ]
 ];

@@ -34,14 +34,14 @@ exports.highlight = plugin(function ({ addUtilities, theme, variants }) {
       const className = `.highlight-${color}`
       const styles = { backgroundImage: `linear-gradient(${value} 100%, ${value} 100%)` }
       return [className, styles]
-    }),
+    })
   )
   const sizingClasses = Object.fromEntries(
     sizes.map(([name, { height, padding }]) => {
       const className = `.highlight-${name}`
       const styles = { padding, backgroundSize: `1px ${height}` }
       return [className, styles]
-    }),
+    })
   )
 
   addUtilities({ ...baseClass, ...colorClasses, ...sizingClasses }, variants('highlight'))
@@ -55,12 +55,13 @@ exports.borderCircles = plugin(function ({ addUtilities, theme }) {
         {
           borderImageSlice: '33.333% 33.333%',
           borderImageRepeat: 'round',
-          borderImageSource: `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25" version="1.1" fill="${color}"><circle cx="2.5" cy="2.5" r="2.5"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(0,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(0,10)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(10,0)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(10,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,0)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,10)"/></svg>')`.replace(
-            /#/g,
-            '%23',
-          ),
+          borderImageSource:
+            `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25" version="1.1" fill="${color}"><circle cx="2.5" cy="2.5" r="2.5"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(0,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(0,10)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(10,0)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(10,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,0)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,20)"/><circle cx="2.5" cy="2.5" r="2.5" transform="translate(20,10)"/></svg>')`.replace(
+              /#/g,
+              '%23'
+            ),
         },
-      ]),
-    ),
+      ])
+    )
   )
 })

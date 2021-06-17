@@ -35,7 +35,7 @@
 
 <br>
 
-___
+---
 
 Built with [Kirby CMS](https://getkirby.com), [TailwindCSS](https://tailwindcss.com) and [Alpine.js](https://github.com/alpinejs/alpine)
 .

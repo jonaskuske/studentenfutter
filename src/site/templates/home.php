@@ -23,7 +23,7 @@
         <?php else: ?>
           <?= snippet('recipe-row', [
             'recipes' => $favorites,
-            'more_url' => url('/favorites'),
+            'more_url' => url('/favorites')
           ]) ?>
         <?php endif; ?>
       <?php else: ?>
@@ -47,7 +47,7 @@
         <?php else: ?>
           <?= snippet('recipe-row', [
             'recipes' => $category_recipes,
-            'more_url' => $site->find('recipes')->url() . '?category=' . $category,
+            'more_url' => $site->find('recipes')->url() . '?category=' . $category
           ]) ?>
         <?php endif; ?>
       </section>

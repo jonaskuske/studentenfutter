@@ -8,7 +8,7 @@
   <?= js([
     '//cdn.jsdelivr.net/npm/react/umd/react.production.min.js',
     '//cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js',
-    '//cdn.jsdelivr.net/npm/react-ios-pwa-prompt',
+    '//cdn.jsdelivr.net/npm/react-ios-pwa-prompt'
   ]) ?>
 
   <script>

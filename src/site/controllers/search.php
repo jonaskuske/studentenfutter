@@ -1,13 +1,13 @@
 <?php
 
 return function ($site) {
-    $query = get('q');
+  $query = get('q');
 
-    $results = $site
-        ->find('recipes')
-        ->children()
-        ->listed()
-        ->search($query, 'title|tags|info');
+  $results = $site
+    ->find('recipes')
+    ->children()
+    ->listed()
+    ->search($query, 'title|tags|info');
 
-    return ['query' => $query, 'results' => $results];
+  return ['query' => $query, 'results' => $results];
 };

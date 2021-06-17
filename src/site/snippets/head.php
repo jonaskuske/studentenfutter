@@ -76,7 +76,7 @@ $img = $has_img
 
   <?= css([
     $kirby->option('production') ? 'assets/css/tailwind.min.css' : 'assets/css/tailwind.dev.css',
-    '@auto',
+    '@auto'
   ]) ?>
 
   <link rel="manifest" href="<?= asset('assets/meta/site.webmanifest')->url() ?>" />
@@ -188,7 +188,7 @@ $img = $has_img
   </script>
 </head>
 
-<body <?= attr([ 'class' => isset($body_class) ? $body_class : '' ]) ?>>
+<body <?= attr(['class' => isset($body_class) ? $body_class : '']) ?>>
 
 <script>
   'use strict'

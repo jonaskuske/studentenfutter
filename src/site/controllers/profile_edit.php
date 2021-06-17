@@ -7,9 +7,7 @@ return function ($kirby, $page) {
 
   if ($user = $kirby->user()) {
     if ($kirby->request()->is('POST')) {
-
       if (($name = get('name')) && ($email = get('email'))) {
-
         try {
           $user->changeName($name);
           $user->changeEmail($email);

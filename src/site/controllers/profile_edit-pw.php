@@ -5,9 +5,7 @@ return function ($kirby, $page) {
 
   if ($user = $kirby->user()) {
     if ($kirby->request()->is('POST')) {
-
       if (($old_pw = get('old_password')) && ($pw = get('password'))) {
-
         try {
           $user->validatePassword($old_pw);
           $user->changePassword($pw);

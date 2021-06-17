@@ -17,7 +17,7 @@ $files = [
   '/assets/fonts/Chivo_Light-Italic.woff2',
   '/assets/fonts/Chivo_Regular.woff2',
   '/assets/fonts/Chivo_Regular-Italic.woff2',
-  '/assets/fonts/Chivo_Bold-Italic.woff2',
+  '/assets/fonts/Chivo_Bold-Italic.woff2'
 ];
 
 $hashedFiles = array_map(function ($path) {

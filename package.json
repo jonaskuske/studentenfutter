@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/jonaskuske/studentenfutter#readme",
   "devDependencies": {
-    "@prettier/plugin-php": "^0.14.3",
+    "@prettier/plugin-php": "^0.17.1",
     "autoprefixer": "^9.8.6",
     "cross-env": "^7.0.2",
     "cssnano": "^4.1.10",
@@ -34,13 +34,14 @@
     "tailwindcss": "^1.6.2",
     "tailwindcss-aspect-ratio": "^3.0.0"
   },
-  "dependencies": {},
   "prettier": {
     "semi": false,
     "singleQuote": true,
     "trailingComma": "es5",
     "printWidth": 100,
     "tabWidth": 2,
-    "phpVersion": "7.4"
+    "phpVersion": "7.4",
+    "braceStyle": "1tbs",
+    "trailingCommaPHP": false
   }
 }

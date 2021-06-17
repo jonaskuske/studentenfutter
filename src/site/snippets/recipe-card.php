@@ -7,13 +7,11 @@ if (isset($recipe)) {
 } else {
   $recipe = null;
   $image = isset($image) ? $image : null;
-}
-
-?>
+} ?>
 
 <div class="relative z-0 shadow rounded-card aspect-ratio-card">
   <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">
-    <?php if ($image) : ?>
+    <?php if ($image): ?>
       <img
         src="<?= $image->thumb(['width' => 400])->url() ?>"
         x-data="{ loaded: !!($el.complete && $el.naturalWidth && $el.naturalHeight) }"
@@ -22,16 +20,16 @@ if (isset($recipe)) {
         @load="loaded = true"
         style="border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;"
       >
-    <?php else : ?>
+    <?php else: ?>
       <div class="absolute top-0 w-full h-full bg-center bg-no-repeat bg-striped -z-1"></div>
     <?php endif; ?>
 
     <div class="flex items-center w-full h-12 px-3 <?= e($image, 'bg-white') ?>">
-      <?php if ($image) : ?>
+      <?php if ($image): ?>
         <a class="italic font-bold stretched-link" href="<?= $url ?>">
           <?= $title ?>
         </a>
-      <?php else : ?>
+      <?php else: ?>
         <a class="absolute inset-0 flex italic font-bold text-center stretched-link" href="<?= $url ?>">
           <span class="self-center m-auto"><?= $title ?></span>
         </a>
