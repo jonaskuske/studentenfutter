@@ -103,6 +103,8 @@ $back_url = r($last != Url::current(), $last);
               x-data="{ loaded: !!($el.complete && $el.naturalWidth && $el.naturalHeight) }"
               class="absolute object-cover w-full h-full transition-opacity ease-in"
               :class="loaded ? 'duration-500' : 'opacity-0'"
+              decoding="async"
+              loading="lazy"
               @load="loaded = true"
             >
           </picture>

@@ -17,6 +17,8 @@ if (isset($recipe)) {
         x-data="{ loaded: !!($el.complete && $el.naturalWidth && $el.naturalHeight) }"
         class="absolute top-0 object-cover w-full h-full transition-opacity ease-in -z-1"
         :class="loaded ? 'duration-500' : 'opacity-0'"
+        decoding="async"
+        loading="lazy"
         @load="loaded = true"
         style="border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;"
       >
