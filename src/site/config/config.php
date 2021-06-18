@@ -15,7 +15,7 @@ return [
       I18n::$locale = 'de';
     }
   ],
-  'bvdputte.fingerprint.query' => true,
+  'bvdputte.fingerprint.parameter' => true,
   'routes' => [
     [
       'pattern' => 'service-worker.js',
