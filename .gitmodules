@@ -6,4 +6,4 @@
 	url = https://github.com/getkirby/editor.git
 [submodule "src/site/plugins/kirby-fingerprint"]
 	path = src/site/plugins/kirby-fingerprint
-	url = https://github.com/jonaskuske/kirby-fingerprint.git
+	url = https://github.com/bvdputte/kirby-fingerprint.git
