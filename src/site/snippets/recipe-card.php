@@ -12,8 +12,11 @@ if (isset($recipe)) {
 <div class="relative z-0 shadow rounded-card aspect-ratio-card">
   <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">
     <?php if ($image): ?>
+      <?php $thumb = $image->thumb(['width' => 400]); ?>
       <img
-        src="<?= $image->thumb(['width' => 400])->url() ?>"
+        src="<?= $thumb->url() ?>"
+        width="<?= $thumb->width() ?>"
+        height="<?= $thumb->height() ?>"
         x-data="{ loaded: !!($el.complete && $el.naturalWidth && $el.naturalHeight) }"
         class="absolute top-0 object-cover w-full h-full transition-opacity ease-in -z-1"
         :class="loaded ? 'duration-500' : 'opacity-0'"

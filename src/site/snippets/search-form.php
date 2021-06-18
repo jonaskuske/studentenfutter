@@ -12,6 +12,7 @@
         ) ?>" class="w-full placeholder-blue focus:outline-none" type="search" name="q" placeholder="z.B. Reispfanne" aria-label="Suche" @input="query = $event.target.value" />
 
         <button type="submit" class="transition-opacity duration-200 opacity-0 focus:opacity-100" :class="{ 'opacity-100': query.length > 0 }">
+          <span class="sr-only">Suche starten</span>
           <svg width="22" height="15" viewBox="0 0 22 15" class="fill-current" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M21.4992 7.35739C21.4997 7.36883 21.5 7.38028 21.5 7.39173C21.5002 7.58342 21.4273 7.77518 21.2813 7.9217C21.2747 7.92829 21.2681 7.93474 21.2613 7.94103L14.61 14.5024C14.3152 14.7933 13.8403 14.7901 13.5494 14.4952C13.2585 14.2003 13.2617 13.7255 13.5566 13.4346L18.9882 8.07642H0.749838C0.335625 8.07642 -0.000162125 7.74064 -0.000162125 7.32642C-0.000162125 6.91221 0.335625 6.57642 0.749838 6.57642H18.8685L13.554 1.2813C13.2605 0.988941 13.2597 0.514068 13.552 0.22064C13.8444 -0.0727881 14.3193 -0.0736559 14.6127 0.218702L21.0616 6.6441C21.3202 6.76245 21.4998 7.02346 21.4998 7.32642C21.4998 7.3368 21.4996 7.34712 21.4992 7.35739Z" />
           </svg>

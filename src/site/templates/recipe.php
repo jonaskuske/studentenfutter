@@ -100,6 +100,8 @@ $back_url = r($last != Url::current(), $last);
           >
             <img
               src="<?= $image->url() ?>"
+              width="<?= $image->width() ?>"
+              height="<?= $image->height() ?>"
               x-data="{ loaded: !!($el.complete && $el.naturalWidth && $el.naturalHeight) }"
               class="absolute object-cover w-full h-full transition-opacity ease-in"
               :class="loaded ? 'duration-500' : 'opacity-0'"
