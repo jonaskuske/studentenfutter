@@ -31,48 +31,18 @@ $img = $has_img
 
   <title><?= $title ?></title>
 
-  <style>
-  @font-face {
-    font-family: 'Chivo';
-    font-style: italic;
-    font-weight: 300;
-    font-display: auto;
-    src: local('Chivo Light Italic'), local('Chivo-LightItalic'),
-      url(<?= asset('assets/fonts/Chivo_Light-Italic.woff2')->url() ?>) format('woff2'),
-      url(<?= asset('assets/fonts/Chivo_Light-Italic.woff')->url() ?>) format('woff');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Chivo';
-    font-style: normal;
-    font-weight: 400;
-    font-display: auto;
-    src: local('Chivo Regular'), local('Chivo-Regular'),
-      url(<?= asset('assets/fonts/Chivo_Regular.woff2')->url() ?>) format('woff2'),
-      url(<?= asset('assets/fonts/Chivo_Regular.woff')->url() ?>) format('woff');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Chivo';
-    font-style: italic;
-    font-weight: 400;
-    font-display: auto;
-    src: local('Chivo Italic'), local('Chivo-Italic'),
-      url(<?= asset('assets/fonts/Chivo_Regular-Italic.woff2')->url() ?>) format('woff2'),
-      url(<?= asset('assets/fonts/Chivo_Regular-Italic.woff')->url() ?>) format('woff');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Chivo';
-    font-style: italic;
-    font-weight: 700;
-    font-display: auto;
-    src: local('Chivo Bold Italic'), local('Chivo-BoldItalic'),
-      url(<?= asset('assets/fonts/Chivo_Bold-Italic.woff2')->url() ?>) format('woff2'),
-      url(<?= asset('assets/fonts/Chivo_Bold-Italic.woff')->url() ?>) format('woff');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  </style>
+  <link rel="preload" as="font" href="<?= asset(
+    'assets/fonts/Chivo_Light-Italic.woff2'
+  )->url() ?>" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= asset(
+    'assets/fonts/Chivo_Regular.woff2'
+  )->url() ?>" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= asset(
+    'assets/fonts/Chivo_Regular-Italic.woff2'
+  )->url() ?>" crossorigin="anonymous">
+  <link rel="preload" as="font" href="<?= asset(
+    'assets/fonts/Chivo_Bold-Italic.woff2'
+  )->url() ?>" crossorigin="anonymous">
 
   <?= css([
     $kirby->option('production') ? 'assets/css/tailwind.min.css' : 'assets/css/tailwind.dev.css',
@@ -152,33 +122,36 @@ $img = $has_img
   <?= js('assets/js/vendor/alpine-ie11.min.js', ['nomodule' => true, 'defer' => true]) ?>
 
   <script type="module">
-    const ONE_SECOND = 1000
-    const ONE_MINUTE = 60 * ONE_SECOND
-    const ONE_HOUR = 60 * ONE_MINUTE
-    const ONE_DAY = 24 * ONE_HOUR
-
-    const handleRegistration = async (registration) => {
-      if ('periodicSync' in registration) {
-        try {
-          const p = await navigator.permissions.query({ name: 'periodic-background-sync' })
-          if (p.state === 'granted') {
-            await navigator.serviceWorker.ready
-            await registration.periodicSync.register('UPDATE_CACHE', { minInterval: ONE_HOUR })
-            console.log('%c[sw] %cregistered background sync', 'color:darkgray', 'font-weight:bold')
-          }
-        } catch(error) {
-          console.error(error)
-        }
-      }
-    }
-
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js').then(
-        handleRegistration,
-        (error) => {
-          console.error('%c[sw] %cfailed to register', 'color: darkgray', 'font-weight:bold', error)
+      window.addEventListener('load', () => {
+        const ONE_SECOND = 1000
+        const ONE_MINUTE = 60 * ONE_SECOND
+        const ONE_HOUR = 60 * ONE_MINUTE
+        const ONE_DAY = 24 * ONE_HOUR
+
+        const handleRegistration = async (registration) => {
+          if ('periodicSync' in registration) {
+            try {
+              const p = await navigator.permissions.query({ name: 'periodic-background-sync' })
+              if (p.state === 'granted') {
+                await navigator.serviceWorker.ready
+                await registration.periodicSync.register('UPDATE_CACHE', { minInterval: ONE_HOUR })
+                console.log('%c[sw] %cregistered background sync', 'color:darkgray', 'font-weight:bold')
+              }
+            } catch(error) {
+              console.error(error)
+            }
+          }
         }
-      )
+
+    
+        navigator.serviceWorker.register('/service-worker.js').then(
+          handleRegistration,
+          (error) => {
+            console.error('%c[sw] %cfailed to register', 'color: darkgray', 'font-weight:bold', error)
+          }
+        )
+      })
     }
 
     window.addEventListener('beforeinstallprompt', (event) => {

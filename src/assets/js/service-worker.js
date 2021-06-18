@@ -22,6 +22,7 @@ const log = (...a) => console.log('%c[sw]', 'color: darkgray', ...a)
 const logBold = (...a) => console.log('%c[sw] %c%s', 'color:darkgray', 'font-weight:bold', ...a)
 const doFetch = (req, opts) => fetch(req, opts).then((res) => (res.ok ? res : Promise.reject(res)))
 const isImage = (url) => Boolean(url.match(/\.(jpe?g|png|gif|svg)(\?.*)?$/i))
+const wait = (time) => new Promise((resolve) => setTimeout(resolve, time))
 const shouldCachePermanently = (url) => isImage(url)
 const getHeader = (res, header) => (res && res.headers.get(header)) || ''
 const arrayFromHeader = (header = '') => header.split(',').map(trim).filter(Boolean)
@@ -85,14 +86,14 @@ async function handleFetch(event) {
   const isSlowConnection = connection && ['2g', '3g'].includes(connection.effectiveType)
 
   const staticCache = await caches.open(STATIC_CACHE)
-  const dynamicCache = await caches.open(DYNAMIC_CACHE)
-  const permanentCache = await caches.open(PERMANENT_CACHE)
 
   // Entries in static cache: offline-first
   // Allow requesting assets without specifying their version (?v=<hash>)
   const versionSpecified = url.search.match(/[?&]v=[^&]/)
   const staticCacheResp = await staticCache.match(req, { ignoreSearch: !versionSpecified })
   if (staticCacheResp) return staticCacheResp
+
+  const permanentCache = await caches.open(PERMANENT_CACHE)
 
   // Entries in permanent cache: offline-first (e.g. images)
   if (shouldCachePermanently(req.url)) {
@@ -107,10 +108,12 @@ async function handleFetch(event) {
     if (matchingResp) return matchingResp
   }
 
-  // Update the offline fallback on each navigation
+  const dynamicCache = await caches.open(DYNAMIC_CACHE)
+
+  // Update the offline fallback on each navigation (after a short delay to finish loading)
   // to ensure it matches the last seen online experience
-  if (req.mode === 'navigate') {
-    event.waitUntil(addToCache(dynamicCache, OFFLINE_FALLBACK))
+  if (req.mode === 'navigate' && navigator.onLine) {
+    event.waitUntil(wait(1000).then(() => addToCache(dynamicCache, OFFLINE_FALLBACK)))
   }
 
   try {

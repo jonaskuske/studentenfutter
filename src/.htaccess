@@ -1,3 +1,15 @@
+# Cache versioned assets (?v=<hash>) indefinitely
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpe?g|png|webp|gif|svg|woff2?|ttf|otf)$">
+    Header set Cache-Control "max-age=2592000, public, stale-while-revalidate=604800"
+  </FilesMatch>
+  <FilesMatch "\.(js|css|jpe?g|png|webp|gif|svg|woff2?|ttf|otf)$">
+    <If "%{QUERY_STRING} =~ /v=[a-z0-9]+/">
+      Header set Cache-Control "max-age=31536000, public, immutable"
+    </If>
+  </FilesMatch>
+</IfModule>
+
 # Kirby .htaccess
 
 # rewrite rules
