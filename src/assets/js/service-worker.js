@@ -27,23 +27,23 @@ const shouldCachePermanently = (url) => isImage(url)
 const getHeader = (res, header) => (res && res.headers.get(header)) || ''
 const arrayFromHeader = (header = '') => header.split(',').map(trim).filter(Boolean)
 
-addEventListener('install', (event) => {
+self.addEventListener('install', (event) => {
   event.waitUntil(handleInstall(event).then(() => skipWaiting()))
 })
 
-addEventListener('activate', (event) => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(handleActivate(event).then(() => clients.claim()))
 })
 
-addEventListener('fetch', (event) => {
+self.addEventListener('fetch', (event) => {
   event.respondWith(handleFetch(event))
 })
 
-addEventListener('message', (event) => {
+self.addEventListener('message', (event) => {
   event.waitUntil(handleMessage(event))
 })
 
-addEventListener('periodicsync', (event) => {
+self.addEventListener('periodicsync', (event) => {
   event.waitUntil(handlePeriodicSync(event))
 })
 
