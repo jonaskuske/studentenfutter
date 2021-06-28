@@ -27,7 +27,7 @@
 
 `> npm start` (requires PHP >= 7.2 with `curl`, `ctype`, `mbstring` and `gd` extensions)
 
-> Then visit [`localhost:8080`](http://localhost:8080) (or [`localhost:8080/panel`](http://localhost:8080/panel) for the admin panel) 👍🏻
+> Then visit [`localhost:8000`](http://localhost:8000) (or [`localhost:8000/panel`](http://localhost:8000/panel) for the admin panel) 👍🏻
 
 #### Build for production
 

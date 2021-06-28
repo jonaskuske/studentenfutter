@@ -5,7 +5,7 @@ use Kirby\Cms\Response;
 use Kirby\Toolkit\F;
 use Kirby\Toolkit\I18n;
 
-$is_dev = Server::host() === 'localhost' && Server::port() === 8080;
+$is_dev = Server::host() === 'localhost' && Server::port() === 8000;
 
 return [
   'production' => !$is_dev,
