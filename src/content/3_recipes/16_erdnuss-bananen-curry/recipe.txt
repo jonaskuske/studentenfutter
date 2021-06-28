@@ -72,6 +72,10 @@ Category: main_dish
 
 ----
 
+Author: Maike
+
+----
+
 Info: Rezept von Maike
 
 ----

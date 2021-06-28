@@ -60,6 +60,7 @@ columns:
             type: text
             placeholder: Berta Beispiel
             icon: user
+            help: Diese Info ist auf der Seite <b>nicht</b> sichtbar, wird aber von Google verwendet.
           info:
             label: Info
             type: textarea

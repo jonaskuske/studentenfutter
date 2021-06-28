@@ -45,6 +45,10 @@ Category: quicky
 
 ----
 
+Author: Max
+
+----
+
 Info: Rezept von Max
 
 ----

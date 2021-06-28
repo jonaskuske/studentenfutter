@@ -79,6 +79,10 @@ Category: main_dish
 
 ----
 
+Author: Nico
+
+----
+
 Info: Rezept von Nico
 
 ----

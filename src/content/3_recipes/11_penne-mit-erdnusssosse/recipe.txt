@@ -61,6 +61,10 @@ Category: main_dish
 
 ----
 
+Author: Feli
+
+----
+
 Info: Rezept von Feli
 
 ----

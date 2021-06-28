@@ -25,6 +25,10 @@ Category: quicky
 
 ----
 
+Author: Niklas
+
+----
+
 Info: Rezept von Niklas. Er hat das Rezept von der Rückseite der Pizza-Verpackung.
 
 ----
