@@ -52,7 +52,7 @@ Category: salad_soup
 
 ----
 
-Info: Rezept & Fotos von Rieke
+Info: Rezept & Fotos von Rieke.
 
 ----
 
@@ -72,4 +72,4 @@ Tips:
 
 ----
 
-Tags: vegetarisch
+Tags: vegetarisch, vegan

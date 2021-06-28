@@ -2,4 +2,4 @@ Title: App installieren
 
 ----
 
-Info: Es ist toll die App zu installieren und immer schnell Zugriff zu haben und yada yada! Lorem ipsum dolor sit amet consectetur adipisicing elit. *Animi* amet, ex maxime quaerat, sit voluptatum voluptatibus natus molestias illum labore ipsum culpa adipisci hic tenetur obcaecati error!
+Info: Das hier ist eine Web App, eine Website mit App-Funktionalität. Damit du die volle App-Experience bekommst, installiere einfach diese Seite als Web App indem du auf den unten stehenden Button klickst. Ab dann ist studentenfutter immer nur einen Fingertipp entfernt.

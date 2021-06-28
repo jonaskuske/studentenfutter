@@ -5,6 +5,8 @@ Title: Erdnuss-Bananen-Curry
 Ingredients:
 
 - 
+  textarea: 1 Banane
+- 
   textarea: 1 Tasse Reis
 - 
   textarea: 1 Paprika
@@ -88,4 +90,4 @@ Tips:
 
 ----
 
-Tags: paprika, reis, zucchini, gemüse, Möhren, karotten, kichererbsen, kokosmilch, gewürze, zitrone
+Tags: paprika, reis, zucchini, gemüse, Möhren, karotten, kichererbsen, kokosmilch, gewürze, zitrone, vegetarisch, vegan

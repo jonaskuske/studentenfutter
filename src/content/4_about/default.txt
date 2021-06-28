@@ -17,7 +17,7 @@ Editor:
     },
     {
         "attrs": [],
-        "content": "studentenfutter ist ein multimediales Kochbuch-Projekt. Es besteht aus einem klasischen Kochbuch sowie einer Begleit-App. Die Rezepte im Kochbuch und in dieser App kommen alle von Studierenden aus verschiedenen Studieng\u00e4ngen und verschiedenen St\u00e4dten Deutschlands. Ich habe diese Rezepte im Rahmen meiner Bachelorarbeit \u00fcber mehrere Monate gesammelt und in einem Kochbuch zusammengefasst.",
+        "content": "studentenfutter ist ein multimediales Kochbuch-Projekt. Es besteht aus einem klassischen Kochbuch sowie einer Begleit-App. Die App wurde so gebaut, dass ihr die Rezepte immer \u2013 auch offline \u2013 dabei haben k\u00f6nnt. M\u00f6glich wurde dies dank der Unterst\u00fctzung von <a title=\"Kirby\" target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://getkirby.com\">Kirby</a> und dem Super-Entwickler <a title=\"Jonas auf Twitter\" target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://twitter.com/JonasKuske\">Jonas</a>. Die Rezepte im Kochbuch und in dieser App kommen alle von Studierenden aus verschiedenen Studieng\u00e4ngen und verschiedenen St\u00e4dten Deutschlands. Ich habe diese Rezepte im Rahmen meiner Bachelorarbeit \u00fcber mehrere Monate gesammelt und in einem Kochbuch zusammengefasst.",
         "id": "_alY34PiCU",
         "type": "paragraph"
     },
@@ -35,6 +35,12 @@ Editor:
     },
     {
         "attrs": [],
+        "content": "P.S.: Euch gef\u00e4llt das hier alles so sehr, dass ihr uns unterst\u00fctzen wollt? Dann k\u00f6nnt ihr <a title=\"PayPal an Jonas\" target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.paypal.me/jonaskuske\">hier Jonas einen Kaffee spendieren</a> oder <a title=\"PayPal an Rieke\" target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.paypal.me/RHelmers\">mir eine Limo kaufen</a>. Danke!",
+        "id": "_zxcerz37n",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
         "content": "",
         "id": "_z27o1n1yf",
         "type": "paragraph"
@@ -47,8 +53,14 @@ Editor:
     },
     {
         "attrs": [],
-        "content": "Insgesamt befinden sich in dieser App 26 Rezepte von Studierenden aus verschiedenen Ecken Deutschlands. Da ist es nat\u00fcrlich nicht nur interessant zu sehen, wo die Studierenden herkommen, sondern auch was sie studieren.<br>Um die Studieng\u00e4nge und Anzahl eingereichter Rezepte zu sehen, die zu den Orten geh\u00f6ren, einfach auf einen Ort klicken.",
+        "content": "Insgesamt befinden sich in dieser App 26 Rezepte von Studierenden aus verschiedenen Ecken Deutschlands. Da ist es nat\u00fcrlich nicht nur interessant zu sehen, wo die Studierenden herkommen, sondern auch was sie studieren.<br>Diese Infografik zeigt euch nicht nur, aus welchen Studieng\u00e4ngen die Studierenden kommen, sondern auch, wie viele Rezepte aus dem jeweiligen Studiengang eingereicht wurden.",
         "id": "_lm8cga7bt",
+        "type": "paragraph"
+    },
+    {
+        "attrs": [],
+        "content": "Ein Rezept kommt au\u00dferdem von der Linden-WG aus Konstanz mit den Studieng\u00e4ngen Informatik, Verfahrenstechnik, Soziologie, Kindheitsp\u00e4dagogik, Chemie, Kulturwissenschaften der Antike, Bauingenieurwesen und Soziologie.",
+        "id": "_hhcfaisy0",
         "type": "paragraph"
     },
     {
@@ -65,7 +77,7 @@ Editor:
             "caption": ""
         },
         "content": "",
-        "id": "_vvz4nd8ue",
+        "id": "_qeuvo940p",
         "type": "image"
     },
     {

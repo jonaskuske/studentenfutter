@@ -17,13 +17,13 @@ Editor:
     },
     {
         "attrs": [],
-        "content": "Angaben gem\u00e4\u00df \u00a75 TMG",
+        "content": "Angaben gemäß §5 TMG",
         "id": "_qkg547zd2",
         "type": "h3"
     },
     {
         "attrs": [],
-        "content": "Rieke Helmers<br>Johannesstra\u00dfe 18<br>27570 Bremerhaven",
+        "content": "Rieke Helmers<br>Riensberger Str. 16<br>28213 Bremen",
         "id": "_klkG4lJTL",
         "type": "paragraph"
     },
@@ -35,19 +35,19 @@ Editor:
     },
     {
         "attrs": [],
-        "content": "Telefon: +49 1522 63 33 453 <br>Mail: <a title=\"mail@riekehelmers.com\" href=\"mailto:mail@riekehelmers.com\">mail@riekehelmers.com</a>",
+        "content": "Telefon: +49 1522 63 33 453 <br>Mail: <a title=\"mail@helmerskuskte.team\" href=\"mailto:mail@helmerskuskte.team\">mail@helmerskuske.team</a>",
         "id": "_sr4VQQ0xB",
         "type": "paragraph"
     },
     {
         "attrs": [],
-        "content": "Verantwortlich f\u00fcr Inhalte gem\u00e4\u00df 55 Abs. 2 RStV:",
+        "content": "Verantwortlich für Inhalte gemäß 55 Abs. 2 RStV:",
         "id": "_6l0KHjqAH",
         "type": "paragraph"
     },
     {
         "attrs": [],
-        "content": "Rieke Helmers <br>Johannesstra\u00dfe 18 <br>27570 Bremerhaven",
+        "content": "Rieke Helmers <br>Riensberger Str. 16<br>28213 Bremerhaven",
         "id": "_R35lhcTQt",
         "type": "paragraph"
     },
@@ -59,13 +59,13 @@ Editor:
     },
     {
         "attrs": [],
-        "content": "Jonas Kuske<br><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://jonaskuske.com\">https://jonaskuske.com</a>",
+        "content": "Jonas Kuske<br><a title=\"https://helmerskuske.team\" target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://helmerskuske.team\">https://helmerskuske.team</a>",
         "id": "_fo61aj2x4",
         "type": "paragraph"
     },
     {
         "attrs": [],
-        "content": "Vielen Dank an <a title=\"Kirby\" target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://getkirby.com\">Kirby</a> f\u00fcr das tolle Content-Management-System!",
+        "content": "Vielen Dank an <a title=\"Kirby\" target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://getkirby.com\">Kirby</a> für das tolle Content-Management-System!",
         "id": "_wxuqxjt89",
         "type": "paragraph"
     },
@@ -77,25 +77,25 @@ Editor:
     },
     {
         "attrs": [],
-        "content": "<strong>Haftung f\u00fcr Inhalte</strong>",
+        "content": "<strong>Haftung für Inhalte</strong>",
         "id": "_kEVBLJrLA",
         "type": "paragraph"
     },
     {
         "attrs": [],
-        "content": "Die Inhalte dieser Seite wurden mit gr\u00f6\u00dfter Sorgfalt erstellt. F\u00fcr die Richtigkeit, Vollst\u00e4ndigkeit und Aktualit\u00e4t der Inhalte kann ich jedoch keine Gew\u00e4hr \u00fcbernehmen. <br>Als Diensteanbieter bin ich gem\u00e4\u00df \u00a77 Abs.1 TMG f\u00fcr eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach \u00a7\u00a78 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, \u00fcbermittelte oder gespeicherte fremde Informationen zu \u00fcberwachen oder nach Umst\u00e4nden zu forschen, die auf eine rechtswidrige T\u00e4tigkeit hinweisen. <br>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unber\u00fchrt. <br>Eine diesbez\u00fcgliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung m\u00f6glich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.",
+        "content": "Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen. <br>Als Diensteanbieter bin ich gemäß §7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. <br>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. <br>Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.",
         "id": "_m8umm7Efv",
         "type": "paragraph"
     },
     {
         "attrs": [],
-        "content": "<strong>Haftung f\u00fcr Links</strong>",
+        "content": "<strong>Haftung für Links</strong>",
         "id": "_o9nhtclj6",
         "type": "paragraph"
     },
     {
         "attrs": [],
-        "content": "Dieses Angebot enth\u00e4lt Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich f\u00fcr diese fremden Inhalte auch keine Gew\u00e4hr \u00fcbernehmen. F\u00fcr die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.<br>Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf m\u00f6gliche Rechtsverst\u00f6\u00dfe \u00fcberpr\u00fcft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.<br>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen. <br>Die durch die Seitenbetreiber erstellten bzw. verwendeten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielf\u00e4ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au\u00dferhalb der Grenzen des Urheberrechtes bed\u00fcrfen der Zustimmung des jeweiligen Autors bzw. Erstellers. <br>Downloads und Kopien dieser Seite sind nur f\u00fcr den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.",
+        "content": "Dieses Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.<br>Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.<br>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen. <br>Die durch die Seitenbetreiber erstellten bzw. verwendeten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der Zustimmung des jeweiligen Autors bzw. Erstellers. <br>Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.",
         "id": "_Wjxktwif9",
         "type": "paragraph"
     },
@@ -107,7 +107,7 @@ Editor:
     },
     {
         "attrs": [],
-        "content": "Durch die Nutzung dieser Website erkl\u00e4ren Sie sich mit der Erhebung, Verarbeitung und Nutzung von Daten gem\u00e4\u00df der nachfolgenden Beschreibung einverstanden. <br>Die Website kann grunds\u00e4tzlich ohne Registrierung besucht werden. Dabei werden folgende Daten zu statistischen Zwecken auf dem Server in sogenannten \"Server Log-Files\" gespeichert, ohne dass diese Daten unmittelbar auf Ihre Person bezogen werden:",
+        "content": "Durch die Nutzung dieser Website erklären Sie sich mit der Erhebung, Verarbeitung und Nutzung von Daten gemäß der nachfolgenden Beschreibung einverstanden. <br>Die Website kann grundsätzlich ohne Registrierung besucht werden. Dabei werden folgende Daten zu statistischen Zwecken auf dem Server in sogenannten \"Server Log-Files\" gespeichert, ohne dass diese Daten unmittelbar auf Ihre Person bezogen werden:",
         "id": "_vAOHgYVi3",
         "type": "paragraph"
     },
@@ -155,19 +155,19 @@ Editor:
     },
     {
         "attrs": [],
-        "content": "Des Weiteren sind auf dieser Seite Ressourcen von cdn.jsdelivr.net eingebunden, die ebenfalls Log-Files speichern k\u00f6nnen. Weitere Infos hierzu erhalten Sie direkt bei jsdelivr: <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.jsdelivr.com/privacy-policy-jsdelivr-net\">https://www.jsdelivr.com/privacy-policy-jsdelivr-net</a>",
+        "content": "Des Weiteren sind auf dieser Seite Ressourcen von cdn.jsdelivr.net eingebunden, die ebenfalls Log-Files speichern können. Weitere Infos hierzu erhalten Sie direkt bei jsdelivr: <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.jsdelivr.com/privacy-policy-jsdelivr-net\">https://www.jsdelivr.com/privacy-policy-jsdelivr-net</a>",
         "id": "_1so18i88m",
         "type": "paragraph"
     },
     {
         "attrs": [],
-        "content": "Nehmen sie mit dem Websitebetreiber durch die angebotenen Kontaktm\u00f6glichkeiten Verbindung auf, werden Ihre Angaben gespeichert, damit auf diese zur Bearbeitung und Beantwortung Ihrer Anfrage zur\u00fcckgegriffen werden kann. Ohne ihre Einwilligung werden diese Daten nicht an Dritte weitergegeben.",
+        "content": "Nehmen sie mit dem Websitebetreiber durch die angebotenen Kontaktmöglichkeiten Verbindung auf, werden Ihre Angaben gespeichert, damit auf diese zur Bearbeitung und Beantwortung Ihrer Anfrage zurückgegriffen werden kann. Ohne ihre Einwilligung werden diese Daten nicht an Dritte weitergegeben.",
         "id": "_a3d9aui77",
         "type": "paragraph"
     },
     {
         "attrs": [],
-        "content": "Verwenden Sie die Log-In Funktion, ist ein \"Session-Cookie\" erforderlich, der f\u00fcr 2 Wochen in Ihrem Browser gespeichert bleibt.",
+        "content": "Verwenden Sie die Log-In Funktion, ist ein \"Session-Cookie\" erforderlich, der für 2 Wochen in Ihrem Browser gespeichert bleibt.",
         "id": "_sv4rc5cgx",
         "type": "paragraph"
     }
