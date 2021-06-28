@@ -3,8 +3,6 @@
 use Kirby\Toolkit\A;
 
 return function ($site) {
-  $category = get('category');
-
   $recipes = $site
     ->find('recipes')
     ->children()
@@ -15,14 +13,39 @@ return function ($site) {
     ->blueprint()
     ->field('category')['options'];
 
-  if (!array_key_exists($category, $category_options)) {
-    $category = '';
+  $selected_category = get('category');
+
+  if (!array_key_exists($selected_category, $category_options)) {
+    $selected_category = '';
   }
 
-  return [
-    'recipes' => $recipes,
-    'category_options' => $category_options,
-    'selected_category' => $category,
-    'selected_category_name' => A::get($category_options, $category)
+  $selected_category_name = A::get($category_options, $selected_category);
+
+  $structuredData = [
+    '@context' => 'https://schema.org',
+    '@type' => 'ItemList',
+    'name' => $selected_category_name ?? 'Alle Rezepte',
+    'itemListElement' => []
   ];
+
+  $i = 0;
+  foreach ($recipes as $recipe) {
+    $is_displayed = !$selected_category || $recipe->category()->toString() === $selected_category;
+
+    if ($is_displayed) {
+      $structuredData['itemListElement'][] = [
+        '@type' => 'ListItem',
+        'position' => ++$i,
+        'url' => $recipe->url()
+      ];
+    }
+  }
+
+  return compact(
+    'recipes',
+    'category_options',
+    'selected_category',
+    'selected_category_name',
+    'structuredData'
+  );
 };

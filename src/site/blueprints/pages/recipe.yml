@@ -55,10 +55,15 @@ columns:
       info:
         type: fields
         fields:
+          author:
+            label: 'Rezept-Author*in'
+            type: text
+            placeholder: Berta Beispiel
+            icon: user
           info:
             label: Info
             type: textarea
-            icon: user
+            icon: text
             placeholder: '"Von Paulina Platzhalter"'
             buttons:
               - bold

@@ -7,9 +7,14 @@ $back_url = r($last != Url::current(), $last);
 ?>
 
 <?= snippet('head', ['page_description' => $page->info()->excerpt(160)]) ?>
+
+<script type="application/ld+json">
+<?= json_encode($structuredData) ?>
+</script>
+
 <?= snippet('install-banner') ?>
 
-  <?= snippet('menu') ?>
+<?= snippet('menu') ?>
 
 <main class="pt-2 transition-opacity duration-100 ease-in">
 
@@ -178,7 +183,7 @@ $back_url = r($last != Url::current(), $last);
 
         <div class="mb-10">
           <?php if ($info): ?>
-            <p class="mb-4 italic"><?= $info->kt()->inline() ?></p>
+            <p class="mb-4 italic"><?= $info->kti() ?></p>
           <?php endif; ?>
 
           <?php if (!$tips->isEmpty()): ?>
@@ -189,10 +194,7 @@ $back_url = r($last != Url::current(), $last);
                     <?= svg('/assets/icons/tip.svg') ?>
                   </span>
                   <p>
-                    <?= $tip
-                      ->textarea()
-                      ->kt()
-                      ->inline() ?>
+                    <?= $tip->textarea()->kti() ?>
                   </p>
                 </li>
               <?php endforeach; ?>
@@ -207,10 +209,7 @@ $back_url = r($last != Url::current(), $last);
                     <?= svg('/assets/icons/question.svg') ?>
                   </span>
                   <p>
-                    <?= $faq
-                      ->question()
-                      ->kt()
-                      ->inline() ?>
+                    <?= $faq->question()->kti() ?>
                   </p>
                 </dt>
                 <dd class="flex mb-4">
@@ -218,10 +217,7 @@ $back_url = r($last != Url::current(), $last);
                     <?= svg('/assets/icons/answer.svg') ?>
                   </span>
                   <p>
-                    <?= $faq
-                      ->answer()
-                      ->kt()
-                      ->inline() ?>
+                    <?= $faq->answer()->kti() ?>
                   </p>
                 </dd>
               <?php endforeach; ?>

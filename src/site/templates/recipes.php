@@ -1,5 +1,8 @@
 <?= snippet('head', ['page_title' => $selected_category_name ?? 'Alle Rezepte']) ?>
 
+<script type="application/ld+json">
+<?= json_encode($structuredData) ?>
+</script>
 
 <?= snippet('menu') ?>
 <?= snippet('install-banner') ?>
