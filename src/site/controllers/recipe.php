@@ -52,14 +52,29 @@ return function ($kirby, $site, $page) {
   }
 
   if ($image = $page->image()) {
-    $img_sizes = [
-      ['width' => 1600, 'height' => 1600], // 1:1
-      ['width' => 1600, 'height' => 1200], // 4:3
-      ['width' => 1600, 'height' => 900] // 16:9
+    $structuredData['image'][] = [
+      '@type' => 'ImageObject',
+      'width' => $image->width(),
+      'height' => $image->height(),
+      'url' => $image->url()
     ];
 
-    foreach ($img_sizes as $opts) {
-      $structuredData['image'][] = $image->thumb($opts)->url();
+    $thumb_sizes = [
+      ['width' => 1600, 'height' => 1600, 'crop' => true], // 1:1
+      ['width' => 1600, 'height' => 1200, 'crop' => true], // 4:3
+      ['width' => 1600, 'height' => 900, 'crop' => true], // 16:9
+      ['width' => 1600, 'height' => 750, 'crop' => true] // weird Google Home size
+    ];
+
+    foreach ($thumb_sizes as $opts) {
+      $thumb = $image->thumb($opts);
+
+      $structuredData['image'][] = [
+        '@type' => 'ImageObject',
+        'width' => $thumb->width(),
+        'height' => $thumb->height(),
+        'url' => $thumb->url()
+      ];
     }
   }
 
