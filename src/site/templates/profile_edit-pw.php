@@ -16,7 +16,7 @@
         </span>
         <input
           class="mb-1 placeholder-rose focus:outline-none"
-          type="old_password"
+          type="password"
           id="old_password"
           name="old_password"
           placeholder="Altes Passwort"
