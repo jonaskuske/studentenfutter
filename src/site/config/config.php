@@ -16,6 +16,15 @@ return [
     }
   ],
   'bvdputte.fingerprint.parameter' => true,
+  'sitemap.ignore' => [
+    'error',
+    'offline',
+    'install',
+    'favorites',
+    'profile',
+    'profile/edit',
+    'profile/edit-pw'
+  ],
   'routes' => [
     [
       'pattern' => 'service-worker.js',
@@ -43,6 +52,28 @@ return [
         }
 
         go('login');
+      }
+    ],
+    [
+      'pattern' => 'sitemap',
+      'action' => function () {
+        return go('sitemap.xml', 301);
+      }
+    ],
+    [
+      'pattern' => 'sitemap.xml',
+      'action' => function () {
+        $pages = site()
+          ->pages()
+          ->index();
+
+        // fetch the pages to ignore from the config settings,
+        // if nothing is set, we ignore the error page
+        $ignore = kirby()->option('sitemap.ignore', ['error']);
+
+        $content = snippet('sitemap', compact('pages', 'ignore'), true);
+
+        return new Response($content, 'application/xml');
       }
     ],
     [
