@@ -7,7 +7,7 @@
     <url>
       <loc><?= html($p->url()) ?></loc>
       <lastmod><?= $p->modified('c', 'date') ?></lastmod>
-      <priority><?= $p->isHomePage() ? 1 : number_format(0.75 / $p->depth(), 1) ?></priority>
+      <priority><?= $p->isHomePage() ? '1.0' : number_format(0.75 / $p->depth(), 1) ?></priority>
     </url>
   <?php endforeach; ?>
 </urlset>
