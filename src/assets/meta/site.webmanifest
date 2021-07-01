@@ -141,6 +141,11 @@
     {
       "platform": "webapp",
       "url": "https://studentenfutter.app/assets/meta/site.webmanifest"
+    },
+    {
+      "platform": "windows",
+      "id": "6125helmerskuske.studentenfutter_phycn6yejkegc!App",
+      "url": "https://www.microsoft.com/de-de/p/studentenfutter/9n3wqmqtt6hd"
     }
   ]
 }
