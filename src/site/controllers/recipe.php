@@ -51,31 +51,31 @@ return function ($kirby, $site, $page) {
     $structuredData['keywords'] = $page->tags()->toString();
   }
 
-  if ($image = $page->image()) {
+  $image = $page->image() ?? asset('assets/meta/sharing-image.png');
+
+  $structuredData['image'][] = [
+    '@type' => 'ImageObject',
+    'width' => $image->width(),
+    'height' => $image->height(),
+    'url' => $image->url()
+  ];
+
+  $thumb_sizes = [
+    ['width' => 1600, 'height' => 1600, 'crop' => true], // 1:1
+    ['width' => 1600, 'height' => 1200, 'crop' => true], // 4:3
+    ['width' => 1600, 'height' => 900, 'crop' => true], // 16:9
+    ['width' => 1600, 'height' => 750, 'crop' => true] // weird Google Home size
+  ];
+
+  foreach ($thumb_sizes as $opts) {
+    $thumb = $image->thumb($opts);
+
     $structuredData['image'][] = [
       '@type' => 'ImageObject',
-      'width' => $image->width(),
-      'height' => $image->height(),
-      'url' => $image->url()
+      'width' => $thumb->width(),
+      'height' => $thumb->height(),
+      'url' => $thumb->url()
     ];
-
-    $thumb_sizes = [
-      ['width' => 1600, 'height' => 1600, 'crop' => true], // 1:1
-      ['width' => 1600, 'height' => 1200, 'crop' => true], // 4:3
-      ['width' => 1600, 'height' => 900, 'crop' => true], // 16:9
-      ['width' => 1600, 'height' => 750, 'crop' => true] // weird Google Home size
-    ];
-
-    foreach ($thumb_sizes as $opts) {
-      $thumb = $image->thumb($opts);
-
-      $structuredData['image'][] = [
-        '@type' => 'ImageObject',
-        'width' => $thumb->width(),
-        'height' => $thumb->height(),
-        'url' => $thumb->url()
-      ];
-    }
   }
 
   foreach ($page->ingredients()->toStructure() as $ingredient) {
