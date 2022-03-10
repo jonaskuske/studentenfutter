@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "app.studentenfutter.twa",
+                     "sha256_cert_fingerprints": ["D0:04:99:83:E3:68:22:16:1F:B6:B2:08:2F:DE:00:AA:99:CC:FB:1F:79:BC:75:81:E9:5F:D5:2D:0E:DA:39:12"] }
+      }
+]
