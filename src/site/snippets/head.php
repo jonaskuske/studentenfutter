@@ -1,7 +1,7 @@
 <!doctype html>
 <html
   lang="de"
-  class="h-full font-sans antialiased leading-normal scroll-smooth scroll-pt-20 scrollbar-lightgray"
+  class="h-full font-sans antialiased leading-normal scroll-smooth scrollbar-lightgray"
 >
 
 <?php

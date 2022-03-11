@@ -134,8 +134,9 @@ input[type='search']::-webkit-search-results-decoration {
   scroll-behavior: smooth;
 }
 
-.scroll-pt-20 {
-  scroll-padding-top: 5rem;
+.scroll-mt-20 {
+  scroll-snap-margin-top: 5rem;
+  scroll-margin-top: 5rem;
 }
 
 .bg-angled-yellow {

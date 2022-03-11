@@ -12,7 +12,7 @@ $files = [
   '/assets/js/vendor/alpine.min.js',
   '/assets/js/vendor/focus-visible.min.js',
   '/assets/js/vendor/object-fit-images.min.js',
-  '/assets/js/vendor/smoothscroll-polyfill.min.js',
+  '/assets/js/vendor/seamless-scroll-polyfill.min.js',
   '/assets/js/vendor/smoothscroll-anchor-polyfill.min.js',
   '/assets/fonts/Chivo_Light-Italic.woff2',
   '/assets/fonts/Chivo_Regular.woff2',

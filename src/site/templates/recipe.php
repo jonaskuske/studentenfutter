@@ -121,7 +121,7 @@ $back_url = r($last != Url::current(), $last);
   <?php endif; ?>
 
   <div class="px-5 pb-20">
-    <section class="js-observed" id="ingredients">
+    <section class="js-observed scroll-mt-20" id="ingredients">
       <h2 class="flex items-center mb-4 text-lg italic leading-loose">
         <span class="mr-2 transform translate-y-1 text-rose">
           <?= svg('/assets/icons/ingredients.svg') ?>
@@ -143,7 +143,7 @@ $back_url = r($last != Url::current(), $last);
       </ul>
     </section>
 
-    <section class="js-observed" id="preparation">
+    <section class="js-observed scroll-mt-20" id="preparation">
       <h2 class="flex items-center mb-4 text-lg italic leading-loose">
        <span class="mr-2 transform translate-y-1 text-yellow">
          <?= svg('/assets/icons/preparation.svg') ?>
@@ -173,7 +173,7 @@ $back_url = r($last != Url::current(), $last);
     ?>
 
     <?php if ($hasInfoSection): ?>
-      <section class="js-observed" id="info">
+      <section class="js-observed scroll-mt-20" id="info">
         <h2 class="flex items-center mb-4 text-lg italic leading-loose">
           <span class="mr-2 transform translate-y-1 text-blue">
             <?= svg('/assets/icons/info.svg') ?>

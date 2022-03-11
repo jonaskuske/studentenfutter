@@ -1,7 +1,9 @@
 'use strict'
 ;(function loadPolyfills(doc, base) {
   if (!('scrollBehavior' in doc.documentElement.style)) {
-    insertScript(base + 'smoothscroll-polyfill.min.js')
+    insertScript(base + 'seamless-scroll-polyfill.min.js', function () {
+      window.seamless.polyfill()
+    })
     insertScript(base + 'smoothscroll-anchor-polyfill.min.js')
   }
 
