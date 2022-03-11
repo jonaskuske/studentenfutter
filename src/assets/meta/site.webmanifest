@@ -146,6 +146,11 @@
       "platform": "windows",
       "id": "6125helmerskuske.studentenfutter_phycn6yejkegc!App",
       "url": "https://www.microsoft.com/de-de/p/studentenfutter/9n3wqmqtt6hd"
+    },
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=app.studentenfutter.twa",
+      "id": "app.studentenfutter.twa"
     }
   ]
 }
