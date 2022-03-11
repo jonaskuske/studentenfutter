@@ -18,7 +18,7 @@ if (isset($recipe)) {
         width="<?= $thumb->width() ?>"
         height="<?= $thumb->height() ?>"
         x-data="{ loaded: !!($el.complete && $el.naturalWidth && $el.naturalHeight) }"
-        class="absolute top-0 object-cover w-full h-full transition-opacity ease-in -z-1"
+        class="absolute top-0 object-cover w-full h-full rounded-t-card transition-opacity ease-in -z-1"
         :class="loaded ? 'duration-500' : 'opacity-0'"
         decoding="async"
         loading="lazy"
