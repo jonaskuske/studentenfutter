@@ -4,8 +4,9 @@
     "target": {
       "namespace": "android_app",
       "package_name": "app.studentenfutter.twa",
-      "sha256_cert_fingerprints":
-        ["00:73:D5:F7:80:E7:EC:01:3D:BE:D7:8A:A8:67:66:2E:95:75:B3:85:7C:AB:CC:F6:5A:6C:B9:B6:46:49:11:92"]
+      "sha256_cert_fingerprints": [
+        "00:73:D5:F7:80:E7:EC:01:3D:BE:D7:8A:A8:67:66:2E:95:75:B3:85:7C:AB:CC:F6:5A:6C:B9:B6:46:49:11:92"
+      ]
     }
   }
 ]
