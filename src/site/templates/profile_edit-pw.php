@@ -10,12 +10,12 @@
     </h1>
 
     <form method="post" action="<?= $page->url() ?>" class="flex flex-col items-center text-rose">
-      <div class="flex items-center w-full mx-auto mb-8 border-b-8 border-dotted border-circles-rose max-w-form border-rose">
-        <span class="w-8">
+      <div class="flex items-center w-full mx-auto mb-8 border-b-8 border-dotted border-circles-rose max-w-form border-rose group">
+        <span class="w-8 group-focus-within:text-black">
           <?= svg('/assets/icons/input_password.svg') ?>
         </span>
         <input
-          class="mb-1 placeholder-rose focus:outline-none"
+          class="mb-1 placeholder-rose focus:placeholder-black focus:outline-none"
           type="password"
           id="old_password"
           name="old_password"
@@ -24,12 +24,12 @@
           required
         >
       </div>
-      <div class="flex items-center w-full mx-auto mb-12 border-b-8 border-dotted border-circles-rose max-w-form border-rose">
-        <span class="w-8">
+      <div class="flex items-center w-full mx-auto mb-12 border-b-8 border-dotted border-circles-rose max-w-form border-rose group">
+        <span class="w-8 group-focus-within:text-black">
           <?= svg('/assets/icons/input_password.svg') ?>
         </span>
         <input
-          class="mb-1 placeholder-rose focus:outline-none"
+          class="mb-1 placeholder-rose focus:placeholder-black focus:outline-none"
           type="password"
           id="password"
           name="password"

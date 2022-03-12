@@ -51,8 +51,15 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+button:not(:focus-visible),
 :not(:focus-visible) {
-  outline: none !important;
+  outline: none;
+}
+:focus-visible:not(.focus-visible) {
+  outline: black dotted 2px;
+  outline: -webkit-focus-ring-color dotted 2px;
+  outline-offset: 4px;
+  outline-color: initial;
 }
 
 body {
@@ -163,6 +170,14 @@ input[type='search']::-webkit-search-results-decoration {
   @apply inset-0;
   @apply bg-transparent;
   @apply pointer-events-auto;
+}
+
+.group:focus-visible .group-focus-visible\:outline-black {
+  @apply outline-black;
+}
+
+.group:focus-within .group-focus-within\:text-black {
+  @apply text-black;
 }
 
 @media (max-width: 916px) {

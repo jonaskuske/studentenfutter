@@ -3,14 +3,15 @@
 
     <form x-data="{ query: '' }" class="w-full" action="<?= $site->find('search')->url() ?>">
       <div class="flex max-w-sm mx-auto border-dotted border-b-8 border-circles-blue text-blue">
-        <svg class="mr-2 fill-current" width="23" height="23" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.4527 18.1327L15.3359 14.0155C16.1113 12.9237 16.572 11.5936 16.572 10.1556C16.572 6.46874 13.5725 3.46931 9.88585 3.46931C6.19895 3.46931 3.19952 6.46874 3.19952 10.1556C3.19952 13.8425 6.19895 16.842 9.88585 16.842C11.3236 16.842 12.6532 16.3813 13.7448 15.6066L17.862 19.7232C18.3158 20.1765 19.0389 20.1873 19.4775 19.7487C19.9173 19.309 19.9058 18.5858 19.4527 18.1327ZM4.87047 10.1556C4.87047 7.38989 7.1201 5.14026 9.88585 5.14026C12.6507 5.14026 14.9005 7.38989 14.9005 10.1556C14.9005 12.9207 12.6509 15.1703 9.88585 15.1703C7.1201 15.1703 4.87047 12.9207 4.87047 10.1556Z" />
-        </svg>
+        <div class="flex flex-grow group">
+          <svg class="mr-2 fill-current group-focus-within:text-black" width="23" height="23" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4527 18.1327L15.3359 14.0155C16.1113 12.9237 16.572 11.5936 16.572 10.1556C16.572 6.46874 13.5725 3.46931 9.88585 3.46931C6.19895 3.46931 3.19952 6.46874 3.19952 10.1556C3.19952 13.8425 6.19895 16.842 9.88585 16.842C11.3236 16.842 12.6532 16.3813 13.7448 15.6066L17.862 19.7232C18.3158 20.1765 19.0389 20.1873 19.4775 19.7487C19.9173 19.309 19.9058 18.5858 19.4527 18.1327ZM4.87047 10.1556C4.87047 7.38989 7.1201 5.14026 9.88585 5.14026C12.6507 5.14026 14.9005 7.38989 14.9005 10.1556C14.9005 12.9207 12.6509 15.1703 9.88585 15.1703C7.1201 15.1703 4.87047 12.9207 4.87047 10.1556Z" />
+          </svg>
 
-        <input value="<?= html(
-          get('q')
-        ) ?>" class="w-full placeholder-blue focus:outline-none" type="search" name="q" placeholder="z.B. Reispfanne" aria-label="Suche" @input="query = $event.target.value" />
-
+          <input value="<?= html(
+            get('q')
+          ) ?>" class="w-full placeholder-blue focus:outline-none focus:placeholder-black" type="search" name="q" placeholder="z.B. Reispfanne" aria-label="Suche" @input="query = $event.target.value" />
+        </div>
         <button type="submit" class="transition-opacity duration-200 opacity-0 focus:opacity-100" :class="{ 'opacity-100': query.length > 0 }">
           <span class="sr-only">Suche starten</span>
           <svg width="22" height="15" viewBox="0 0 22 15" class="fill-current" xmlns="http://www.w3.org/2000/svg">

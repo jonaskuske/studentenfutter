@@ -35,8 +35,8 @@ if (isset($recipe)) {
           <?= $title ?>
         </a>
       <?php else: ?>
-        <a class="absolute inset-0 flex italic font-bold text-center stretched-link" href="<?= $url ?>">
-          <span class="self-center m-auto"><?= $title ?></span>
+        <a class="absolute inset-0 flex italic font-bold text-center stretched-link group outline-none" href="<?= $url ?>">
+          <span class="self-center m-auto group-focus-visible:outline-black"><?= $title ?></span>
         </a>
       <?php endif; ?>
     </div>

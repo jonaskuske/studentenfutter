@@ -17,26 +17,26 @@
         <input value="<?= esc(get('r', ''), 'attr') ?>" name="r" id="r" hidden>
         <input value="<?= csrf() ?>" name="csrf_token" id="csrf_token" hidden>
 
-        <div class="flex items-center w-full mx-auto mb-8 border-b-8 border-dotted border-circles-rose max-w-form border-rose">
-          <span class="w-8 transform -translate-y-1">
+        <div class="flex items-center w-full mx-auto mb-8 border-b-8 border-dotted border-circles-rose max-w-form border-rose group">
+          <span class="w-8 transform -translate-y-1 group-focus-within:text-black">
             <?= svg('/assets/icons/input_email.svg') ?>
           </span>
           <input
             value="<?= esc(get('email')) ?>"
-            class="mb-1 placeholder-rose focus:outline-none"
+            class="mb-1 placeholder-rose focus:outline-none focus:placeholder-black"
             type="email"
             id="email"
             name="email"
             autocomplete="email"
             placeholder="Mail-Adresse">
         </div>
-        <div class="flex items-center w-full mx-auto mb-12 border-b-8 border-dotted border-circles-rose max-w-form border-rose">
-          <span class="w-8 ">
+        <div class="flex items-center w-full mx-auto mb-12 border-b-8 border-dotted border-circles-rose max-w-form border-rose group">
+          <span class="w-8 group-focus-within:text-black">
             <?= svg('/assets/icons/input_password.svg') ?>
           </span>
           <input
             value="<?= esc(get('password')) ?>"
-            class="mb-1 placeholder-rose focus:outline-none"
+            class="mb-1 placeholder-rose focus:outline-none focus:placeholder-black"
             placeholder="Passwort"
             type="password"
             id="password"
