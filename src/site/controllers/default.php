@@ -6,12 +6,18 @@ return function ($kirby, $site, $page) {
   $dependencies = [];
 
   $images = $page
-    ->editor()
-    ->blocks()
+    ->body()
+    ->toBlocks()
     ->filterBy('type', 'image')
-    ->map(function ($block) {
-      $img = $block->image();
-      return $img ? $img->url() : $block->attrs()->src();
+    ->toArray(function ($block) {
+      if ($block->location() === 'web') {
+        return $block->src()->esc();
+      }
+
+      return $block
+        ->image()
+        ->toFile()
+        ->url();
     });
 
   $dependencies = A::merge($dependencies, $images);

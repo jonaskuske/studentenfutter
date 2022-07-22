@@ -13,29 +13,18 @@
     </h1>
 
 
-    <?php foreach ($page->editor()->blocks() as $block): ?>
-      <?php if (($type = $block->type()) === 'h2'): ?>
+    <?php foreach ($page->body()->toBlocks() as $block): ?>
+      <?php if (($type = $block->type()) === 'heading' && $block->level()->toString() === 'h2'): ?>
         <h2 class="text-xl italic font-bold leading-wide">
           <span class="highlight <?= e($show_title, 'highlight-rose', 'highlight-yellow') ?>">
-            <?= $block
-              ->content()
-              ->kt()
-              ->inline() ?>
+            <?= $block->toField()->inline() ?>
           </span>
         </h2>
       <?php else: ?>
-        <?php if (
-          $type === 'paragraph' &&
-          html(
-            $block
-              ->content()
-              ->kt()
-              ->inline()
-          ) === ''
-        ): ?>
+        <?php if ($type === 'text' && $block->toField()->inline() === ''): ?>
           <p>&nbsp;</p>
         <?php else: ?>
-          <?= $block->html() ?>
+          <?= $block ?>
         <?php endif; ?>
       <?php endif; ?>
     <?php endforeach; ?>

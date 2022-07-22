@@ -6,9 +6,15 @@ fields:
     type: toggle
     label: Überschrift anzeigen
     default: true
-  editor:
-    allowed:
-      - h2
-      - h3
-      - paragraph
+  body:
+    type: blocks
+    fieldsets:
+      - text
       - image
+      - heading:
+        extends: blocks/heading
+        fields:
+          level:
+            options:
+              - h2
+              - h3
