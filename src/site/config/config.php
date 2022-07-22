@@ -1,11 +1,12 @@
 <?php
 
-use Kirby\Http\Server;
+use Kirby\Http\Environment;
 use Kirby\Cms\Response;
-use Kirby\Toolkit\F;
+use Kirby\Filesystem\F;
 use Kirby\Toolkit\I18n;
 
-$is_dev = Server::host() === 'localhost' && Server::port() === 8000;
+$environment = new Environment();
+$is_dev = $environment->host() === 'localhost' && $environment->port() === 8000;
 
 return [
   'production' => !$is_dev,
