@@ -9,6 +9,7 @@ $environment = new Environment();
 $is_dev = $environment->host() === 'localhost' && $environment->port() === 8000;
 
 return [
+  'url' => ['https://studentenfutter.app', 'http://localhost:8000'],
   'production' => !$is_dev,
   'debug' => $is_dev,
   'hooks' => [
