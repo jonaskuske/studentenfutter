@@ -159,6 +159,7 @@ $img = $has_img
       window.INSTALL_EVENT = event
     })
   </script>
+  <script async defer data-website-id="f827d061-2bbc-428a-b4bd-314f343007f0" data-domains="studentenfutter.app" src="https://copernicus.joku.co/sentinel.js"></script>
 </head>
 
 <body <?= attr(['class' => isset($body_class) ? $body_class : '']) ?>>
