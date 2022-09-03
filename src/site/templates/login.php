@@ -22,7 +22,7 @@
             <?= svg('/assets/icons/input_email.svg') ?>
           </span>
           <input
-            value="<?= esc(get('email')) ?>"
+            value="<?= esc(get('email', '')) ?>"
             class="mb-1 placeholder-rose focus:outline-none focus:placeholder-black"
             type="email"
             id="email"
@@ -35,7 +35,7 @@
             <?= svg('/assets/icons/input_password.svg') ?>
           </span>
           <input
-            value="<?= esc(get('password')) ?>"
+            value="<?= esc(get('password', '')) ?>"
             class="mb-1 placeholder-rose focus:outline-none focus:placeholder-black"
             placeholder="Passwort"
             type="password"

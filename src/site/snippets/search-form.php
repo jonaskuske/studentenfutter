@@ -9,7 +9,7 @@
           </svg>
 
           <input value="<?= html(
-            get('q')
+            get('q', '')
           ) ?>" class="w-full placeholder-blue focus:outline-none focus:placeholder-black" type="search" name="q" placeholder="z.B. Reispfanne" aria-label="Suche" @input="query = $event.target.value" />
         </div>
         <button type="submit" class="transition-opacity duration-200 opacity-0 focus:opacity-100" :class="{ 'opacity-100': query.length > 0 }">

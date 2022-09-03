@@ -18,7 +18,7 @@
           <?= svg('/assets/icons/input_user.svg') ?>
         </span>
         <input
-          value="<?= esc(get('name')) ?>"
+          value="<?= esc(get('name', '')) ?>"
           class="mb-1 placeholder-rose focus:outline-none focus:placeholder-black"
           type="name"
           id="name"
@@ -33,7 +33,7 @@
           <?= svg('/assets/icons/input_email.svg') ?>
         </span>
         <input
-          value="<?= esc(get('email')) ?>"
+          value="<?= esc(get('email', '')) ?>"
           class="mb-1 placeholder-rose focus:outline-none focus:placeholder-black"
           type="email"
           id="email"

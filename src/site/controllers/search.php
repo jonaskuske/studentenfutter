@@ -1,7 +1,7 @@
 <?php
 
 return function ($site) {
-  $query = get('q');
+  $query = get('q', '');
 
   $results = $site
     ->find('recipes')
