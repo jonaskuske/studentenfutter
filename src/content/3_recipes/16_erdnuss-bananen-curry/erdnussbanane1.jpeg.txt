@@ -1,1 +1,5 @@
 Template: image
+
+----
+
+Uuid: MskpG8SqLYkmnl7C
