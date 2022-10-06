@@ -11,7 +11,8 @@ $is_dev = $environment->host() === 'localhost' && $environment->port() === 8000;
 return [
   'url' => ['https://studentenfutter.app', 'http://localhost:8000'],
   'updates' => [
-    'kirby' => 'security'
+    'kirby' => 'security',
+    'plugins' => true
   ],
   'production' => !$is_dev,
   'debug' => $is_dev,
