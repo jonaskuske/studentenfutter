@@ -73,6 +73,7 @@ body {
 
 main {
   @apply container;
+  max-width: min(97vw, theme('maxWidth.5xl'));
 }
 
 [x-cloak] {
