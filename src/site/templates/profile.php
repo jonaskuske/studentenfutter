@@ -15,7 +15,7 @@
   <div class="flex flex-col items-center">
     <div class="flex items-center w-full mx-auto mb-5 max-w-form">
       <span class="mr-2 text-yellow"><?= svg('/assets/icons/user.svg') ?></span>
-      <p><?= html($user->name()) ?></p>
+      <p><?= html($user->name()->or('(kein Name angegeben)')) ?></p>
     </div>
     <div class="flex items-center w-full mx-auto mb-5 max-w-form">
       <span class="mr-2 text-yellow"><?= svg('/assets/icons/email.svg') ?></span>
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div x-show="!online" class="px-5 pb-12 m-auto text-center">
+  <div x-cloak x-show="!online" class="px-5 pb-12 m-auto text-center">
     <div class="w-24 mx-auto mb-4 text-lightgray">
       <?= svg('assets/icons/offline.svg') ?>
     </div>

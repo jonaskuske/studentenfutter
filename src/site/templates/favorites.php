@@ -15,7 +15,7 @@
       </p>
       <p class="text-center">
           Tippe bei einem Rezept auf das Herz, um es zu deinen Favoriten hinzuzufügen.
-          <span x-data x-show="'serviceWorker' in navigator">
+          <span x-data x-cloak x-show="'serviceWorker' in navigator">
             <br class="hidden sm:inline">Es ist dann auch offline verfügbar.
           </span>
       </p>
