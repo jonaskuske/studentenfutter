@@ -72,11 +72,10 @@ $can_go_back = rtrim(Url::last(), '/') == $home_url;
             <li
               x-data="{
                 isStandalone: isStandalone(),
-                canPrompt: Boolean(window.INSTALL_EVENT) || (isIOS() && !isIOSChrome())
+                supportsInstall: 'onbeforeinstallprompt' in window || (isIOS() && !isIOSChrome())
               }"
-              x-show="!isStandalone && canPrompt"
+              x-show="!isStandalone && supportsInstall"
               @appinstalled.window="isStandalone = true"
-              @beforeinstallprompt.window="canPrompt = true"
               class="mb-5 italic font-bold leading-relaxed text-md"
             >
               <a href="<?= url('install') ?>" class="highlight highlight-rose highlight-sm">

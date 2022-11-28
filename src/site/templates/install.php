@@ -6,9 +6,9 @@
     window.global = window // "react-ios-pwa-prompt" requires "global" to exist
   </script>
   <?= js([
-    '//cdn.jsdelivr.net/npm/react/umd/react.production.min.js',
-    '//cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js',
-    '//cdn.jsdelivr.net/npm/react-ios-pwa-prompt'
+    'https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js',
+    'https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js',
+    'https://cdn.jsdelivr.net/npm/react-ios-pwa-prompt@1'
   ]) ?>
 
   <script>
@@ -38,10 +38,9 @@
     class="flex-grow px-5 pt-6"
     x-cloak
     x-data="{
-      canPrompt: Boolean(window.INSTALL_EVENT),
-      isIOS: isIOS(),
-      isIOSChrome: isIOSChrome(),
       isStandalone: isStandalone(),
+      supportsInstall: 'onbeforeinstallprompt' in window || (isIOS() && !isIOSChrome()),
+      canPrompt: Boolean(window.INSTALL_EVENT) || (isIOS() && !isIOSChrome())
     }"
     x-init="navigator.getInstalledRelatedApps && navigator.getInstalledRelatedApps()
     .then(function(apps) { if (apps.length) isStandalone = true })"
@@ -64,24 +63,26 @@
             Schau bei deinen Apps nach!
           </p>
 
-          <div
-            x-show="!isStandalone && (canPrompt || (isIOS && !isIOSChrome))"
-            class="flex flex-col textfield"
-          >
+          <div x-show="!isStandalone && supportsInstall" class="flex flex-col textfield">
             <?= $page->info()->kt() ?>
 
-            <button @click="showInstallPrompt();" class="mx-auto mt-6 text-black button border-yellow bg-yellow">
+            <button
+              type="button"
+              :disabled="!canPrompt"
+              @click="showInstallPrompt();"
+              class="mx-auto mt-6 text-black button border-yellow bg-yellow"
+              :class="!canPrompt && 'opacity-50 text-opacity-75 cursor-not-allowed'"
+            >
               Installieren
             </button>
           </div>
 
 
-          <p class="text-center" x-show="!isStandalone && ((!canPrompt && !isIOS) || isIOSChrome)">
+          <p class="text-center" x-show="!isStandalone && !supportsInstall">
             Öffne
             <a class="text-rose" href="<?= $site->homePage()->url() ?>">
               <?= $site->homePage()->url() ?>
-            </a> in
-            <span x-show="isIOS">Safari</span><span x-show="!isIOS">Chrome</span>,
+            </a> in <span x-text="isIOS() ? 'Safari' : 'Chrome'"></span>,
             um <?= $site->title() ?> installieren zu können.
           </p>
         </div>

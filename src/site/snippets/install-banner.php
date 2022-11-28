@@ -2,13 +2,17 @@
   function installBanner() {
     return {
       showBanner: false,
-      standalone: isStandalone(),
       canPrompt: Boolean(window.INSTALL_EVENT) || (isIOS() && !isIOSChrome()),
-      isFirst: !localStorage.getItem('install_banner'),
       run: function() {
-        if (this.standalone || !this.canPrompt || !this.isFirst) return;
-        this.isFirst = false;
-        localStorage.setItem('install_banner', 1);
+        var ONE_WEEK = 1000 * 60 * 60 * 24 * 7
+        if (
+          isStandalone() ||
+          !this.canPrompt ||
+          localStorage.getItem('allow_install_banner') === 'false' ||
+          Date.now() - +localStorage.getItem('last_install_banner') < ONE_WEEK
+        ) return
+
+        localStorage.setItem('last_install_banner', Date.now())
         var _this = this;
         setTimeout(function() { _this.showBanner = true }, 800)
       }
@@ -50,9 +54,14 @@
     x-transition:leave-end="opacity-0 transform translate-y-full"
     class="fixed bottom-0 left-0 z-30 flex w-full p-5"
   >
-    <div @click.away="showBanner = false" class="relative p-5 py-6 mx-auto mt-auto bg-white shadow rounded-card">
-      <button class="absolute top-0 right-0 px-4 py-3" @click="showBanner = false">
-        <svg width="12" height="12" viewBox="0 0 21 21" class="stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div @click.away="showBanner = false" class="relative p-5 py-10 mx-auto mt-auto bg-white shadow rounded-card">
+      <button
+        type="button"
+        class="absolute top-0 right-0 px-4 py-3 opacity-50 text-xs"
+        @click="localStorage.setItem('allow_install_banner', (showBanner = false))"
+      >
+      <span class="mr-px align-text-top">Nicht mehr zeigen</span>
+        <svg width="12" height="12" viewBox="0 0 21 21" class="stroke-current inline" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="2.66116" y1="18.7175" x2="18.2175" y2="3.16116" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           <line x1="2.12132" y1="3" x2="17.6777" y2="18.5563" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
@@ -69,6 +78,7 @@
           </p>
           <a
             href="<?= url('install') ?>"
+            @click="localStorage.setItem('allow_install_banner', false)"
             class="block min-w-0 text-black button border-yellow bg-yellow"
           >
             Installieren
