@@ -36,6 +36,7 @@ self.addEventListener('activate', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
+  if (getHeader(event.request, 'Cache-Control').includes('no-store')) return
   event.respondWith(handleFetch(event))
 })
 

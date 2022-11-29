@@ -26,3 +26,12 @@
     return doc.head.appendChild(script)
   }
 })(document, '/assets/js/vendor/')
+
+;(function dispatchOfflineEvent(req, done, evt) {
+  req.onreadystatechange = function () {
+    if (req.readyState === done && (req.status >= 300 || !req.status)) window.dispatchEvent(evt)
+  }
+  req.open('HEAD', location)
+  req.setRequestHeader('cache-control', 'no-store')
+  req.send()
+})(new XMLHttpRequest(), XMLHttpRequest.DONE, new CustomEvent('offline'))
