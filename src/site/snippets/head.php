@@ -110,7 +110,7 @@ $img = $has_img
   <meta property="og:url" content="<?= $page->url() ?>" />
   <meta property="og:title" content="<?= $title ?>" />
 
-  <link rel="canonical" href="<?= $page->url() ?>" />
+  <link rel="canonical" href="<?= $page->url(['params' => params()]) ?>" />
 
   <?= js(['assets/js/polyfills.js', 'assets/js/utils.js', '@auto'], ['defer' => true]) ?>
 

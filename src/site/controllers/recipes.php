@@ -2,37 +2,44 @@
 
 use Kirby\Toolkit\A;
 
-return function ($site) {
+return function ($kirby, $site, $page) {
   $recipes = $site
     ->find('recipes')
     ->children()
     ->listed();
 
-  $category_options = $recipes
-    ->first()
-    ->blueprint()
-    ->field('category')['options'];
+  $category_options = A::append(
+    ['' => 'Alle Rezepte'],
+    $recipes
+      ->first()
+      ->blueprint()
+      ->field('category')['options']
+  );
 
-  $selected_category = get('category');
-
-  if (!array_key_exists($selected_category, $category_options)) {
-    $selected_category = '';
+  if (get('category') !== null) {
+    go(page()->url(['params' => ['category' => get('category')]]));
+    die();
   }
 
+  $selected_category = param('category') ?? '';
   $selected_category_name = A::get($category_options, $selected_category);
+
+  if (!$selected_category_name) {
+    $kirby->response()->code(404);
+    echo $site->errorPage()->render();
+    die();
+  }
 
   $structuredData = [
     '@context' => 'https://schema.org',
     '@type' => 'ItemList',
-    'name' => $selected_category_name ?? 'Alle Rezepte',
+    'name' => $selected_category_name,
     'itemListElement' => []
   ];
 
   $i = 0;
   foreach ($recipes as $recipe) {
-    $is_displayed = !$selected_category || $recipe->category()->toString() === $selected_category;
-
-    if ($is_displayed) {
+    if (!$selected_category || $selected_category === $recipe->category()->toString()) {
       $structuredData['itemListElement'][] = [
         '@type' => 'ListItem',
         'position' => ++$i,

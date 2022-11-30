@@ -9,7 +9,13 @@
 
   <div class="m-auto">
     <p class="mb-6 font-bold text-center">
-      Da ist etwas schiefgelaufen. Die Seite konnte nicht geladen werden.
+      Da ist etwas schiefgelaufen.
+      Die Seite <?= r(
+        $kirby->response()->code() === 404,
+        'wurde nicht gefunden',
+        'konnte nicht geladen werden'
+      ) ?>.
+      (<?= $kirby->response()->code() ?>)
     </p>
     <p class="text-center">
       <a href="<?= $site->homePage()->url() ?>" class="button border-rose">Zurück zur Startseite</a>

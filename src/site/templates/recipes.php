@@ -1,4 +1,4 @@
-<?= snippet('head', ['page_title' => $selected_category_name ?? 'Alle Rezepte']) ?>
+<?= snippet('head', ['page_title' => $selected_category_name]) ?>
 
 <script type="application/ld+json">
 <?= json_encode($structuredData) ?>
@@ -16,7 +16,6 @@
   <form action="" class="mb-6 text-center text-blue">
     <label>Filter:
       <select class="outline-none border-b-3 border-dashed border-transparent focus-visible:border-blue focus:text-black" name="category" id="category" onchange="this.form.submit()">
-        <option value="">Alle Rezepte</option>
         <?php foreach ($category_options as $category => $category_name): ?>
           <option value="<?= $category ?>" <?= e($category === $selected_category, 'selected') ?>>
             <?= $category_name ?>
@@ -30,7 +29,7 @@
 
   <section class="px-5">
     <?php foreach ($category_options as $category => $category_name): ?>
-      <?php if ($selected_category === $category || !$selected_category): ?>
+      <?php if ($category && (!$selected_category || $selected_category === $category)): ?>
         <?php $category_recipes = $recipes->filterBy('category', $category); ?>
 
         <div class="mb-6">
