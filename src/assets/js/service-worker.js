@@ -191,8 +191,8 @@ async function handlePeriodicSync(event) {
 async function addToCache(cache, req) {
   const [cachedResp, response] = await all([cache.match(req), doFetch(req)])
 
-  await updateDependencies({ from: cachedResp, to: response, label: `caching ${req.url || req}` })
   await cache.put(req, response)
+  await updateDependencies({ from: cachedResp, to: response, label: `caching ${req.url || req}` })
 
   const indexId = getHeader(response, 'X-SW-Index-ID')
   if (indexId) await addToContentIndex(indexId)
@@ -290,7 +290,7 @@ async function updateContentIndex() {
 }
 
 async function addToContentIndex(id) {
-  if (!('index' in registration)) return
+  if (!('index' in registration) || !registration.active) return
 
   logBold('adding to content index:', id)
 
