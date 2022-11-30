@@ -29,7 +29,7 @@
     "postcss-cli": "^9.0.1",
     "postcss-focus-visible": "^6.0.1",
     "postcss-object-fit-images": "^1.1.2",
-    "postcss-smoothscroll-anchor-polyfill": "^2.0.1",
+    "postcss-smoothscroll-anchor-polyfill": "^2.0.2",
     "prettier": "^2.0.5",
     "tailwindcss": "^1.9.6",
     "tailwindcss-aspect-ratio": "^3.0.0",
