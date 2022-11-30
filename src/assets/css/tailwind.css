@@ -128,6 +128,7 @@ input[type='search']::-webkit-search-results-decoration {
 
 .button {
   min-width: 180px;
+  @apply inline-block;
   @apply px-5 py-2;
   @apply text-center text-base font-bold italic leading-normal;
   @apply bg-white;
