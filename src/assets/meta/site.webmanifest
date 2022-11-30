@@ -141,6 +141,7 @@
   "related_applications": [
     {
       "platform": "webapp",
+      "id": "/",
       "url": "https://studentenfutter.app/assets/meta/site.webmanifest"
     },
     {

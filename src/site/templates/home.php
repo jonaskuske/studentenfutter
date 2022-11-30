@@ -9,7 +9,7 @@
       <?= snippet('search-form') ?>
     </section>
 
-    <section class="mb-12">
+    <section class="mb-12 select-none">
       <div class="mb-6"><?= snippet('headings/favorites', ['tag' => 'h2']) ?></div>
 
       <?php if ($user = $kirby->user()): ?>
@@ -37,7 +37,7 @@
     </section>
 
     <?php foreach ($category_options as $category => $category_name): ?>
-      <section class="mb-12">
+      <section class="mb-12 select-none">
         <div class="mb-6">
           <?= snippet(['headings/' . $category, 'headings/default'], ['text' => $category_name]) ?>
         </div>

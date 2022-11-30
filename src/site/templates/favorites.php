@@ -3,12 +3,12 @@
 
 <?= snippet('menu') ?>
 
-<main class="pt-6">
-  <div class="mb-6">
-    <?= snippet('headings/favorites') ?>
-  </div>
+<main class="pt-6">  
+  <section class="px-5 select-none">
+    <div class="mb-6">
+      <?= snippet('headings/favorites') ?>
+    </div>
 
-  <section class="px-5">
     <?php if ($favorites->isEmpty()): ?>
       <p class="mb-4 text-center">
         Noch keine Favoriten gespeichert.

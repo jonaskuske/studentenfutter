@@ -14,7 +14,7 @@
   </h1>
 
   <form action="" class="mb-6 text-center text-blue">
-    <label>Filter:
+    <label class="select-none">Filter:
       <select class="outline-none border-b-3 border-dashed border-transparent focus-visible:border-blue focus:text-black" name="category" id="category" onchange="this.form.submit()">
         <?php foreach ($category_options as $category => $category_name): ?>
           <option value="<?= $category ?>" <?= e($category === $selected_category, 'selected') ?>>
@@ -27,7 +27,7 @@
 
   <hr class="w-24 m-auto mb-6 border-t-0 border-b-8 border-dotted border-circles-rose text-rose">
 
-  <section class="px-5">
+  <section class="px-5 select-none">
     <?php foreach ($category_options as $category => $category_name): ?>
       <?php if ($category && (!$selected_category || $selected_category === $category)): ?>
         <?php $category_recipes = $recipes->filterBy('category', $category); ?>

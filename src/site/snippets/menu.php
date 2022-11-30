@@ -63,24 +63,27 @@ $can_go_back = rtrim(Url::last(), '/') == $home_url;
           <ul class="pt-12 pl-5">
             <?php foreach ($pages->listed() as $entry): ?>
               <li class="mb-5 italic font-bold leading-relaxed text-md">
-                <a href="<?= $entry->url() ?>" class="highlight highlight-rose highlight-sm active:opacity-75 can-hover:hover:text-opacity-75">
+                <a href="<?= $entry->url() ?>" class="highlight highlight-rose highlight-sm active:opacity-75 text-black can-hover:hover:text-opacity-75">
                   <?= $entry->title()->html() ?>
                 </a>
               </li>
             <?php endforeach; ?>
 
             <li
+              x-show="!isStandalone && !isInstalled && supportsInstall"
               x-data="{
                 isStandalone: isStandalone(),
-                supportsInstall: 'onbeforeinstallprompt' in window || (isIOS() && !isIOSChrome())
+                supportsInstall: 'onbeforeinstallprompt' in window || (isIOS() && !isIOSChrome()),
+                isInstalled: 'getInstalledRelatedApps' in navigator ? isStandalone() : false
               }"
-              x-show="!isStandalone && supportsInstall"
-              @appinstalled.window="isStandalone = true"
+              x-init="navigator.getInstalledRelatedApps && navigator.getInstalledRelatedApps()
+                .then(function(apps) { isInstalled = apps.length > 0 })"
+                @appinstalled.window="isInstalled = true"
               class="mb-5 italic font-bold leading-relaxed text-md"
             >
               <a href="<?= url(
                 'install'
-              ) ?>" class="highlight highlight-rose highlight-sm active:opacity-75 can-hover:hover:text-opacity-75">
+              ) ?>" class="highlight highlight-rose highlight-sm active:opacity-75 text-black can-hover:hover:text-opacity-75">
                 App installieren
               </a>
             </li>

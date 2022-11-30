@@ -9,7 +9,7 @@ if (isset($recipe)) {
   $image = isset($image) ? $image : null;
 } ?>
 
-<div class="relative z-0 shadow rounded-card aspect-ratio-card transform transition-transform duration-150 ease-in active:scale-95 focus-visible-within:outline-blue">
+<div class="relative z-0 shadow rounded-card aspect-ratio-card transform transition-transform duration-150 ease-in active:scale-95 focus-visible-within:outline-blue select-none">
   <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">
     <?php if ($image): ?>
       <?php $thumb = $image->thumb(['width' => 400]); ?>

@@ -38,13 +38,13 @@
     class="flex-grow px-5 pt-6"
     x-cloak
     x-data="{
-      isStandalone: isStandalone(),
+      isInstalled: 'getInstalledRelatedApps' in navigator ? isStandalone() : false,
       supportsInstall: 'onbeforeinstallprompt' in window || (isIOS() && !isIOSChrome()),
       canPrompt: Boolean(window.INSTALL_EVENT) || (isIOS() && !isIOSChrome())
     }"
     x-init="navigator.getInstalledRelatedApps && navigator.getInstalledRelatedApps()
-    .then(function(apps) { if (apps.length) isStandalone = true })"
-    @appinstalled.window="isStandalone = true"
+    .then(function(apps) { isInstalled = apps.length > 0 })"
+    @appinstalled.window="isInstalled = true"
     @beforeinstallprompt.window="canPrompt = true"
   >
     <div class="pt-4 pb-12 bg-white shadow rounded-card">
@@ -58,12 +58,12 @@
         </div>
 
         <div class="text-xs leading-tight max-w-form md:text-base md:leading-normal md:max-w-md">
-          <p class="text-center" x-show="isStandalone">
+          <p class="text-center" x-show="isInstalled">
             <?= $site->title()->html() ?> ist installiert.<br />
             Schau bei deinen Apps nach!
           </p>
 
-          <div x-show="!isStandalone && supportsInstall" class="flex flex-col textfield">
+          <div x-show="!isInstalled && supportsInstall" class="flex flex-col textfield">
             <?= $page->info()->kt() ?>
 
             <button
@@ -78,7 +78,7 @@
           </div>
 
 
-          <p class="text-center" x-show="!isStandalone && !supportsInstall">
+          <p class="text-center" x-show="!isInstalled && !supportsInstall">
             Öffne
             <a class="text-rose" href="<?= $site->homePage()->url() ?>">
               <?= $site->homePage()->url() ?>

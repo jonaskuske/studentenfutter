@@ -158,7 +158,14 @@ $img = $has_img
   <script async defer data-website-id="f827d061-2bbc-428a-b4bd-314f343007f0" data-domains="studentenfutter.app" src="https://copernicus.joku.co/sentinel.js"></script>
 </head>
 
-<body <?= attr(['class' => isset($body_class) ? $body_class : '']) ?>>
+<body
+  <?= attr(['class' => isset($body_class) ? $body_class : '']) ?>
+  :class="standalone && 'user-drag-none'"
+  x-data="{ standalone: isStandalone() }"
+  x-init="matchMedia('(display-mode: standalone)').addListener(function(e) { standalone=e.matches })"
+  @contextmenu="standalone && !$event.target.matches('p,span,input,select,textarea') && $event.preventDefault()"
+  @dragstart="standalone && !$event.target.matches('p,span,input,select,textarea') && $event.preventDefault()"
+>
 
 <script>
   'use strict'

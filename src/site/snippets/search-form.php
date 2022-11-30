@@ -1,5 +1,5 @@
   <div class="flex flex-col items-center px-8 pt-4 pb-10 bg-white shadow rounded-card">
-    <h2 class="mb-8 text-xl italic font-bold leading-wide highlight highlight-blue">Suche</h2>
+    <h2 class="mb-8 text-xl italic font-bold leading-wide highlight highlight-blue select-none">Suche</h2>
 
     <form spellcheck="false" autocomplete="off" x-data="{ query: '' }" class="w-full" action="<?= $site
       ->find('search')

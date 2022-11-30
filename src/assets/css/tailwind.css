@@ -51,6 +51,11 @@
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: inherit;
   -webkit-overflow-scrolling: inherit;
+  -webkit-user-drag: inherit;
+}
+
+.user-drag-none {
+  -webkit-user-drag: none;
 }
 
 button:not(:focus-visible),
