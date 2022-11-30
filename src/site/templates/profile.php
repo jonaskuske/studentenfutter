@@ -30,11 +30,13 @@
       <a href="<?= url('profile/edit') ?>" class="mb-5 button bg-rose border-rose">
         Profil bearbeiten
       </a>
-      <a href="<?= url('profile/edit-pw') ?>" class="mb-5 button border-rose">
+      <a href="<?= url('profile/edit-pw') ?>" class="button border-rose">
         Passwort ändern
       </a>
 
-      <a href="<?= url('logout') ?>" class="text-xs leading-tight underline text-blue">
+      <hr class="w-16 my-12 border-t-0 border-b-8 border-dotted border-circles-lightgray text-lightgray">
+
+      <a href="<?= url('logout') ?>" class="text-xs leading-tight underline text-rose select-none">
         Abmelden
       </a>
     </div>

@@ -8,9 +8,10 @@ const tailwindPlugins = require('./tailwindcss-plugins')
 /** @type { TailwindConfig } */
 module.exports = {
   purge: { mode: 'layers', content: ['**/*.html', '**/*.php', '**/*.svg'] },
+  important: '#tw',
   theme: {
     extend: {
-      borderWidth: { 6: '6px' },
+      borderWidth: { 3: '3px', 6: '6px' },
       boxShadow: {
         default: '0px 2px 10px rgba(117, 117, 117, 0.12)',
         sm: '0px 2px 10px rgba(117, 117, 117, 0.12);',
@@ -19,6 +20,7 @@ module.exports = {
       maxHeight: { 0: 0, 300: '300px' },
       maxWidth: { form: '271px' },
       minWidth: { 32: '8rem' },
+      outline: { blue: ['#4F96D6 dashed 3px', '4px'] },
       scale: { 60: '0.6' },
       screens: {
         'can-hover': { raw: '(hover: hover)' },
@@ -81,18 +83,30 @@ module.exports = {
     },
   },
   variants: {
-    margin: ['first', 'responsive'],
-    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
-    scale: ['responsive', 'hover', 'focus', 'group-hover'],
-    transitionDelay: ['responsive', 'group-hover'],
+    borderColor: ({ after }) => after(['focus-visible']),
+    highlight: ({ after }) => after(['active', 'hover']),
+    margin: ({ after }) => after(['first']),
+    opacity: ({ after }) =>
+      after(['group-hover', 'no-hover', 'active'], 'hover', after(['group-focus-visible'])),
+    outline: ({ after }) => after(['focus-visible', 'focus-visible-within', 'group-focus-visible']),
+    scale: ({ after }) =>
+      after(
+        ['group-hover', 'no-hover', 'active'],
+        'hover',
+        after(['focus-visible-within', 'group-focus-visible'])
+      ),
+    textColor: ({ after }) => after(['focus-visible']),
+    transitionDelay: ({ after }) => after(['group-hover', 'no-hover', 'group-focus-visible']),
   },
   corePlugins: {
     container: false,
   },
   plugins: [
     require('tailwindcss-aspect-ratio'),
+    require('tailwindcss-interaction-variants'),
     tailwindPlugins.container,
     tailwindPlugins.highlight,
     tailwindPlugins.borderCircles,
+    tailwindPlugins.focusVisibleWithin,
   ],
 }

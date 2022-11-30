@@ -1,6 +1,14 @@
 const plugin = require('tailwindcss/plugin')
 const excludeDefault = ([name]) => name !== 'default'
 
+exports.focusVisibleWithin = plugin(function ({ addVariant, e }) {
+  addVariant('focus-visible-within', ({ modifySelectors, separator }) => {
+    modifySelectors(
+      ({ className }) => `.${e(`focus-visible-within${separator}${className}`)}:has(:focus-visible)`
+    )
+  })
+})
+
 exports.container = plugin(function ({ addUtilities, theme }) {
   addUtilities({
     '.container': {
@@ -44,7 +52,10 @@ exports.highlight = plugin(function ({ addUtilities, theme, variants }) {
     })
   )
 
-  addUtilities({ ...baseClass, ...colorClasses, ...sizingClasses }, variants('highlight'))
+  addUtilities({ ...baseClass, ...colorClasses, ...sizingClasses }, [
+    'responsive',
+    ...(variants('highlight') || []),
+  ])
 })
 
 exports.borderCircles = plugin(function ({ addUtilities, theme }) {

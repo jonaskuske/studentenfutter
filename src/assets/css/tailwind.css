@@ -49,6 +49,8 @@
 ::before,
 ::after {
   -webkit-tap-highlight-color: transparent;
+  scroll-behavior: inherit;
+  -webkit-overflow-scrolling: inherit;
 }
 
 button:not(:focus-visible),
@@ -56,17 +58,18 @@ button:not(:focus-visible),
   outline: none;
 }
 :focus-visible:not(.focus-visible) {
-  outline: black dotted 2px;
-  outline: -webkit-focus-ring-color dotted 2px;
-  outline-offset: 4px;
-  outline-color: initial;
+  @apply outline-blue;
+}
+
+html {
+  @apply scrolling-touch h-full font-sans antialiased leading-normal text-black;
+  scroll-behavior: smooth;
 }
 
 body {
   @apply flex;
   @apply flex-col;
   @apply min-h-full;
-  @apply font-sans;
   /* Padding with same width as the scrollbar, prevents content shift if scrollbar disappears */
   padding-left: calc(100vw - 100%);
 }
@@ -125,22 +128,21 @@ input[type='search']::-webkit-search-results-decoration {
 
 .button {
   min-width: 180px;
-  @apply px-5;
-  @apply py-2;
-  @apply italic;
-  @apply font-bold;
-  @apply text-center;
+  @apply px-5 py-2;
+  @apply text-center text-base font-bold italic leading-normal;
   @apply bg-white;
-  @apply border-2;
-  @apply rounded-lg;
-  @apply shadow-sm;
+  @apply border-2 rounded-lg shadow-sm;
+  @apply select-none;
+  @apply transform transition-transform duration-150 ease-in;
+}
+.button:active {
+  @apply scale-95;
+}
+.button:disabled {
+  @apply opacity-50;
 }
 
 @tailwind utilities;
-
-.scroll-smooth {
-  scroll-behavior: smooth;
-}
 
 .scroll-mt-20 {
   scroll-snap-margin-top: 5rem;

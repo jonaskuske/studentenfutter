@@ -1,9 +1,5 @@
 <!doctype html>
-<html
-  lang="de"
-  class="h-full font-sans antialiased leading-normal scroll-smooth scrollbar-lightgray"
->
-
+<html id="tw" lang="de" class="scrollbar-lightgray">
 <?php
 $site_title = $site->title();
 $page_title = isset($page_title) ? $page_title : $page->title();

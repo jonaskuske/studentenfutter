@@ -15,7 +15,7 @@
 
   <form action="" class="mb-6 text-center text-blue">
     <label>Filter:
-      <select name="category" id="category" onchange="this.form.submit()">
+      <select class="outline-none border-b-3 border-dashed border-transparent focus-visible:border-blue focus:text-black" name="category" id="category" onchange="this.form.submit()">
         <option value="">Alle Rezepte</option>
         <?php foreach ($category_options as $category => $category_name): ?>
           <option value="<?= $category ?>" <?= e($category === $selected_category, 'selected') ?>>

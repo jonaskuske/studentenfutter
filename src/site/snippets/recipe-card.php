@@ -9,7 +9,7 @@ if (isset($recipe)) {
   $image = isset($image) ? $image : null;
 } ?>
 
-<div class="relative z-0 shadow rounded-card aspect-ratio-card">
+<div class="relative z-0 shadow rounded-card aspect-ratio-card transform transition-transform duration-150 ease-in active:scale-95 focus-visible-within:outline-blue">
   <div class="absolute flex items-end w-full h-full overflow-hidden rounded-card">
     <?php if ($image): ?>
       <?php $thumb = $image->thumb(['width' => 400]); ?>
@@ -31,12 +31,12 @@ if (isset($recipe)) {
 
     <div class="flex items-center w-full h-12 px-3 <?= e($image, 'bg-white') ?>">
       <?php if ($image): ?>
-        <a class="italic font-bold stretched-link" href="<?= $url ?>">
+        <a class="italic font-bold stretched-link outline-none" href="<?= $url ?>">
           <?= $title ?>
         </a>
       <?php else: ?>
-        <a class="absolute inset-0 flex italic font-bold text-center stretched-link group outline-none" href="<?= $url ?>">
-          <span class="self-center m-auto group-focus-visible:outline-black"><?= $title ?></span>
+        <a class="absolute inset-0 flex italic font-bold text-center stretched-link outline-none" href="<?= $url ?>">
+          <span class="self-center m-auto"><?= $title ?></span>
         </a>
       <?php endif; ?>
     </div>

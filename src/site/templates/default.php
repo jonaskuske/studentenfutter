@@ -7,7 +7,7 @@
   <?= snippet('install-banner') ?>
 
 
-  <main class="flex-grow px-5 py-6 bg-fixed">
+  <main id="main" class="flex-grow px-5 py-6 bg-fixed">
     <h1 class="text-xl italic font-bold leading-wide <?= e(!$show_title, 'sr-only') ?>">
       <span class="highlight highlight-yellow"><?= $page->title()->inline() ?></span>
     </h1>

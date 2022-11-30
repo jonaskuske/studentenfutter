@@ -32,7 +32,8 @@
     "postcss-smoothscroll-anchor-polyfill": "^2.0.1",
     "prettier": "^2.0.5",
     "tailwindcss": "^1.9.6",
-    "tailwindcss-aspect-ratio": "^3.0.0"
+    "tailwindcss-aspect-ratio": "^3.0.0",
+    "tailwindcss-interaction-variants": "^5.0.0"
   },
   "prettier": {
     "semi": false,

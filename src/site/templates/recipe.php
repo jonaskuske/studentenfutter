@@ -21,7 +21,7 @@ $back_url = r($last != Url::current(), $last);
   <div class="flex items-center pl-5 pr-2 mb-2">
     <a
       href="<?= $back_url ? $back_url : $site->find('recipes')->url() ?>"
-      class="flex items-center"
+      class="flex items-center select-none active:opacity-50"
       <?= r(
         $back_url,
         attr([
@@ -66,7 +66,7 @@ $back_url = r($last != Url::current(), $last);
             id="favorite"
             value="true"
           >
-          <button type="submit" class="p-3">
+          <button type="submit" class="p-3 active:scale-125 transition-transform transform duration-100 ease-in-out">
             <span class="text-rose" x-show="isFavorite" <?= e(!$isFavorite, 'x-cloak') ?>>
               <?= svg('/assets/icons/heart_filled.svg') ?>
             </span>
@@ -93,7 +93,7 @@ $back_url = r($last != Url::current(), $last);
 
   <?php if ($images->isNotEmpty()): ?>
     <?php $gallery = $images->count() > 1; ?>
-    <ul class="flex mb-10 overflow-auto scrolling-touch">
+    <ul class="flex mb-10 overflow-auto">
       <?php foreach ($images as $image): ?>
         <li class="flex-shrink-0 py-2 pr-5 <?= e($gallery, 'w-56 first:ml-5', 'w-full pl-5') ?>">
           <picture
@@ -244,27 +244,27 @@ $back_url = r($last != Url::current(), $last);
     <footer class="fixed bottom-0 right-0 w-full px-5 mb-4" style="margin-left:calc(100vw - 100%)">
       <?php
       $classes_icon =
-        'inline-block transform origin-top transition-transform duration-200 ease-in-out delay-75 can-hover:group-hover:scale-60 group-hover:delay-0'; // Text centered and absolutely positioned at the bottom, min-width + padding-top // so there's always a large enough click/hover target.
+        'inline-block transform origin-top transition-transform duration-200 ease-in-out delay-75 can-hover:group-hover:scale-60 group-focus-visible:scale-60 group-hover:delay-0'; // Text centered and absolutely positioned at the bottom, min-width + padding-top // so there's always a large enough click/hover target.
       $text_base =
-        'absolute min-w-32 pt-6 bottom-0 right-1/2 transform translate-x-1/2 translate-y-px text-black text-center text-xs leading-tight whitespace-no-wrap'; // On hover: make text visible, delay so icon has time to move out of the way.
+        'absolute min-w-32 pt-6 bottom-0 right-1/2 transform translate-x-1/2 translate-y-px text-black text-center text-xs leading-tight whitespace-no-wrap group-focus-visible:outline-blue'; // On hover: make text visible, delay so icon has time to move out of the way.
       $text_transition =
-        'transition-opacity duration-200 ease-in-out opacity-0 can-hover:group-hover:opacity-100 group-hover:delay-150';
+        'transition-opacity duration-200 ease-in-out opacity-0 can-hover:group-hover:opacity-100 group-hover:delay-150 group-focus-visible:delay-150 group-focus-visible:opacity-100';
       $classes_text = $text_base . ' ' . $text_transition;
       ?>
       <div class="container flex justify-between px-8 py-2 bg-white shadow rounded-card md:justify-around">
-        <a href="#ingredients" class="relative text-rose text-lightgray group">
+        <a href="#ingredients" class="relative text-rose text-lightgray group outline-none">
           <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/ingredients.svg') ?></span>
           <span class="<?= $classes_text ?>">
             Zutaten
           </span>
         </a>
-        <a href="#preparation" class="relative text-yellow text-lightgray group">
+        <a href="#preparation" class="relative text-yellow text-lightgray group outline-none">
           <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/preparation.svg') ?></span>
           <span class="<?= $classes_text ?>">
             Zubereitung
           </span>
         </a>
-        <a href="#info" class="relative text-blue text-lightgray group">
+        <a href="#info" class="relative text-blue text-lightgray group outline-none">
           <span class="<?= $classes_icon ?>"><?= svg('/assets/icons/info.svg') ?></span>
           <span class="<?= $classes_text ?>">
             Info, Tipps & Tricks

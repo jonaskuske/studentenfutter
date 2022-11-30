@@ -28,7 +28,9 @@
         <?php endif; ?>
       <?php else: ?>
         <p class="px-5 text-center">
-          <a href="<?= url('/login') ?>" class="underline text-blue">Anmelden</a>,
+          <a href="<?= url(
+            '/login'
+          ) ?>" class="font-bold text-blue select-none active:opacity-75">Anmelden</a>,
           um eigene Favoriten zu speichern.
         </p>
       <?php endif; ?>
