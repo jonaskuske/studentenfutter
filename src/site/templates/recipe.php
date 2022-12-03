@@ -97,7 +97,7 @@ $back_url = r($last != Url::current(), $last);
 
   <?php if ($images->isNotEmpty()): ?>
     <?php $gallery = $images->count() > 1; ?>
-    <ul class="flex mb-10 overflow-auto">
+    <ul class="flex mb-10 overflow-auto app:scrollbar-none">
       <?php foreach ($images as $image): ?>
         <li class="flex-shrink-0 py-2 pr-5 <?= e($gallery, 'w-56 first:ml-5', 'w-full pl-5') ?>">
           <picture
