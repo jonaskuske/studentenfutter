@@ -30,6 +30,7 @@
   "id": "/",
   "start_url": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay"],
   "scope": "/",
   "orientation": "any",
   "lang": "de-DE",

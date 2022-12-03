@@ -106,7 +106,7 @@ input[type='search']::-webkit-search-results-decoration {
   display: none;
 }
 
-@media (display-mode: standalone) {
+@media (display-mode: standalone), (display-mode: window-controls-overlay) {
   html,
   body {
     overscroll-behavior: contain;

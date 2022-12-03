@@ -8,14 +8,15 @@ $can_go_back = rtrim(Url::last(), '/') == $home_url;
 
 <div
   class="pt-20 select-none"
+  style="padding-top: calc(5rem + env(titlebar-area-height, 0px));-webkit-app-region:drag;app-region:drag"
   x-data="{ open: false, search: document.querySelector('[data-js-search-input]'), keyboard: navigator.virtualKeyboard }"
   x-init="$watch('open', function(o) { document.body.classList.toggle('overflow-hidden', o) })"
   @click.away="open = false"
   @keydown.escape="open = false; $refs.button.focus()"
 >
   <div class="fixed top-0 left-0 right-0 z-20 bg-white shadow rounded-b-card" style="margin-left: calc(100vw - 100%);">
-    <div class="p-5 mx-scroll">
-      <header class="container flex items-center justify-between">
+    <div style="padding-top: calc(1.25rem + env(titlebar-area-height, 0px))" class="p-5 mx-scroll">
+      <header style="-webkit-app-region:no-drag;app-region:no-drag" class="container flex items-center justify-between">
         <button
           x-ref="button"
           type="button"

@@ -13,7 +13,10 @@ function isIOSChrome() {
 }
 
 function isStandalone() {
-  return navigator.standalone || matchMedia('(display-mode: standalone)').matches
+  return (
+    navigator.standalone ||
+    matchMedia('(display-mode: standalone),(display-mode: window-contols-overlay)').matches
+  )
 }
 
 function getDeviceType() {

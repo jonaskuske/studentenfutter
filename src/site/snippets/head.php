@@ -162,7 +162,7 @@ $img = $has_img
   <?= attr(['class' => isset($body_class) ? $body_class : '']) ?>
   :class="standalone && 'user-drag-none'"
   x-data="{ standalone: isStandalone() }"
-  x-init="matchMedia('(display-mode: standalone)').addListener(function(e) { standalone=e.matches })"
+  x-init="matchMedia('(display-mode:standalone),(display-mode:window-controls-overlay)').addListener(function(e) { standalone=e.matches })"
   @contextmenu="standalone && !$event.target.matches('p,span,input,select,textarea') && $event.preventDefault()"
   @dragstart="standalone && !$event.target.matches('p,span,input,select,textarea') && $event.preventDefault()"
 >
