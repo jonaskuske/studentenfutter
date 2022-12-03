@@ -84,6 +84,7 @@ module.exports = {
   },
   variants: {
     borderColor: ({ after }) => after(['focus-visible']),
+    fontWeight: ({ after }) => after(['focus-visible']),
     highlight: ({ after }) => after(['active', 'hover']),
     margin: ({ after }) => after(['first']),
     opacity: ({ after }) =>

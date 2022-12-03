@@ -61,12 +61,16 @@ $back_url = r($last != Url::current(), $last);
             <?= e(!$isFavorite, 'checked') ?>
             :checked="!isFavorite"
             hidden
+            aria-label="Als Favorit speichern"
             type="checkbox"
             name="favorite"
             id="favorite"
             value="true"
           >
           <button type="submit" class="p-3 active:scale-125 transition-transform transform duration-100 ease-in-out">
+            <span class="sr-only">
+              Rezept <span x-text="isFavorite ? 'nicht mehr ' : ''"></span>als Favorit speichern
+            </span>
             <span class="text-rose" x-show="isFavorite" <?= e(!$isFavorite, 'x-cloak') ?>>
               <?= svg('/assets/icons/heart_filled.svg') ?>
             </span>

@@ -38,10 +38,11 @@
   >
     <div @click.away="showBanner = false" class="relative p-5 py-6 mx-auto mt-auto bg-white shadow rounded-card">
       <button class="absolute top-0 right-0 px-4 py-3" @click="showBanner = false">
-        <svg width="12" height="12" viewBox="0 0 21 21" class="stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 21 21" class="stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="2.66116" y1="18.7175" x2="18.2175" y2="3.16116" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           <line x1="2.12132" y1="3" x2="17.6777" y2="18.5563" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
+        <span class="sr-only">Hinweis schließen</span>
       </button>
 
       <div class="flex pr-3" style="max-width: 295px">

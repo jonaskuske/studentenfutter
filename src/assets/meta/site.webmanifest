@@ -39,49 +39,49 @@
   "screenshots": [
     {
       "src": "screenshot_home.png",
-      "platform": "narrow",
+      "form_factor": "narrow",
       "type": "image/png",
       "sizes": "375x728"
     },
     {
       "src": "screenshot_recipe.png",
-      "platform": "narrow",
+      "form_factor": "narrow",
       "type": "image/png",
       "sizes": "375x728"
     },
     {
       "src": "screenshot_search.png",
-      "platform": "narrow",
+      "form_factor": "narrow",
       "type": "image/png",
       "sizes": "375x728"
     },
     {
       "src": "screenshot_about.png",
-      "platform": "narrow",
+      "form_factor": "narrow",
       "type": "image/png",
       "sizes": "375x728"
     },
     {
       "src": "screenshot_home-wide.png",
-      "platform": "wide",
+      "form_factor": "wide",
       "type": "image/png",
       "sizes": "1366x768"
     },
     {
       "src": "screenshot_recipe-wide.png",
-      "platform": "wide",
+      "form_factor": "wide",
       "type": "image/png",
       "sizes": "1366x768"
     },
     {
       "src": "screenshot_search-wide.png",
-      "platform": "wide",
+      "form_factor": "wide",
       "type": "image/png",
       "sizes": "1366x768"
     },
     {
       "src": "screenshot_about-wide.png",
-      "platform": "wide",
+      "form_factor": "wide",
       "type": "image/png",
       "sizes": "1366x768"
     }
@@ -140,11 +140,6 @@
   "prefer_related_applications": false,
   "related_applications": [
     {
-      "platform": "webapp",
-      "id": "/",
-      "url": "https://studentenfutter.app/assets/meta/site.webmanifest"
-    },
-    {
       "platform": "windows",
       "id": "6125helmerskuske.studentenfutter_phycn6yejkegc!App",
       "url": "https://www.microsoft.com/de-de/p/studentenfutter/9n3wqmqtt6hd"
@@ -153,6 +148,11 @@
       "platform": "play",
       "url": "https://play.google.com/store/apps/details?id=app.studentenfutter.twa",
       "id": "app.studentenfutter.twa"
+    },
+    {
+      "platform": "webapp",
+      "id": "/",
+      "url": "https://studentenfutter.app/assets/meta/site.webmanifest"
     }
   ]
 }

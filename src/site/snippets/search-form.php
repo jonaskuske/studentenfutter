@@ -17,6 +17,7 @@
             placeholder="z.B. Reispfanne"
             value="<?= html(get('q', '')) ?>"
             @input="query = $event.target.value"
+            data-js-search-input
             class="w-full placeholder-blue focus:outline-none focus:placeholder-black focus:text-black"
           />
         </div>

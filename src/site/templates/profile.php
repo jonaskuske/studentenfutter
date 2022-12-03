@@ -12,7 +12,7 @@
     <span class="highlight highlight-rose">Profil</span>
   </h1>
 
-  <div class="flex flex-col items-center">
+  <div class="flex-grow flex flex-col items-center">
     <div class="flex items-center w-full mx-auto mb-5 max-w-form">
       <span class="mr-2 text-yellow"><?= svg('/assets/icons/user.svg') ?></span>
       <p><?= html($user->name()->or('(kein Name angegeben)')) ?></p>
@@ -26,7 +26,7 @@
       <p>**********</p>
     </div>
 
-    <div x-show="online" class="flex flex-col items-center">
+    <div x-show="online" class="flex-grow flex flex-col items-center">
       <a href="<?= url('profile/edit') ?>" class="mb-5 button bg-rose border-rose">
         Profil bearbeiten
       </a>
@@ -34,9 +34,9 @@
         Passwort ändern
       </a>
 
-      <hr class="w-16 my-12 border-t-0 border-b-8 border-dotted border-circles-lightgray text-lightgray">
+      <hr class="w-16 my-auto border-t-0 border-b-8 border-dotted border-circles-lightgray text-lightgray">
 
-      <a href="<?= url('logout') ?>" class="text-xs leading-tight underline text-rose select-none">
+      <a href="<?= url('logout') ?>" class="text-sm mb-8 leading-tight underline text-rose select-none">
         Abmelden
       </a>
     </div>
