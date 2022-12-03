@@ -81,6 +81,9 @@ body {
 
 main {
   @apply container;
+}
+
+.has-scrollbar main {
   max-width: min(97vw, theme('maxWidth.5xl'));
 }
 
@@ -249,7 +252,8 @@ input[type='search']::-webkit-search-results-decoration {
   scrollbar-color: transparent transparent;
 }
 
-@media (display-mode: standalone) and (hover: none), (display-mode: window-controls-overlay) and (hover: none) {
+@media (display-mode: standalone) and (hover: none),
+  (display-mode: window-controls-overlay) and (hover: none) {
   .app\:scrollbar-none {
     scrollbar-width: none;
   }
