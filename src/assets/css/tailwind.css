@@ -249,7 +249,7 @@ input[type='search']::-webkit-search-results-decoration {
   scrollbar-color: transparent transparent;
 }
 
-@media (display: standalone) and (hover: none) {
+@media (display: standalone) and (hover: none), (display: window-controls-overlay) and (hover: none) {
   .app\:scrollbar-none {
     scrollbar-width: none;
   }
