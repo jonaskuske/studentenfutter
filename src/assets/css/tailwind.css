@@ -248,3 +248,13 @@ input[type='search']::-webkit-search-results-decoration {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
+
+@media (display: standalone) and (hover: none) {
+  .app\:scrollbar-none {
+    scrollbar-width: none;
+  }
+  .app\:scrollbar-none::-webkit-scrollbar {
+    display: none;
+    -webkit-appearance: none;
+  }
+}

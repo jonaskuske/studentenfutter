@@ -50,6 +50,7 @@ build
 # local env files
 .env.local
 .env.*.local
+env.php
 
 # Editor directories and files
 .idea

@@ -1,7 +1,7 @@
 <?php $count = $recipes->count(); ?>
 
 <div class="overflow-hidden">
-  <ul class="flex overflow-auto mx-scroll scrollbar-transparent hover:scrollbar-lightgray">
+  <ul class="flex overflow-auto mx-scroll scrollbar-transparent hover:scrollbar-lightgray app:scrollbar-none">
     <?php foreach ($recipes->limit(r($count <= 4, 4, 3)) as $recipe): ?>
       <li class="flex-grow flex-shrink-0 w-56 py-2 pr-5 scroll:flex-grow-0 first:ml-5">
         <?= snippet('recipe-card', ['recipe' => $recipe]) ?>

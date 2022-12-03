@@ -9,13 +9,13 @@ $environment = new Environment();
 $is_dev = $environment->host() === 'localhost' && $environment->port() === 8000;
 
 return [
-  'url' => ['https://studentenfutter.app', 'http://localhost:8000'],
+  'url' => 'https://studentenfutter.app',
   'updates' => [
     'kirby' => 'security',
     'plugins' => true
   ],
-  'production' => !$is_dev,
-  'debug' => $is_dev,
+  'production' => true,
+  'debug' => false,
   'hooks' => [
     'route:after' => function () {
       I18n::$locale = 'de';
