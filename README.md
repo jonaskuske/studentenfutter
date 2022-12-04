@@ -8,6 +8,18 @@
   <img width="650" src="showcase.png">
 </p>
 
+<p align="center">
+  <a href="https://studentenfutter.app">
+    <img align="center" width="133" src="https://raw.githubusercontent.com/webmaxru/progressive-web-apps-logo/c43088c1809fbf5c45c04904db95d195ad7dc893/assets/svg/PWA-dark-en.svg" alt="Launch studentenfutter as web app" />
+  </a>
+  <a href="https://play.google.com/store/apps/details?id=app.studentenfutter.twa">
+    <img align="center" width="150" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"  alt="Get studentenfutter on Google Play" />
+  </a>
+  <a href="ms-windows-store://pdp/?ProductId=XPDC2RH70K22MN&mode=mini">
+    <img align="center" width="108" src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Get studentenfutter from the Microsoft Store" />
+  </a>
+</p>
+
 <br>
 <br>
 
