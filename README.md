@@ -15,7 +15,7 @@
   <a href="https://play.google.com/store/apps/details?id=app.studentenfutter.twa">
     <img align="center" width="150" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"  alt="Get studentenfutter on Google Play" />
   </a>
-  <a href="ms-windows-store://pdp/?ProductId=XPDC2RH70K22MN&mode=mini">
+  <a href="https://apps.microsoft.com/store/detail/studentenfutter/9N3WQMQTT6HD">
     <img align="center" width="108" src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Get studentenfutter from the Microsoft Store" />
   </a>
 </p>
