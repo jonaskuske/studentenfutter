@@ -10,7 +10,7 @@
 
   <?php if (array_key_exists('q', get())): ?>
     <section class="px-5 select-none">
-      <h1 class="mb-6 text-xl italic font-bold text-center leading-wide">
+      <h1 class="mb-6 text-xl italic font-bold text-center leading-wide select-none">
         <span class="highlight highlight-blue"><?= $page->title()->html() ?></span>
       </h1>
 

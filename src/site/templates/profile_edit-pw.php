@@ -5,7 +5,7 @@
 
 <main class="flex-grow px-5 pt-6">
   <div class="pt-4 bg-white shadow rounded-card">
-    <h1 class="mb-12 text-xl italic font-bold text-center leading-wide">
+    <h1 class="mb-12 text-xl italic font-bold text-center leading-wide select-none">
       <span class="highlight highlight-rose"><?= $page->title()->html() ?></span>
     </h1>
 

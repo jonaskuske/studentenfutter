@@ -48,7 +48,7 @@
     @beforeinstallprompt.window="canPrompt = true"
   >
     <div class="pt-4 pb-12 bg-white shadow rounded-card">
-      <h1 class="mb-6 text-xl italic font-bold text-center leading-wide md:mb-10">
+      <h1 class="mb-6 text-xl italic font-bold text-center leading-wide md:mb-10 select-none">
         <span class="highlight highlight-yellow"><?= $page->title()->html() ?></span>
       </h1>
 

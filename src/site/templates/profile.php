@@ -8,7 +8,7 @@
   @online.window="online = true"
   @offline.window="online = false"
 >
-  <h1 class="mb-10 text-xl italic font-bold text-center leading-wide">
+  <h1 class="mb-10 text-xl italic font-bold text-center leading-wide select-none">
     <span class="highlight highlight-rose">Profil</span>
   </h1>
 
@@ -36,7 +36,9 @@
 
       <hr class="w-16 my-auto border-t-0 border-b-8 border-dotted border-circles-lightgray text-lightgray">
 
-      <a href="<?= url('logout') ?>" class="text-sm mb-8 leading-tight underline text-rose select-none">
+      <a href="<?= url(
+        'logout'
+      ) ?>" class="text-sm mb-8 leading-tight underline text-rose select-none">
         Abmelden
       </a>
     </div>

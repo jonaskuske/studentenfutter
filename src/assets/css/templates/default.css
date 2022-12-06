@@ -4,6 +4,12 @@
   margin-bottom: 1em;
 }
 
+#main h1,
+#main h2,
+#main h3 {
+  user-select: none;
+}
+
 #main p {
   margin-left: 2rem;
   max-width: 70%;

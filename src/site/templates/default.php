@@ -8,14 +8,14 @@
 
 
   <main id="main" class="flex-grow px-5 py-6 bg-fixed">
-    <h1 class="text-xl italic font-bold leading-wide <?= e(!$show_title, 'sr-only') ?>">
+    <h1 class="select-none text-xl italic font-bold leading-wide <?= e(!$show_title, 'sr-only') ?>">
       <span class="highlight highlight-yellow"><?= $page->title()->inline() ?></span>
     </h1>
 
 
     <?php foreach ($page->body()->toBlocks() as $block): ?>
       <?php if (($type = $block->type()) === 'heading' && $block->level()->toString() === 'h2'): ?>
-        <h2 class="text-xl italic font-bold leading-wide">
+        <h2 class="text-xl italic font-bold leading-wide select-none">
           <span class="highlight <?= e($show_title, 'highlight-rose', 'highlight-yellow') ?>">
             <?= $block->toField()->inline() ?>
           </span>

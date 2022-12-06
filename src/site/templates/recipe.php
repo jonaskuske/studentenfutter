@@ -91,7 +91,7 @@ $back_url = r($last != Url::current(), $last);
       </div>
   </div>
 
-  <h1 class="px-5 mb-6 text-xl italic font-bold leading-wide">
+  <h1 class="px-5 mb-6 text-xl italic font-bold leading-wide select-none">
     <span class="highlight highlight-yellow"><?= $page->title() ?></span>
   </h1>
 
@@ -126,7 +126,7 @@ $back_url = r($last != Url::current(), $last);
 
   <div class="px-5 pb-20">
     <section class="js-observed scroll-mt-20" id="ingredients">
-      <h2 class="flex items-center mb-4 text-lg italic leading-loose">
+      <h2 class="flex items-center mb-4 text-lg italic leading-loose select-none">
         <span class="mr-2 transform translate-y-1 text-rose">
           <?= svg('/assets/icons/ingredients.svg') ?>
         </span>
@@ -148,7 +148,7 @@ $back_url = r($last != Url::current(), $last);
     </section>
 
     <section class="js-observed scroll-mt-20" id="preparation">
-      <h2 class="flex items-center mb-4 text-lg italic leading-loose">
+      <h2 class="flex items-center mb-4 text-lg italic leading-loose select-none">
        <span class="mr-2 transform translate-y-1 text-yellow">
          <?= svg('/assets/icons/preparation.svg') ?>
         </span>
@@ -178,7 +178,7 @@ $back_url = r($last != Url::current(), $last);
 
     <?php if ($hasInfoSection): ?>
       <section class="js-observed scroll-mt-20" id="info">
-        <h2 class="flex items-center mb-4 text-lg italic leading-loose">
+        <h2 class="flex items-center mb-4 text-lg italic leading-loose select-none">
           <span class="mr-2 transform translate-y-1 text-blue">
             <?= svg('/assets/icons/info.svg') ?>
           </span>

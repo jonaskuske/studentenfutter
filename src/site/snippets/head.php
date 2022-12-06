@@ -163,8 +163,8 @@ $img = $has_img
   :class="standalone && 'user-drag-none'"
   x-data="{ standalone: isStandalone() }"
   x-init="matchMedia('(display-mode:standalone),(display-mode:window-controls-overlay)').addListener(function(e) { standalone=e.matches })"
-  @contextmenu="standalone && !$event.target.matches('p,span,input,select,textarea') && $event.preventDefault()"
-  @dragstart="standalone && !$event.target.matches('p,span,input,select,textarea') && $event.preventDefault()"
+  @contextmenu="standalone && !$event.target.closest('p,a,input,select,textarea') && $event.preventDefault()"
+  @dragstart="standalone && !$event.target.closest('p,a,input,select,textarea') && $event.preventDefault()"
 >
 
 <script>
