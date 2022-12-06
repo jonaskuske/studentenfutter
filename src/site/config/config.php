@@ -73,6 +73,26 @@ return [
           ->pages()
           ->index();
 
+        $recipes_page = $pages->find('recipes');
+
+        $category_options = $recipes_page
+          ->children()
+          ->listed()
+          ->first()
+          ->blueprint()
+          ->field('category')['options'];
+
+        foreach ($category_options as $option => $option_name) {
+          $pages->append(
+            $recipes_page->clone([
+              'url' => $recipes_page->url(['params' => ['category' => $option]]),
+              'id' => $recipes_page->id() . $option,
+              'uuid' => $recipes_page->uuid() . $option,
+              'slug' => $recipes_page->slug() . $option
+            ])
+          );
+        }
+
         // fetch the pages to ignore from the config settings,
         // if nothing is set, we ignore the error page
         $ignore = kirby()->option('sitemap.ignore', ['error']);
