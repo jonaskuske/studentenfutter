@@ -107,7 +107,7 @@ $img = $has_img
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <meta property="og:url" content="<?= $page->url() ?>" />
+  <meta property="og:url" content="<?= $page->url(['params' => params()]) ?>" />
   <meta property="og:title" content="<?= $title ?>" />
 
   <link rel="canonical" href="<?= $page->url(['params' => params()]) ?>" />
