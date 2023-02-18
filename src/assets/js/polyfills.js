@@ -27,6 +27,19 @@
   }
 })(document, '/assets/js/vendor/')
 
+;(function polyfillCustomEvent() {
+  if (typeof window.CustomEvent === 'function') return
+
+  function CustomEvent(event, params) {
+    params = params || { bubbles: false, cancelable: false, detail: undefined }
+    var evt = document.createEvent('CustomEvent')
+    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail)
+    return evt
+  }
+  CustomEvent.prototype = window.Event.prototype
+  window.CustomEvent = CustomEvent
+})()
+
 ;(function dispatchOfflineEvent(req, done, evt) {
   req.onreadystatechange = function () {
     if (req.readyState === done && (req.status >= 300 || !req.status)) window.dispatchEvent(evt)
