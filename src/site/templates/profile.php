@@ -36,11 +36,15 @@
 
       <hr class="w-16 my-auto border-t-0 border-b-8 border-dotted border-circles-lightgray text-lightgray">
 
-      <a href="<?= url(
-        'logout'
-      ) ?>" class="text-sm mb-8 leading-tight underline text-rose select-none">
-        Abmelden
-      </a>
+      <p class="text-sm mb-8 leading-tight text-rose select-none">
+        <a href="<?= url('logout') ?>" class="underline">
+          Abmelden
+        </a>
+        <span class="mx-2"></span>
+        <a href="<?= url('profile/delete') ?>" class="underline">
+          Konto löschen
+        </a>
+      </p>
     </div>
   </div>
 

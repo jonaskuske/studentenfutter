@@ -9,7 +9,7 @@ $environment = new Environment();
 $is_dev = $environment->host() === 'localhost' && $environment->port() === 8000;
 
 return [
-  'url' => 'https://studentenfutter.app',
+  'url' => ['https://studentenfutter.app', 'http://localhost:8000'],
   'updates' => [
     'kirby' => 'security',
     'plugins' => true
