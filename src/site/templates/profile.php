@@ -36,7 +36,7 @@
 
       <hr class="w-16 my-auto border-t-0 border-b-8 border-dotted border-circles-lightgray text-lightgray">
 
-      <p class="text-sm mb-8 leading-tight text-rose select-none">
+      <p class="flex text-sm mb-8 leading-tight text-rose select-none">
         <a href="<?= url('logout') ?>" class="underline">
           Abmelden
         </a>
