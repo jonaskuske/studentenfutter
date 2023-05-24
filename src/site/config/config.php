@@ -29,7 +29,8 @@ return [
     'favorites',
     'profile',
     'profile/edit',
-    'profile/edit-pw'
+    'profile/edit-pw',
+    'profile/delete'
   ],
   'routes' => [
     [
