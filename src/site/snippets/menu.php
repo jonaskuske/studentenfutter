@@ -120,7 +120,10 @@ $can_go_back = rtrim(Url::last(), '/') == $home_url;
                     ->inline() ?>
                 </a>
               <?php else: ?>
-                <a href="<?= url('login') ?>">
+                <a
+                  href="<?= url('login') ?>"
+                  class="outline-none focus-visible:font-bold focus-visible:border-blue border-b-3 border-dashed border-transparent"
+                >
                   Einloggen/Registrieren
                 </a>
               <?php endif; ?>
